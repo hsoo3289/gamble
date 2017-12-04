@@ -11,7 +11,7 @@ create table MEMBER(
 	EMAIL	varchar2(30),			     /*ÀÌ¸ÞÀÏ*/
 	PHONE   varchar2(30),			     /*ÇÚµåÆù¹øÈ£*/
 	ACCNUM  varchar2(40),			     /*°èÁÂ¹øÈ£*/
-	MONEY	NUMBER,				     /*ÀÜ¾×*/
+	MONEY	NUMBER default 50000,				     /*ÀÜ¾×*/
 	JOINDATE date default SYSDATE,		     /*È¸¿ø°¡ÀÔ³¯Â¥*/
 	AUTHOR_LEVEL NUMBER
 	);
@@ -19,14 +19,16 @@ create table MEMBER(
 create sequence MEMBER_SEQ increment by 1 start with 1 nocache;
 
 /*MEMBER*/
-insert into MEMBER(SEQ, NAME, ID, PWD, EMAIL, PHONE, ACCNUM, MONEY, JOINDATE, AUTHOR_LEVEL) 
-values(MEMBER_SEQ.nextval, '±èÇö¼ö', 'khs', '1234', 'khs@naver.com', '010123456789', '1234567890123', 3000000, CURRENT_TIMESTAMP, 0);
-insert into MEMBER(SEQ, NAME, ID, PWD, EMAIL, PHONE, ACCNUM, MONEY, JOINDATE, AUTHOR_LEVEL) 
-values(MEMBER_SEQ.nextval, 'ÀÌ¹ÎÀç', 'emj', '1234', 'emj@daum.net', '010213456789', '1234567890123', 3000000, CURRENT_TIMESTAMP, 0);
-insert into MEMBER(SEQ, NAME, ID, PWD, EMAIL, PHONE, ACCNUM, MONEY, JOINDATE, AUTHOR_LEVEL)
-values(MEMBER_SEQ.nextval, '±è¹ÎÇõ', 'kmh', '1234', 'kmh@megapass.co.kr', '010312456789', '1234567890123', 3000000, CURRENT_TIMESTAMP, 0);
+insert into MEMBER(SEQ, NAME, ID, PWD, EMAIL, PHONE, ACCNUM, AUTHOR_LEVEL) 
+values(MEMBER_SEQ.nextval, '±èÇö¼ö', 'khs', '1234', 'khs@naver.com', '010123456789', '1234567890123', 0);
+insert into MEMBER(SEQ, NAME, ID, PWD, EMAIL, PHONE, ACCNUM, AUTHOR_LEVEL) 
+values(MEMBER_SEQ.nextval, 'ÀÌ¹ÎÀç', 'emj', '1234', 'emj@daum.net', '010213456789', '1234567890123', 0);
+insert into MEMBER(SEQ, NAME, ID, PWD, EMAIL, PHONE, ACCNUM, AUTHOR_LEVEL)
+values(MEMBER_SEQ.nextval, '±è¹ÎÇõ', 'kmh', '1234', 'kmh@megapass.co.kr', '010312456789', '1234567890123', 0);
 
-update MEMBER set PWD='aaaaa', EMAIL='bbb@asdf.com', PHONE='123434', ACCNUM=20000 where seq = 1;
+update MEMBER set PWD='aaaaa', EMAIL='bbb@asdf.com', PHONE='123434', ACCNUM='20000' where seq = 1;
+
+update MEMBER set MONEY=20000 where seq=2;
 
 delete from MEMBER where seq=1;
 
