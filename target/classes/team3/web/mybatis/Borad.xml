@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Gamble.spring.mybatis.board">
+
+	<resultMap id="boardResult" type="Board">
+        <result property="seq" column="SEQ"/> 
+        <result property="subject" column="SUBJECT"/>
+        <result property="content" column="CONTENT"/>
+        <result property="writer" column="WRITER"/>
+        <result property="pnumber" column="PNUMBER"/>
+        <result property="like" column="LIKE"/>
+        <result property="view" column="VIEW"/>
+        <result property="cdate" column="CDATE"/>
+        <result property="rdate" column="RDATE"/>
+	</resultMap>
+	
+	<select id="mySelectAll" resultType="Board">
+       select level, board.* from BOARD  
+       start with pnumber is null
+       connect by prior seq=pnumber
+       order siblings by seq desc
+    </select>
+	
+	<insert id="myInsert" parameterType="Board">
+	   insert into BOARD(SEQ, SUBJECT, CONTENT, WRITER, PNUMBER, LIKE, VIEW, CDATE, RDATE) 
+	   values(BOARD_SEQ.nextval, #{subject}, #{content}, #{writer}, #{pnumber}, #{like}, #{view}, SYSDATE)
+	</insert>
+	
+	<delete id="myDelete" parameterType="long">
+	   delete from BOARD where SEQ=#{seq}
+	</delete>
+	
+	<select id="myView" parameterType="long" resultType="Board">
+		select * from BOARD where SEQ=#{seq}
+	</select>
+	
+</mapper>
+	
