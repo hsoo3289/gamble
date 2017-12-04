@@ -2,7 +2,13 @@ package team3.gamble.model;
 
 import java.sql.Date;
 
-public class Cash {
+public class Cash extends DTO {
+	
+	@Override
+	String getDTOName() {
+		return "cash";
+	}
+	
 	private int history;
 	private int money;
 	private int charing;
@@ -10,7 +16,6 @@ public class Cash {
 	private long seq;
 	
 	public Cash(){}
-
 	public Cash(int history, int money, int charing, Date chardate, long seq) {
 		super();
 		this.history = history;
