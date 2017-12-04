@@ -5,14 +5,14 @@ drop sequence MEMBER_SEQ;
 /*MEMBER*/
 create table MEMBER(
 	SEQ 	number constraint MEMBER_PK primary key, /*회원번호*/
-	NAME	varchar2(15),			     /*이름*/
-	ID		varchar2(15),			     /*아이디*/
-	PWD		varchar2(15),			     /*비밀번호*/
-	EMAIL	varchar2(30),			     /*이메일*/
-	PHONE   varchar2(30),			     /*핸드폰번호*/
-	ACCNUM  varchar2(40),			     /*계좌번호*/
-	MONEY	NUMBER default 50000,				     /*잔액*/
-	JOINDATE date default SYSDATE,		     /*회원가입날짜*/
+	NAME	varchar2(15),					/*이름*/
+	ID		varchar2(15),					/*아이디*/
+	PWD		varchar2(15),					/*비밀번호*/
+	EMAIL	varchar2(30),					/*이메일*/
+	PHONE   varchar2(30),					/*핸드폰번호*/
+	ACCNUM  varchar2(40),					/*계좌번호*/
+	MONEY	NUMBER default 50000,			/*잔액*/
+	JOINDATE date default SYSDATE,			/*회원가입날짜*/
 	AUTHOR_LEVEL NUMBER
 	);
 
