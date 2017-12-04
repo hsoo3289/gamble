@@ -5,13 +5,9 @@
 <configuration>
 
 	<typeAliases>
-		<typeAlias alias="Member" type="gemble.spring3.model.Member"/>
-		<typeAlias alias="Cash" type="gemble.spring3.model.Cash"/>
 	</typeAliases>
 
 	<mappers>
-		<mapper resource="gemble/spring/mybatis/Member.xml"/>
-		<mapper resource="gemble/spring/mybatis/Cash.xml"/>
 	</mappers>
 
 </configuration>
