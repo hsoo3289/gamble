@@ -4,29 +4,34 @@
 <mapper namespace="gemble.spring.mybatis.member">
 
 	<resultMap id="memberResult" type="Member">
-        <result property="seq" column="SEQ"/>
-        <result property="name" column="NAME"/>
-        <result property="id" column="ID"/>
-        <result property="pwd" column="PWD"/>
-        <result property="email" column="EMAIL"/>
-        <result property="phone" column="PHONE"/>
-        <result property="accnum" column="ACCNUM"/>
-        <result property="money" column="MONEY"/>
-        <result property="joindate" column="JOINDATE"/>
-        <result property="author_level" column="AUTHOR_LEVEL"/>
+        <result property="seq" column="SEQ"/>						<!-- 회원번호 -->
+        <result property="name" column="NAME"/>						<!-- 이름 -->
+        <result property="id" column="ID"/>							<!-- 아이디 -->
+        <result property="pwd" column="PWD"/>						<!-- 비밀번호 -->
+        <result property="email" column="EMAIL"/>					<!-- 이메일 -->
+        <result property="phone" column="PHONE"/>					<!-- 폰번호 -->
+        <result property="accnum" column="ACCNUM"/>					<!-- 계좌번호 -->
+        <result property="money" column="MONEY"/>					<!-- 잔액 -->
+        <result property="joindate" column="JOINDATE"/>				<!-- 가입날짜 -->
+        <result property="author_level" column="AUTHOR_LEVEL"/>		<!-- 회원등급 -->
 	</resultMap>
 	
-	<insert id="myRegister" parameterType="Member">
-	  	insert into MEMBER values(MEMBER_SEQ.nextval, #{name}, #{id}, #{pwd}, #{email}, #{phone}, #{accnum}, #{money}, SYSDATE)
+	<insert id="Register" parameterType="Member"> <!-- 회원 가입 --> 
+	  	insert into MEMBER(SEQ, NAME, ID, PWD, EMAIL, PHONE, ACCNUM, AUTHOR_LEVEL)
+	 	 	values(MEMBER_SEQ.nextval, #{name}, #{id}, #{pwd}, #{email}, #{phone}, #{accnum}, #{author_level})
 	</insert>
 	
-	<select id="myLoginCheck" resultType="Member">
-		select * from MEMBER where ID=#{id}
-	</select>
-	
-	<select id="myView" parameterType="Long" resultType="Member">
+	<select id="View" parameterType="Long" resultType="Member"> <!-- 정보 조회 --> 
 		select * from MEMBER where SEQ=#{seq}
 	</select>
 	
-
+	<update id="Update" parameterType="Member"> <!-- 정보 수정 --> 
+	  	insert into MEMBER(PWD, EMAIL, PHONE, ACCNUM)
+	 		values(#{pwd}, #{email}, #{phone}, #{accnum})
+	</update>
+	
+	<delete id="Delete" parameterType="long"> <!-- 회원 탈퇴 -->
+	   delete from MEMBER where SEQ=#{seq}
+	</delete>
+		
 </mapper>
