@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gemble.spring.mybatis.member">
+
+	<resultMap id="memberResult" type="Member">
+        <result property="seq" column="SEQ"/>
+        <result property="name" column="NAME"/>
+        <result property="id" column="ID"/>
+        <result property="pwd" column="PWD"/>
+        <result property="email" column="EMAIL"/>
+        <result property="phone" column="PHONE"/>
+        <result property="accnum" column="ACCNUM"/>
+        <result property="money" column="MONEY"/>
+        <result property="joindate" column="JOINDATE"/>
+        <result property="author_level" column="AUTHOR_LEVEL"/>
+	</resultMap>
+	
+	<insert id="myRegister" parameterType="Member">
+	  	insert into MEMBER values(MEMBER_SEQ.nextval, #{name}, #{id}, #{pwd}, #{email}, #{phone}, #{accnum}, #{money}, SYSDATE)
+	</insert>
+	
+	<select id="myLoginCheck" resultType="Member">
+		select * from MEMBER where ID=#{id}
+	</select>
+	
+	<select id="myView" parameterType="Long" resultType="Member">
+		select * from MEMBER where SEQ=#{seq}
+	</select>
+	
+
+</mapper>
