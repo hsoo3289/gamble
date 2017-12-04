@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import team3.gamble.board.service.BoardServiceImpl;
+import team3.gamble.board.service.BoardService;
 import team3.gamble.model.Board;
 import team3.gamble.model.Page;
 
 @SessionAttributes("user")
 @Controller
-@RequestMapping("Board/{BoardName}/")
+@RequestMapping("board/{BoardName}/")
 public class BoardController {
 	@Autowired
-	BoardServiceImpl service;
+	BoardService service;
 	
 	@RequestMapping("list.do")
 	ModelAndView list(Page page, Board board) {

@@ -32,5 +32,7 @@ update MEMBER set MONEY=20000 where seq=2;
 
 delete from MEMBER where seq=1;
 
+select PWD from MEMBER
+
 select * from MEMBER order by SEQ desc;
 select * from MEMBER where SEQ=1;
