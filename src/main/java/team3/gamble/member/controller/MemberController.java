@@ -12,6 +12,7 @@ import team3.gamble.member.service.MemberService;
 
 @SessionAttributes("user")
 @Controller
+@RequestMapping("member")
 public class MemberController {
 	@Autowired
 	private MemberService service;
