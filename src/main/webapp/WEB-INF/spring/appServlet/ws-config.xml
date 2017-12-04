@@ -11,5 +11,5 @@
 		<websocket:sockjs />
 	</websocket:handlers>
 
-	<bean id="echoHandler" class="team3.web.gamble.game.service.EchoHandler" />
+	<bean id="echoHandler" class="team3.gamble.game.service.EchoHandler" />
 </beans>
