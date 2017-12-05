@@ -90,7 +90,7 @@
 	 		</td>
 	 	</tr>
 	 	<tr>
-	 		<th>이메일</th>
+	 		<th>이메일!</th>
 	 	  	<td>
 	 	  		<div class="row">
 	 	  			<div class="col-xs-5">
