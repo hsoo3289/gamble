@@ -5,7 +5,7 @@ drop sequence CASH_SEQ;
 /*CASH*/
 create table CASH(	
        HISTORY   number, /*충전내역*/
-       MONEY	 number, /*소지금*/
+       MONEY	 number default 100000, /*소지금*/
        CHARING   number, /*충전금액*/
        CHARDATE  date default SYSDATE,   /*충전날짜*/
        MEMBER_SEQ number  /*사람번호*/
