@@ -10,41 +10,58 @@
 <title><tiles:getAsString name="title" /></title>
 
 <!-- Bootstrap Core CSS -->
-<link href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css"
+<link
+	href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 
 <!-- MetisMenu CSS -->
-<link href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/metisMenu/dist/metisMenu.min.css"
+<link
+	href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/metisMenu/dist/metisMenu.min.css"
 	rel="stylesheet">
 
 <!-- Timeline CSS -->
-<link href="${pageContext.request.contextPath}/resources/bootstrap/dist/css/timeline.css" rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/resources/bootstrap/dist/css/timeline.css"
+	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="${pageContext.request.contextPath}/resources/bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/resources/bootstrap/dist/css/sb-admin-2.css"
+	rel="stylesheet">
 
 <!-- Morris Charts CSS -->
-<link href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/morrisjs/morris.css" rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/morrisjs/morris.css"
+	rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/font-awesome/css/font-awesome.min.css"
+<link
+	href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link href="<c:url value='/resources/css/layout.css' />"
-	rel="stylesheet"></link>
+
 </head>
 
 <body>
 	<header id="header">
 		<tiles:insertAttribute name="header" />
 	</header>
+	
+	<nav>
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<section id="sidemenu">
+					<tiles:insertAttribute name="menu" />
+				</section>
+			</div>
+		</div>
+	</nav>
 
-	<section id="sidemenu">
-		<tiles:insertAttribute name="menu" />
+	<section id="page-wrapper">
+		<div class="wrapper">
+			<tiles:insertAttribute name="body" />
+		</div>
 	</section>
 
-	<section id="siteContent">
-		<tiles:insertAttribute name="body" />
-	</section>
 
 	<footer id="footer">
 		<tiles:insertAttribute name="footer" />
@@ -53,20 +70,24 @@
 	<!-- /#wrapper -->
 
 	<!-- jQuery -->
-	<script src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
-	<script src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 	<!-- Metis Menu Plugin JavaScript -->
-	<script src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
-	<!-- Morris Charts JavaScript
+	<!-- Morris Charts JavaScript -->
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/raphael/raphael-min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/morrisjs/morris.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/js/morris-data.js"></script>
- -->
+
 	<!-- Custom Theme JavaScript -->
-	<script src="${pageContext.request.contextPath}/resources/bootstrap/dist/js/sb-admin-2.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/bootstrap/dist/js/sb-admin-2.js"></script>
 </body>
 </html>
