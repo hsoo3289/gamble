@@ -21,14 +21,17 @@
 	 	 	values(MEMBER_SEQ.nextval, #{name}, #{id}, #{pwd}, #{email}, #{phone}, #{accnum}, #{author_level})
 	</insert>
 	
+	
 	<select id="View" parameterType="Long" resultType="Member"> <!-- 정보 조회 --> 
 		select * from MEMBER where SEQ=#{seq}
 	</select>
+	
 	
 	<update id="Update" parameterType="Member"> <!-- 정보 수정 --> 
 	  	insert into MEMBER(PWD, EMAIL, PHONE, ACCNUM)
 	 		values(#{pwd}, #{email}, #{phone}, #{accnum})
 	</update>
+	
 	
 	<delete id="Delete" parameterType="long"> <!-- 회원 탈퇴 -->
 	   delete from MEMBER where SEQ=#{seq}
