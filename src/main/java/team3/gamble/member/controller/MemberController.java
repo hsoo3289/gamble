@@ -17,28 +17,30 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
+	@RequestMapping("register.form")
+	ModelAndView register(){
+		return new ModelAndView("member/join");
+	}
+	
 	@RequestMapping("register.do")
 	ModelAndView register(Member member){
-		//service.method();
 		return new ModelAndView("/", "user", member);
 	}
 	
-	@RequestMapping("login.do")
+	@RequestMapping("login.check")
 	ModelAndView login(Member member) {
-		//service.method();
-		return new ModelAndView("/","user", member);
+		return new ModelAndView("member/login_check");
 	}
 	
-	@RequestMapping("item.do")
+	@RequestMapping("member.item")
 	ModelAndView item(Member member) {
 		//service.method();
 		return new ModelAndView("/","item", member);
 	}
 	
-	@RequestMapping("cash.do")
+	@RequestMapping("cash.void")
 	ModelAndView cash(Member member) {
-		//service.method();
-		return new ModelAndView("/");
+		return new ModelAndView("member/cash");
 	}
 	
 	@RequestMapping("update.do")
