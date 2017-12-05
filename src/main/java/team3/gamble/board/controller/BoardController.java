@@ -8,22 +8,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import team3.gamble.board.service.BoardService;
+import team3.gamble.board.service.BoardServiceImpl;
 import team3.gamble.model.Board;
 import team3.gamble.model.Page;
 
 @SessionAttributes("user")
 @Controller
-@RequestMapping("board/{BoardName}/")
+@RequestMapping("board/{dbName}")
 public class BoardController {
 	@Autowired
-	BoardService service;
+	BoardServiceImpl service;
 	
 	@RequestMapping("list.do")
 	ModelAndView list(Page page, Board board) {
 		List<Board> list = null;
 		// service.method로 결과값 매핑 필요
-		return new ModelAndView("list", "list", list);
+		return new ModelAndView("/consultingboard/list", "list", list);
+		
+	}
+	
+	@RequestMapping("boardList.do")
+	ModelAndView list() {
+		List<Board> list = null;
+		// service.method로 결과값 매핑 필요
+		return new ModelAndView("boardList", "list", list);
 		
 	}
 	

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="gemble.spring.mybatis.member">
+<mapper namespace="gemble.team3.mybatis.member">
 
 	<resultMap id="memberResult" type="Member">
         <result property="seq" column="SEQ"/>						<!-- 회원번호 -->
