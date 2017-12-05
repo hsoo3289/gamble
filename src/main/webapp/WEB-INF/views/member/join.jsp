@@ -54,6 +54,9 @@
 				f.accnum.focus();
 				return false;
 			}
+			if(f.submit()){
+				alert("회원가입 성공!")
+			}
 		}
 	</script>
 </head>
