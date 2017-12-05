@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,16 +15,16 @@ import team3.gamble.model.Page;
 
 @SessionAttributes("user")
 @Controller
-@RequestMapping("board/{dbName}")
+@RequestMapping("{service}/{dbName}board/")
 public class BoardController {
 	@Autowired
 	BoardServiceImpl service;
 	
-	@RequestMapping("list.do")
-	ModelAndView list(Page page, Board board) {
-		List<Board> list = null;
-		// service.method로 결과값 매핑 필요
-		return new ModelAndView("board/"+"consultingboard"+"/list", "list", list);
+	@RequestMapping("{view}.page")
+	ModelAndView list(@PathVariable("dbName")String dbName, 
+			@PathVariable("view") String view, 
+			@PathVariable("service")String service) {
+		return new ModelAndView(service+"/"+dbName+"board/"+view);
 		
 	}
 	

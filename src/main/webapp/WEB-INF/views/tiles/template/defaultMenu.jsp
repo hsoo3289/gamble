@@ -8,8 +8,13 @@
        <li><a>Member</a></li>
        <li><a href="${pageContext.request.contextPath}/member/join.form">&nbsp;-회원가입</a></li>
        <li><a href="${pageContext.request.contextPath}/member/login.form">&nbsp;-로그인</a></li>
-       <li><a href="${pageContext.request.contextPath}/member/member.item">&nbsp;-정보조회</a></li>
-       <li><a href="${pageContext.request.contextPath}/member/cash.void">&nbsp;-캐쉬충전</a></li>
+       <li><a href="${pageContext.request.contextPath}/member/login_check.page">&nbsp;-login_check</a></li>
+       <li><a href="${pageContext.request.contextPath}/member/cash.page">&nbsp;-캐쉬충전</a></li>
+       <br>
+       <li><a>Consulting</a></li>
+       <li><a href="${pageContext.request.contextPath}/consulting/consultingboard/list.page">&nbsp;consulting list</a></li>
+       <li><a href="${pageContext.request.contextPath}/consulting/anonymousboard/list.page">&nbsp;anony list</a></li>
+       <li><a href="${pageContext.request.contextPath}/consulting/helper/list.page">&nbsp;helper list</a></li>
        
        
     </ul>

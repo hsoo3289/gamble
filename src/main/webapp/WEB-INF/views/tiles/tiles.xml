@@ -22,10 +22,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
 	</definition> <!-- BoardView Page -->
 
-	<definition name="board/*/*" extends="base-definition">
+	<definition name="*/*board/*" extends="base-definition">
 		<put-attribute name="title" value="aaList" />
 		<put-attribute name="body"
-			value="/WEB-INF/views/board/{1}/{2}.jsp" />
+			value="/WEB-INF/views/{1}/{2}board/{3}.jsp" />
 	</definition> <!-- BoardView Page -->
 
 	<definition name="member/*" extends="base-definition">
