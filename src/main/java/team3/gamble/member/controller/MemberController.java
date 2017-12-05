@@ -19,14 +19,14 @@ public class MemberController {
 	private MemberService service;
 	
 	@RequestMapping("{method}.form")
-	ModelAndView register(@PathVariable String method){
+	ModelAndView form(@PathVariable String method){
 		return new ModelAndView("member/"+method);
 	}
 	
 	
-	@RequestMapping("register.do")
-	ModelAndView register(Member member){
-		return new ModelAndView("/", "user", member);
+	@RequestMapping("{view}.page")
+	ModelAndView register(@PathVariable String view){
+		return new ModelAndView("member/"+view);
 	}
 	
 	@RequestMapping("login.check")
