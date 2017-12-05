@@ -4,6 +4,7 @@ import java.lang.reflect.Member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,10 +18,11 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
-	@RequestMapping("register.form")
-	ModelAndView register(){
-		return new ModelAndView("member/join");
+	@RequestMapping("{method}.form")
+	ModelAndView register(@PathVariable String method){
+		return new ModelAndView("member/"+method);
 	}
+	
 	
 	@RequestMapping("register.do")
 	ModelAndView register(Member member){
