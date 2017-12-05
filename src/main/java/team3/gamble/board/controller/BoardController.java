@@ -14,7 +14,7 @@ import team3.gamble.model.Page;
 
 @SessionAttributes("user")
 @Controller
-@RequestMapping("Board/{BoardName}/")
+@RequestMapping("board/{dbName}")
 public class BoardController {
 	@Autowired
 	BoardServiceImpl service;
@@ -23,7 +23,15 @@ public class BoardController {
 	ModelAndView list(Page page, Board board) {
 		List<Board> list = null;
 		// service.method로 결과값 매핑 필요
-		return new ModelAndView("list", "list", list);
+		return new ModelAndView("/consultingboard/list", "list", list);
+		
+	}
+	
+	@RequestMapping("boardList.do")
+	ModelAndView list() {
+		List<Board> list = null;
+		// service.method로 결과값 매핑 필요
+		return new ModelAndView("boardList", "list", list);
 		
 	}
 	
