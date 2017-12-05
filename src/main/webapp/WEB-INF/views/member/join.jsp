@@ -37,6 +37,11 @@
 				f.email.focus();
 				return false;
 			}
+			if(f.agency.value == "")
+			{
+				alert("통신사를 선택해주세요!");
+				return false;
+			}
 			if(f.phone.value == "")
 			{
 				alert("핸드폰 번호를 입력해주세요!");
@@ -59,22 +64,22 @@
 	</script>
 </head>
 <body>
-	<center style="margin-top: 50px;">
-	<hr width="500" size="2" noshade color="미정">
+	<center style="margin-top: 15px;">
+	<hr width="500" size="2" noshade color="black">
 	     <font color="미정" size="5"><strong>회원 가입</strong></font>
-	<hr width="500" size="2" noshade color="미정">
-	<br/>
+	<hr width="500" size="2" noshade color="black">
+	<form name="f" method="post" action="join.do">
 		<table>
 		<tr>
 	 		<th>이름</th>
 	 	  	<td>
-	 			<input name="name" type="text" size="30" maxlength="30">
+	 			<input class="form-control" name="name" type="text" size="30" maxlength="30">
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<th>ID</th>
 	 	  	<td>
-	 			<input name="id" type="text" size="30" maxlength="30">
+	 			<input class="form-control" name="id" type="text" size="30" maxlength="30">
 	 			&nbsp;
 	 			
               	<input type="button" value="중복확인" onclick="idCheck()">
@@ -83,19 +88,19 @@
 	 	<tr>
 	 		<th>PWD</th>
 	 	  	<td>
-	 			<input name="pwd" type="password" size="30" maxlength="30">
+	 			<input class="form-control" name="pwd" type="password" size="30" maxlength="30">
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<th>PWD 재입력</th>
 	 	  	<td>
-	 			<input name="pwd2" type="password" size="30" maxlength="30">
+	 			<input class="form-control" name="pwd2" type="password" size="30" maxlength="30">
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<th>이메일</th>
 	 	  	<td>
-	 			<input name="email" type="text" style= "width: 135px;">&nbsp;
+	 			<input class="form-control" name="email" type="text" style= "width: 135px;">&nbsp;
 	 			<strong>@</strong>
 	 			&nbsp;<input type="text" style= "width: 135px;">&nbsp;
 	 			<select style="height: 24px;">
@@ -109,9 +114,9 @@
 	 	<tr>
 	 		<th>핸드폰번호</th>
 	 	  	<td>
-	 			<input name="phone" type="radio"/>SKT
-             	<input name="phone" type="radio"/>LGU+
-             	<input name="phone" type="radio"/>KT
+	 			<input name= "agency" type="radio"/>SKT
+             	<input name= "agency" type="radio"/>LGU+
+             	<input name= "agency" type="radio"/>KT
              	<br/>
              	<select>
              		<option> 010 </option>
@@ -119,14 +124,14 @@
              		<option> 016 </option>
              		<option> 018 </option>
              	</select>
-             	- <input type="text" size="5" style= "width: 50px;"/> 
-             	- <input type="text" size="5" style= "width: 50px;"/> 
+             	- <input class="form-control" name="phone" type="text" size="5" style= "width: 50px;"/> 
+             	- <input class="form-control" name="phone" type="text" size="5" style= "width: 50px;"/> 
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<th>계좌번호</th>
 	 	  	<td>
-	 			<input name="accnum" type="text" size="30" maxlength="30">-를 뺀 숫자만 입력해주세요.
+	 			<input class="form-control" name="accnum" type="text" size="30" maxlength="30">-를 뺀 숫자만 입력해주세요.
 	 		</td>
 	 	</tr>
 	 	<tr>
@@ -136,6 +141,7 @@
 	 		</div></td>
 	 	</tr>
 		</table>
+	</form>	
 	</center>
 </body>
 </html>
