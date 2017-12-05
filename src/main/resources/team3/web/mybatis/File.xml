@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team3.gamble.mybatis.file">
+
+	<resultMap id="fileResult"  type="File">
+	
+		<result property="seq" column="SEQ"/>            <!--  파일번호  -->
+		<result property="ofname" column="OFNAME"/>      <!--  파일원래 이름 --> 
+	    <result property="fname" column="FNAME"/>        <!--  파일명  -->
+		<result property="cdate" column="CDATE"/>        <!--  업로드 일 --> 
+		<result property="parent_seq" column="PARENT_SEQ"/>	<!-- 부모글 번호 -->
+	
+	</resultMap>
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

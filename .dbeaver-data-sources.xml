@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="oracle_thin-160204d651e-249ee906389b24e0" provider="oracle" driver="oracle_thin" name="team3.gamble" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="localhost" port="1521" server="" database="JAVA" url="jdbc:oracle:thin:@//localhost:1521/JAVA" user="team3" password="FAULIk1GJPc=" home="C:\app\user\product\11.1.0\db_1" type="dev">
+			<property name="useFetchSizeWithLongColumn" value="true"/>
+			<property name="loginTimeout" value="20"/>
+			<provider-property name="@dbeaver-sid-service@" value="SERVICE"/>
+			<provider-property name="@dbeaver-use-rule-hint@" value="false"/>
+			<provider-property name="@dbeaver-connection-type@" value="BASIC"/>
+			<provider-property name="@dbeaver-check-schema-content@" value="true"/>
+			<provider-property name="@dbeaver-always-show-dba@" value="false"/>
+			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" save-password="false">
+				<property name="sshConnectTimeout" value="10000"/>
+				<property name="port" value="22"/>
+				<property name="authType" value="PASSWORD"/>
+			</network-handler>
+			<network-handler type="PROXY" id="socks_proxy" enabled="false" save-password="false">
+				<property name="socks-port" value="1080"/>
+			</network-handler>
+		</connection>
+	</data-source>
+	<filters/>
+</data-sources>

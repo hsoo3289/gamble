@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gemble.team3.mybatis.cash">
+
+	<resultMap id="cashResult" type="Cash">
+		<result property="seq" column="SEQ"/>			<!-- 회원번호 -->
+        <result property="history" column="HISTORY"/> 	<!-- 충전내역 -->
+        <result property="money" column="MONEY"/>		<!-- 소지금 -->
+        <result property="charing" column="CHARING"/>	<!-- 충전 -->
+        <result property="chardate" column="CHARDATE"/> <!-- 충전날짜 -->
+	</resultMap>
+	
+	<insert id="Charing" parameterType="Cash"> <!-- 캐시 충전 -->
+	  	insert into CASH(HISTORY,MONEY,CHARING,MEMBER_SEQ)
+	  	values(#{history}, #{money}, #{charing}, MEMBER_SEQ)
+	</insert>
+	
+	<select id="View" parameterType="Long" resultType="Cash"> <!-- 충전 내역 -->
+		select * from CASH where SEQ=#{seq}
+	</select>
+	
+</mapper>
