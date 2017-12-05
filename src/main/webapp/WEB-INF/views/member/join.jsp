@@ -54,61 +54,55 @@
 				f.accnum.focus();
 				return false;
 			}
-			if(f.submit()){
-				 alert("가입 성공! 로그인후 이용해주세요!")
-			 }
-		}
-		function idCheck(){
-			alert("도전!");
 		}
 	</script>
 </head>
-<body>
+<body onload="f.name.focus()">
 	<center style="margin-top: 15px;">
-	<hr width="500" size="2" noshade color="black">
-	     <font color="미정" size="5"><strong>회원 가입</strong></font>
-	<hr width="500" size="2" noshade color="black">
+	<hr width="500" size="2" >
+	     <font size="5"><strong>회원 가입</strong></font>
+	<hr width="500" size="2" >
 	<form name="f" method="post" action="join.do">
-		<table>
+		<table class="table table-striped table-bordered" border="1" width="600" align="center"  cellpadding="3" cellspacing="1" style="width: 502px;">	
 		<tr>
 	 		<th>이름</th>
 	 	  	<td>
-	 			<input class="form-control" name="name" type="text" size="30" maxlength="30">
+	 			<input class="form-control" name="name" type="text" size="30" maxlength="30" style= "width: 150px;">
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<th>ID</th>
 	 	  	<td>
-	 			<input class="form-control" name="id" type="text" size="30" maxlength="30">
-	 			&nbsp;
-	 			
-              	<input type="button" value="중복확인" onclick="idCheck()">
+	 			<input class="form-control" name="id" type="text" size="30" maxlength="30" style= "width: 150px;">
             </td>
+            
 	 	</tr>
 	 	<tr>
 	 		<th>PWD</th>
 	 	  	<td>
-	 			<input class="form-control" name="pwd" type="password" size="30" maxlength="30">
+	 			<input class="form-control" name="pwd" type="password" size="30" maxlength="30" style="width: 150px;">
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<th>PWD 재입력</th>
 	 	  	<td>
-	 			<input class="form-control" name="pwd2" type="password" size="30" maxlength="30">
+	 			<input class="form-control" name="pwd2" type="password" size="30" maxlength="30" style="width: 150px;">
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<th>이메일</th>
 	 	  	<td>
-	 			<input class="form-control" name="email" type="text" style= "width: 135px;">&nbsp;
-	 			<strong>@</strong>
-	 			&nbsp;<input type="text" style= "width: 135px;">&nbsp;
-	 			<select style="height: 24px;">
-	 				<option> 선택하세요 	  </option>
-	 				<option> naver.com    </option>
-	 				<option> daum.net     </option>
-	 				<option> google.co.kr </option>
-	 			</select>
+	 	  		<div class="row">
+	 	  			<div class="col-xs-5">
+	 					<input class="form-control" name="email" type="text" style= "width: 150px;">
+	 				</div>
+	 				<div class="col-xs-1">
+	 					<strong>@</strong>
+	 				</div>
+	 				<div class="col-xs-4">
+	 					<input class="form-control" type="text" style= "width: 150px;">
+	 				</div>
+	 			</div>
 	 		</td>
 	 	</tr>
 	 	<tr>
@@ -118,14 +112,21 @@
              	<input name= "agency" type="radio"/>LGU+
              	<input name= "agency" type="radio"/>KT
              	<br/>
+             	<div class="row">
+	 	  			<div class="col-lg-4">
              	<select>
              		<option> 010 </option>
              		<option> 011 </option>
              		<option> 016 </option>
              		<option> 018 </option>
              	</select>
-             	- <input class="form-control" name="phone" type="text" size="5" style= "width: 50px;"/> 
-             	- <input class="form-control" name="phone" type="text" size="5" style= "width: 50px;"/> 
+             	<br/>
+             		</div>
+             		<div class="form-group">
+             			- <input class="form-control" name="phone" type="text" size="5" style= "width: 50px;"/>
+             			- <input class="form-control" name="phone" type="text" size="5" style= "width: 50px;"/>
+             		</div> 
+             	</div>
 	 		</td>
 	 	</tr>
 	 	<tr>
