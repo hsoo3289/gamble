@@ -36,9 +36,8 @@
 	<!-- nav fist level Consulting 서비스 -->
 	<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 게 임<span class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
-			<li><a href="${pageContext.request.contextPath}/member/join.form">&nbsp;-회원가입</a></li>
-			<li><a href="${pageContext.request.contextPath}/member/login.form">&nbsp;-로그인</a></li>
-			<li><a href="${pageContext.request.contextPath}/member/login_check.page">&nbsp;-login_check</a></li>
-			<li><a href="${pageContext.request.contextPath}/member/cash.page">&nbsp;-캐쉬충전</a></li>
+			<li><a href="${pageContext.request.contextPath}/game/play.page">&nbsp;-GAME PLAY</a></li>
+			<li><a href="${pageContext.request.contextPath}/game/result.page">&nbsp;-RESULT CHECK</a></li>
+			<li><a href="${pageContext.request.contextPath}/game/gameboard/list.page">&nbsp;-GAME BOARD</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 </ul>
