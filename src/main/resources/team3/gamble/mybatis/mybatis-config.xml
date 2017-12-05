@@ -15,6 +15,7 @@
 
 		<mapper resource="team3/gamble/mybatis/Member.xml"/>
 		<mapper resource="team3/gamble/mybatis/Cash.xml"/>
+
 	</mappers>
 
 </configuration>
