@@ -2,22 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="team3.gamble.mybatis.board">
+<mapper namespace="team3.gamble.mybatis.anonyBoard">
 
-	<resultMap id="boardResult" type="Board">
-		<result property="seq" column="SEQ" />
-		<result property="subject" column="SUBJECT" />
-		<result property="content" column="CONTENT" />
-		<result property="writer_seq" column="WRITER_SEQ" />
-		<result property="view_conunt" column="VIEW_COUNT" />
-		<result property="like_conunt" column="LIKE_COUNT" />
-		<result property="cdate" column="CDATE" />
-		<result property="rdate" column="RDATE" />
-		<result property="parent_seq" column="PARENT_SEQ" />
-
-	</resultMap>
-
-	<select id="mySelectAll" resultType="Board">
+	<select id="mySelectAll" resultType="AnonyBoard">
 		select * from CONSULTING_BOARD order by SEQ;
 	</select>
 
@@ -41,5 +28,3 @@
 	</delete>
 
 </mapper>
-	
-	

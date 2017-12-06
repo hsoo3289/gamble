@@ -1,4 +1,4 @@
-package team3.gamble.common.file.controller;
+package team3.gamble.file.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartRequest;
 
-import team3.gamble.common.file.service.FileService;
+import team3.gamble.file.service.FileService;
 import team3.gamble.model.FileDTO;
 
 @Controller

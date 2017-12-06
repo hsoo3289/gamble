@@ -3,7 +3,7 @@ package team3.gamble.model;
 import org.springframework.web.bind.annotation.PathVariable;
 
 abstract public class DTO {
-	private static final String ns = "soo.spring.mybatis.";
+	private static final String ns = "team3.gamble.mybatis.";
 	private String boardName;
 	private String dbName;
 	private String method;

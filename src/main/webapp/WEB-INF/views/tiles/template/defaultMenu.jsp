@@ -44,9 +44,9 @@
 	<li><a href="#"><i class="fa fa-desktop fa-fw"></i> 게 임<span
 			class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
-			<li><a href="${pageContext.request.contextPath}/game/play.page"><i class="fa fa-gamepad fa-fw"></i> GAME
+			<li><a href="${pageContext.request.contextPath}/game/game/play.page"><i class="fa fa-gamepad fa-fw"></i> GAME
 					PLAY</a></li>
-			<li><a href="${pageContext.request.contextPath}/game/result.page"><i class="fa fa-bar-chart-o fa-fw"></i> RESULT
+			<li><a href="${pageContext.request.contextPath}/game/game_result/game_result.page"><i class="fa fa-bar-chart-o fa-fw"></i> RESULT
 					CHECK</a></li>
 			<li><a
 				href="${pageContext.request.contextPath}/game/gameboard/list.page"><i class="glyphicon glyphicon-list-alt"></i> GAME

@@ -1,4 +1,4 @@
-package team3.gamble.common.file.service;
+package team3.gamble.file.service;
 
 import java.util.List;
 
