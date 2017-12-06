@@ -21,13 +21,13 @@
 		<ul class="nav nav-second-level">
 			<li><a href="${pageContext.request.contextPath}/member/join.form"><i class="fa fa-pencil-square-o"></i> 회원가입</a></li>
 			<li><a href="${pageContext.request.contextPath}/member/info.page"><i class="fa fa-info-circle"></i> 회원정보</a></li>
+			<li><a href="${pageContext.request.contextPath}/member/cash_list.page"><i class="glyphicon glyphicon-th-list"></i> 충전 이력</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 
 	<!-- nav fist level cash 서비스 -->
 	<li><a href="#"><i class="fa fa-won fa-fw "></i>CASH<span class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
 			<li><a href="${pageContext.request.contextPath}/member/cash.page"><i class="fa fa-money"></i> cash 충전</a></li>
-			<li><a href="${pageContext.request.contextPath}/member/cash_list.page"><i class="glyphicon glyphicon-th-list"></i> 충전 이력</a></li>
 			<li><a href="${pageContext.request.contextPath}/member/cash_approve.page"><i class="fa fa-check-square-o"></i> 관리자 승인</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 		

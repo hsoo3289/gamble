@@ -9,24 +9,14 @@ public class Cash extends DTO {
 		return "cash";
 	}
 	
-	private int history;
+	private long seq;
 	private int money;
 	private int charing;
 	private Date chardate;
-	private long seq;
+	private long member_seq;
 	
-	public Cash(){}
-	public Cash(int history, int money, int charing, Date chardate, long seq) {
-		super();
-		this.history = history;
-		this.money = money;
-		this.charing = charing;
-		this.chardate = chardate;
-		this.seq = seq;
-	}
-	
-	public int getHistory() {
-		return history;
+	public long getSeq() {
+		return seq;
 	}
 	public int getMoney() {
 		return money;
@@ -37,11 +27,11 @@ public class Cash extends DTO {
 	public Date getChardate() {
 		return chardate;
 	}
-	public long getSeq() {
-		return seq;
+	public long getMember_seq() {
+		return member_seq;
 	}
-	public void setHistory(int history) {
-		this.history = history;
+	public void setSeq(long seq) {
+		this.seq = seq;
 	}
 	public void setMoney(int money) {
 		this.money = money;
@@ -52,7 +42,9 @@ public class Cash extends DTO {
 	public void setChardate(Date chardate) {
 		this.chardate = chardate;
 	}
-	public void setSeq(long seq) {
-		this.seq = seq;
+	public void setMember_seq(long member_seq) {
+		this.member_seq = member_seq;
 	}
+	
+	
 }

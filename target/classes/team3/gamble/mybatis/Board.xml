@@ -17,26 +17,39 @@
 
 	</resultMap>
 
-	<select id="mySelectAll" resultType="Board">
-		select * from CONSULTING_BOARD order by SEQ;
+	<select id="list" resultType="Board">
+		select * from ${dbName}
+		order by SEQ
 	</select>
 
-	<insert id="myInsert" parameterType="Board">
-		insert into CONSULTING_BOARD(SEQ, SUBJECT, CONTENT, WRITER_SEQ, VIEW_COUNT,
-		LIKE_COUNT, PARENT_SEQ)
-		values(#{SEQ}, #{subject}, #{content}, #{writer_seq}, #{view_count}, #{like_count},
-		SYSDATE, SYSDATE, #{parent_seq})
+	<select id="item" resultType="Board">
+		select * from ${dbName}
+		where SEQ=#{seq}
+	</select>
+
+	<select id="nextseq" resultType="long">
+		select
+		${dbName}_SEQ.NEXTVAL from DUAL
+	</select>
+
+	<insert id="insert" parameterType="Board">
+		insert into ${dbName}(SEQ, SUBJECT, CONTENT, WRITER_SEQ
+		<if test="parent_seq neq null">,PARENT_SEQ</if>
+		)
+		values(#{seq}, #{subject}, #{content}, #{writer_seq}
+		<if test="parent_seq neq null">,#{parent_seq}</if>
+		)
 	</insert>
 
-
-	<update id="myUpdate" parameterType="Board">
-		insert into CONSULTING_BOARD(SUBJECT, CONTENT)
-		value(#{subject}, #{content})
+	<update id="update" parameterType="Board">
+		update
+		${dbName}
+		set
+		SUBJECT=#{subject}, CONTENT=#{content}, RDATE=SYSDATE
 	</update>
 
-
-	<delete id="myDelete" parameterType="long">
-		delete from CONSULTING_BOARD
+	<delete id="delete" parameterType="long">
+		delete from ${dbName}
 		where SEQ= #{seq}
 	</delete>
 

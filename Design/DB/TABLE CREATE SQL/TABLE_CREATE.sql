@@ -51,13 +51,15 @@ create SEQUENCE ANONYMOUS_BOARD_FILE_SEQ;
 /*CASH*/
 drop table CASH;
 drop sequence CASH_SEQ;
+purge recyclebin;
 
 create table CASH(	
-       HISTORY   number, /*충전내역*/
-       MONEY	 number, /*소지금*/
-       CHARING   number, /*충전금액*/
-       CHARDATE  date default SYSDATE,   /*충전날짜*/
-       MEMBER_SEQ number  /*사람번호*/
+       SEQ 			number primary key, /*충전내역*/
+       MONEY		number, /*소지금*/
+       CHARING		number, /*충전금액*/
+       CHARDATE		date default SYSDATE,   /*충전날짜*/
+       MEMBER_SEQ	number,  /*사람번호*/
+       APPROVE		number default 0
 );
 
 create sequence CASH_SEQ INCREMENT BY 1;
@@ -98,6 +100,7 @@ create sequence CONSULTING_BOARD_REPLY_SEQ increment by 1 start with 1 nocache;
 
 drop table CONSULTING_BOARD;
 drop sequence CONSULTING_BOARD_SEQ;
+drop view CONSULTING_BOARD_VIEW;
 purge recyclebin;
 
 create table CONSULTING_BOARD(
@@ -108,11 +111,20 @@ create table CONSULTING_BOARD(
 	VIEW_COUNT number default 0,
 	LIKE_COUNT number default 0,
 	CDATE date default SYSDATE,
-	RDATE date default SYSDATE,
+	RDATE date,
 	PARENT_SEQ number
 );
 
 create sequence CONSULTING_BOARD_SEQ increment by 1 start with 1 nocache;
+
+create or replace view CONSULTING_BOARD_VIEW
+as SELECT ROWNUM as ROWNUMBER, JOINBOARD.* from
+(select * from CONSULTING_BOARD left outer join MEMBER on (WRITER_SEQ=MEMBER.SEQ)) as JOINBOARD
+start with PARENT_SEQ is null
+connect by prior SEQ = PARENT_SEQ
+order siblings by SEQ desc;
+
+
 
 /* GAME_BOARD_FILE*/
 DROP TABLE GAME_BOARD_FILE;
@@ -192,7 +204,7 @@ drop sequence MEMBER_SEQ;
 
 /*MEMBER*/
 create table MEMBER(
-	SEQ 	number constraint MEMBER_PK primary key, /*회원번호*/
+	NO 	number constraint MEMBER_PK primary key, /*회원번호*/
 	NAME	varchar2(15),			     /*이름*/
 	ID		varchar2(15),			     /*아이디*/
 	PWD		varchar2(15),			     /*비밀번호*/
@@ -202,6 +214,6 @@ create table MEMBER(
 	MONEY	NUMBER,				     /*잔액*/
 	JOINDATE date default SYSDATE,		     /*회원가입날짜*/
 	AUTHOR_LEVEL NUMBER
-	);
+);
 
 create sequence MEMBER_SEQ increment by 1 start with 1 nocache;

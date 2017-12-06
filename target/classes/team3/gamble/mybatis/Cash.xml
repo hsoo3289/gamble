@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="gemble.team3.mybatis.cash">
+<mapper namespace="team3.gamble.mybatis.cash">
 
-	<resultMap id="cashResult" type="Cash">
-		<result property="seq" column="SEQ"/>			<!-- 회원번호 -->
-        <result property="history" column="HISTORY"/> 	<!-- 충전내역 -->
-        <result property="money" column="MONEY"/>		<!-- 소지금 -->
-        <result property="charing" column="CHARING"/>	<!-- 충전 -->
-        <result property="chardate" column="CHARDATE"/> <!-- 충전날짜 -->
+	<resultMap id="Cash" type="Cash">
+		<result property="seq" column="SEQ" />			<!-- 충전내역 -->
+		<result property="member_seq" column="MEMBER_SEQ" /> 	<!-- 회원번호 -->
+		<result property="money" column="MONEY" />		<!-- 소지금 -->
+		<result property="charing" column="CHARING" />	<!-- 충전 -->
+		<result property="chardate" column="CHARDATE" /> <!-- 충전날짜 -->
+		<result property="approve" column="APPROVE" />
 	</resultMap>
-	
-	<insert id="Charing" parameterType="Cash"> <!-- 캐시 충전 -->
-	  	insert into CASH(HISTORY,MONEY,CHARING,MEMBER_SEQ)
-	  	values(#{history}, #{money}, #{charing}, MEMBER_SEQ)
+
+	<insert id="insert" parameterType="Cash"> <!-- 캐시 충전 -->
+		insert into CASH(HISTORY,MONEY,CHARING,MEMBER_SEQ)
+		values(#{history}, #{money}, #{charing}, MEMBER_SEQ)
 	</insert>
 	
-	<select id="View" parameterType="Long" resultType="Cash"> <!-- 충전 내역 -->
+	<delete id="delete" parameterType="Cash"> <!-- 캐시 충전 -->
+		delete from CASH where SEQ=#{seq}
+	</delete>
+
+	<update id="approve" parameterType="Cash">
+		update CASH set APPROVE = 1
+		where seq = #{seq}
+	</update>
+
+	<select id="item" parameterType="Cash" resultType="Cash"> <!-- 충전 내역 -->
 		select * from CASH where SEQ=#{seq}
 	</select>
 	
+	<select id="list" parameterType="Cash" resultType="Cash"> <!-- 충전 내역 -->
+		select * from CASH where MEMBER_SEQ=#{member_seq}
+	</select>
+
 </mapper>

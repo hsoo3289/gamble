@@ -8,7 +8,7 @@ public class Member extends DTO {
 	String getDTOName() {
 		return "member";
 	}
-	private long seq;
+	private long no;
 	private String name;
 	private String id;
 	private String pwd;
@@ -18,25 +18,9 @@ public class Member extends DTO {
 	private int money;
 	private Date joindate;
 	private int author_level;
-	
-	public Member(){}
-	public Member(long seq, String name, String id, String pwd, String email, String phone, String accnum, int money,
-			Date joindate, int author_level){
-		super();
-		this.seq = seq;
-		this.name = name;
-		this.id = id;
-		this.pwd = pwd;
-		this.email = email;
-		this.phone = phone;
-		this.accnum = accnum;
-		this.money = money;
-		this.joindate = joindate;
-		this.author_level = author_level;
-	}
 
-	public long getSeq() {
-		return seq;
+	public long getNo() {
+		return no;
 	}
 	public String getName() {
 		return name;
@@ -65,8 +49,8 @@ public class Member extends DTO {
 	public int getAuthor_level() {
 		return author_level;
 	}
-	public void setSeq(long seq) {
-		this.seq = seq;
+	public void setNo(long no) {
+		this.no = no;
 	}
 	public void setName(String name) {
 		this.name = name;

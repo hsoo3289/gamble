@@ -16,11 +16,11 @@ import team3.gamble.model.Reply;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })
-public class DAOtest {
+public class DAOtest_REPLY {
 	// @Resource(name="addrDao")
 	@Inject
 	private CommonDao dao;
-	private static Logger logger = LoggerFactory.getLogger(DAOtest.class);
+	private static Logger logger = LoggerFactory.getLogger(DAOtest_REPLY.class);
 
 	@Test
 	public void testCreate() throws Exception {
