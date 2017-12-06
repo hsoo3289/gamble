@@ -140,8 +140,8 @@
 	 	</tr>
 	 	<tr>
 	 		<td colspan="2"><div align="center"><br/>
-	 			<input name="" type="button" value="가입" onclick="check()">
-		    	<input name="" type="reset" value="다시쓰기">
+	 			<input class="btn default" name="" type="button" value="가입" onclick="check()">
+		    	<input class="btn default" name="" type="reset" value="다시쓰기">
 	 		</div></td>
 	 	</tr>
 		</table>
