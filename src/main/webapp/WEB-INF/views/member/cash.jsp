@@ -37,6 +37,7 @@
 		<div id="container" class="my_area_v2">
 		<div class="page-wrapper" style="width: 700px">
 		<div class="col-xs-6" align='left' style="padding-left: 0px; width: 150px;">
+		
 			<div class="radio">
 				<label>
 					<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"><!-- checked=""라는게 끝에 있었음. -->
@@ -123,6 +124,7 @@
 </table>
 </div>
 </form>
+
 		</div>
     </div>
 </div>
