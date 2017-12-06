@@ -41,7 +41,7 @@
 	  <hr width='500' size='2' noshade>
 		<b>
 			<button  class="btn default" onclick="">정보수정</button> | 
-			<button  class="btn default" onclick="location.href=''">뒤로가기</button>
+			<button  class="btn default" onclick="history.go(-1)">뒤로가기</button>
 		</b>
 	  <hr width='500' size='2' noshade>
 	  	<b>

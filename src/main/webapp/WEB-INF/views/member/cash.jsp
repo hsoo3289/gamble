@@ -18,10 +18,6 @@
 				alert("충전 신청 완료!!")
 			}
 		}
-		function back()
-		{
-			location.href = "history.back"
-		}
 	</script>
 	<br/>
 	<div class="row" style="margin: 20px 0 20px 0">
@@ -119,7 +115,7 @@
 	<tr>
 	 <td colspan="2"><div align="center"><br/>
 	 	<input class="btn default" name="" type="button" value="충전요청" onclick="check()" style="margin-right: 140px;">
-	 	<input class="btn default" name="" type="button" value="뒤로가기" onclick="back()">
+	 	<input class="btn default" name="" type="button" value="뒤로가기" onclick="history.go(-1)">
 	 </div></td>
 	</tr>
 </table>
