@@ -14,7 +14,7 @@
 				return false;
 			}
 			if(c.submit()){
-				alert("충전 신청 완료!")
+				alert("충전 신청 완료!!")
 			}
 		}
 		function back()
