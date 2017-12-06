@@ -58,10 +58,22 @@
 				alert("회원가입 성공!")
 			}
 		}
+		function move_focus(id){
+			if(event.keyCode == 13) document.getElementById(id).focus();
+			return;
+		}
 	</script>
 </head>
+<c:choose>
+<c:when test="${user.name eq null}">
 <body onload="f.name.focus()">
-	<center style="margin-top: 15px;">
+</c:when>
+<c:otherwise>
+<body onload="f.pwd.focus()">
+</c:otherwise>
+</c:choose>
+
+	<center>
 	<hr width="500" size="2" >
 	     <font size="5"><strong>회원 가입</strong></font>
 	<hr width="500" size="2" >
@@ -70,77 +82,97 @@
 		<tr>
 	 		<th>이름</th>
 	 	  	<td>
-	 			<input class="form-control" name="name" type="text" size="30" maxlength="30" style= "width: 150px;">
+	 	  	<c:choose>
+	 	  	  <c:when test="${user.name eq null}">
+	 			<input class="form-control" id="name" name="name"  placeholder="한글만 입력해주세요" type="text" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('id')">
+	 		  </c:when>	
+	 		<c:otherwise>
+	 			<input class="form-control" id="name" name="name"  value="${user.name}" type="text" size="30" maxlength="30" style="width: 206px;" disabled>
+	 		</c:otherwise>
+	 		</c:choose>	
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<th>ID</th>
 	 	  	<td>
-	 			<input class="form-control" name="id" type="text" size="30" maxlength="30" style= "width: 150px;">
-            </td>
-            
+	 	  	<c:choose>
+	 	  	  <c:when test="${user.id eq null}">
+	 			<input class="form-control" id="id" name="id" placeholder="ID를 입력해주세요" type="text" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('pwd')">
+	 		  </c:when>	
+	 		<c:otherwise>
+	 			<input class="form-control" id="id" name="id"  value="${user.id}" type="text" size="30" maxlength="30" style="width: 206px;" disabled>
+	 		</c:otherwise>
+	 		</c:choose>	
+            </td>   
 	 	</tr>
 	 	<tr>
 	 		<th>PWD</th>
 	 	  	<td>
-	 			<input class="form-control" name="pwd" type="password" size="30" maxlength="30" style="width: 150px;">
+	 	  	<c:choose>
+	 	  	  <c:when test="${user.pwd eq null}">
+	 			<input class="form-control" id="pwd" name="pwd" placeholder="PWD를 입력해주세요" type="password" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('pwd2')">
+	 		  </c:when>	
+	 		<c:otherwise>
+	 			<input class="form-control" id="pwd" name="pwd"  value="${user.pwd}" type="text" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('pwd2')">
+	 		</c:otherwise>
+	 		</c:choose>
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<th>PWD 재입력</th>
 	 	  	<td>
-	 			<input class="form-control" name="pwd2" type="password" size="30" maxlength="30" style="width: 150px;">
+	 	  	<c:choose>
+	 	  	  <c:when test="${user.pwd2 eq null}">
+	 			<input class="form-control" id="pwd2" name="pwd2" placeholder="PWD를 재입력해주세요" type="password" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('email')">
+	 		  </c:when>	
+	 		<c:otherwise>
+	 			<input class="form-control" id="pwd2" name="pwd2"  value="${user.pwd2}" type="text" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('email')">
+	 		</c:otherwise>
+	 		</c:choose>
 	 		</td>
 	 	</tr>
 	 	<tr>
-	 		<th>이메일!</th>
+	 		<th>이메일</th>
 	 	  	<td>
-	 	  		<div class="row">
-	 	  			<div class="col-xs-5">
-	 					<input class="form-control" name="email" type="text" style= "width: 150px;">
-	 				</div>
-	 				<div class="col-xs-1">
-	 					<strong>@</strong>
-	 				</div>
-	 				<div class="col-xs-4">
-	 					<input class="form-control" type="text" style= "width: 150px;">
-	 				</div>
-	 			</div>
+	 	  	<c:choose>
+	 	  	  <c:when test="${user.email eq null}">
+	 			<input class="form-control" id="email" name="email" placeholder="E-mail을 입력해주세요" type="text" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('phone')">
+	 		  </c:when>	
+	 		<c:otherwise>
+	 			<input class="form-control" id="email" name="email"  value="${user.email}" type="text" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('phone')">
+	 		</c:otherwise>
+	 		</c:choose>
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<th>핸드폰번호</th>
 	 	  	<td>
-	 			<input name= "agency" type="radio"/>SKT
-             	<input name= "agency" type="radio"/>LGU+
-             	<input name= "agency" type="radio"/>KT
-             	<br/>
-             	<div class="row">
-	 	  			<div class="col-lg-4">
-             	<select>
-             		<option> 010 </option>
-             		<option> 011 </option>
-             		<option> 016 </option>
-             		<option> 018 </option>
-             	</select>
-             	<br/>
-             		</div>
-             		<div class="form-group">
-             			- <input class="form-control" name="phone" type="text" size="5" style= "width: 50px;"/>
-             			- <input class="form-control" name="phone" type="text" size="5" style= "width: 50px;"/>
-             		</div> 
-             	</div>
+	 	  	<c:choose>
+	 	  	  <c:when test="${user.phone eq null}">
+	 			<input class="form-control" id="phone" name="phone" placeholder="핸드폰 번호를 입력해주세요" type="text" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('accnum')">
+	 		  </c:when>	
+	 		<c:otherwise>
+	 			<input class="form-control" id="phone" name="phone"  value="${user.phone}" type="text" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('accnum')">
+	 		</c:otherwise>
+	 		</c:choose>
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<th>계좌번호</th>
 	 	  	<td>
-	 			<input class="form-control" name="accnum" type="text" size="30" maxlength="30">-를 뺀 숫자만 입력해주세요.
+	 	  	<c:choose>
+	 	  	  <c:when test="${user.accnum eq null}">
+	 			<input class="form-control" id="accnum" name="accnum" placeholder="-를 뺀 숫자만 입력해주세요" type="text" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('join')">
+	 		  </c:when>	
+	 		<c:otherwise>
+	 			<input class="form-control" id="accnum" name="accnum"  value="${user.accnum}" type="text" size="30" maxlength="30" style="width: 206px;" onkeypress="move_focus('join')">
+	 		</c:otherwise>
+	 		</c:choose>
 	 		</td>
 	 	</tr>
 	 	<tr>
 	 		<td colspan="2"><div align="center"><br/>
-	 			<input class="btn default" name="" type="button" value="가입" onclick="check()">
+	 			<input id="join" class="btn default" name="" type="button" value="가입" onclick="check()">
 		    	<input class="btn default" name="" type="reset" value="다시쓰기">
 	 		</div></td>
 	 	</tr>
