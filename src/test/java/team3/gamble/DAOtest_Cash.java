@@ -1,4 +1,4 @@
-package team3.web.gamble;
+package team3.gamble;
 
 import java.util.List;
 
@@ -12,11 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import team3.gamble.common.dao.CommonDao;
-import team3.gamble.model.Board;
-import team3.gamble.model.DTO;
-import team3.gamble.model.Member;
-
-import static org.mockito.Mockito.*;
+import team3.gamble.model.Cash;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })
@@ -29,15 +25,16 @@ public class DAOtest_Cash {
 
 	@Test
 	public void testCreate() throws Exception {
-		Board dto = new Board();
+		Cash dto = new Cash();
 		dto.setMethod("insert");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 		
-		dto.setSubject("aaa");
-		dto.setContent("aaa");
-		dto.setWriter_seq(1);
+		dto.setMoney(1000);
+		dto.setCharing(100);
+		dto.setMember_seq(2);
 		dao.dml(dto);
 		dao.dml(dto);
+		dto.setMember_seq(3);
 		dao.dml(dto);
 		
 		logger.info("#testCreate()");
@@ -46,11 +43,11 @@ public class DAOtest_Cash {
 
 	@Test
 	public void testListAll() throws Exception {
-		Board dto = new Board(); 
+		Cash dto = new Cash(); 
 		dto.setMethod("list");
-		dto.setdbName(dbName);
-
-		List<Board> list = dao.list(dto);
+		dto.setDbName(dbName);
+		dto.setMember_seq(1);
+		List<Cash> list = dao.list(dto);
 		System.out.println("list.size(): " + list.size());
 
 		logger.info("#testListAll()");
@@ -58,39 +55,24 @@ public class DAOtest_Cash {
 	}
 	
 	@Test
-	public void selectBoard() throws Exception {
-		Board dto = new Board();
+	public void selectItem() throws Exception {
+		Cash dto = new Cash();
 		dto.setMethod("item");
-		dto.setdbName(dbName);
-		dto.setNo(2);
-		Board result = dao.item(dto);
-
-		logger.info("#testListAll()");
-		System.out.println("####testListAll()");
-	}
-	
-	@Test
-	public void update() throws Exception {
-		Board dto = new Board();
-		dto.setMethod("update");
-		dto.setdbName(dbName);
-		dto.setSubject("bb");
-		dto.setContent("bb");
+		dto.setDbName(dbName);
 		dto.setSeq(2);
+		Cash result = dao.item(dto);
 
-		dao.dml(dto);
-		
 		logger.info("#testListAll()");
 		System.out.println("####testListAll()");
 	}
 	
 	@Test
 	public void testDelete() throws Exception {
-		Board dto = new Board();
+		Cash dto = new Cash();
 		dto.setMethod("delete");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 
-		dto.setNo(1);
+		dto.setSeq(2);
 
 		dao.dml(dto);
 		

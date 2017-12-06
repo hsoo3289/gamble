@@ -1,1 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team3.gamble.mybatis.helper">
+
+	<resultMap id="Helper" type="Helper">
+		<result property="seq"			column="SEQ" />
+		<result property="member_seq"	column="MEMBER_SEQ" />
+		<result property="cdate"		column="CDATE" />
+		<result property="game_date"	column="GAME_DATE" />
+		<result property="game_today"	column="GAME_TODAY" />
+	</resultMap>
+
+	<insert id="insert" parameterType="Helper"> 
+		insert into Helper (SEQ, MEMBER_SEQ, GAME_DATE, GAME_TODAY)
+		values(HELPER_SEQ.NEXTVAL, #{member_seq}, #{game_date}, #{game_today})
+	</insert>
+
+	<delete id="delete" parameterType="Helper"> 
+		delete from Helper where SEQ=#{seq}
+	</delete>
+
+	<select id="list" parameterType="Helper" resultType="Helper"> 
+		select * from Helper where MEMBER_SEQ=#{member_seq}
+	</select>
+
+</mapper>

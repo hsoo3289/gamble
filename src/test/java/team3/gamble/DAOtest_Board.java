@@ -1,4 +1,4 @@
-package team3.web.gamble;
+package team3.gamble;
 
 import java.util.List;
 
@@ -12,11 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import team3.gamble.common.dao.CommonDao;
+import team3.gamble.model.AnonyBoard;
 import team3.gamble.model.Board;
-import team3.gamble.model.DTO;
-import team3.gamble.model.Member;
-
-import static org.mockito.Mockito.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })
@@ -30,17 +27,19 @@ public class DAOtest_Board {
 	@Test
 	public void testCreate() throws Exception {
 		Board dto = new Board();
+		Board dtoforseq = (Board) new Board().setDbName(dbName).setMethod("nextseq");
 		dto.setMethod("insert");
-		dto.setdbName(dbName);
-		dto.setSeq(dao.nextSeq(new Board().setMethod("nextseq")));
+		dto.setDbName(dbName);
+		
+		dto.setSeq(dao.nextSeq(dtoforseq));
 		dto.setSubject("aaa");
 		dto.setContent("aaa");
 		dto.setWriter_seq(1);
 		dao.dml(dto);
-		dto.setSeq(dao.nextSeq(new Board().setMethod("nextseq")));
+		dto.setSeq(dao.nextSeq(dtoforseq));
 		dao.dml(dto);
 		dto.setParent_seq(2);
-		dto.setSeq(dao.nextSeq(new Board().setMethod("nextseq")));
+		dto.setSeq(dao.nextSeq(dtoforseq));
 		dao.dml(dto);
 		
 		logger.info("#testCreate()");
@@ -51,7 +50,7 @@ public class DAOtest_Board {
 	public void testListAll() throws Exception {
 		Board dto = new Board(); 
 		dto.setMethod("list");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 
 		List<Board> list = dao.list(dto);
 		System.out.println("list.size(): " + list.size());
@@ -64,7 +63,7 @@ public class DAOtest_Board {
 	public void selectBoard() throws Exception {
 		Board dto = new Board();
 		dto.setMethod("item");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 		dto.setNo(2);
 		Board result = dao.item(dto);
 
@@ -76,7 +75,7 @@ public class DAOtest_Board {
 	public void update() throws Exception {
 		Board dto = new Board();
 		dto.setMethod("update");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 		dto.setSubject("bb");
 		dto.setContent("bb");
 		dto.setSeq(2);
@@ -91,7 +90,7 @@ public class DAOtest_Board {
 	public void testDelete() throws Exception {
 		Board dto = new Board();
 		dto.setMethod("delete");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 
 		dto.setNo(1);
 

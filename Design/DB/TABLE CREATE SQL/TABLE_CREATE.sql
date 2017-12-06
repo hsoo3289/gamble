@@ -11,8 +11,8 @@ create table ANONYMOUS_BOARD(
 	CONTENT varchar2(4000),					/* 내용 */
 	VIEW_COUNT number default 0,				/* 조회수 */
 	LIKE_COUNT number default 0,				/* 추천수 */
-	CDATE date,						/* 작성일 */
-	RDATE date default SYSDATE,				/* 수정일 */
+	CDATE date default SYSDATE,						/* 작성일 */
+	RDATE date,				/* 수정일 */
 	PARENT_SEQ number					/* 부모글 */
 );
 
@@ -33,6 +33,8 @@ create table ANONYMOUS_BOARD_REPLY(
 	PARENT_SEQ number,						/* 부모글 */
 	CDATE date							/* 작성일 */ 
 );
+
+create sequence ANONYMOUS_BOARD_REPLY_SEQ increment by 1 start with 1 nocache;
 
 /* ANONYMOUS_BOARD_FILE  */
 DROP TABLE ANONYMOUS_BOARD_FILE;
@@ -174,29 +176,28 @@ create table GAME_BOARD(
 	VIEW_COUNT number default 0,
 	LIKE_COUNT number default 0,
 	CDATE date default SYSDATE,
-	RDATE date default SYSDATE,
+	RDATE date,
 	PARENT_SEQ number
 );
 
 create sequence GAME_BOARD_SEQ increment by 1 start with 1 nocache;
 
 /* GAME DB */
-
-DROP TABLE GAME_RESULT;
-
-DROP SEQUENCE GAME_RESULT_SEQ;
+DROP TABLE GAME;
+DROP SEQUENCE GAME_SEQ;
 
 /* GAME RESULT */
-CREATE TABLE GAME_RESULT (
-	PLAYER_SEQ NUMBER, /* 회원번호 */
+CREATE TABLE GAME (
+	MEMBER_SEQ NUMBER, /* 회원번호 */
 	GAME_NO NUMBER, /* 게임회차 */
 	PLAYER_REMAINING NUMBER, /* 회원잔액 */
 	BET_AMOUNT NUMBER, /* 배팅금액 */
 	THIS_AMOUNT NUMBER, /* 금회금액 */
-	GAME_NAME VARCHAR2(255) /* 게임종류 */
+	GAME_NAME VARCHAR2(255), /* 게임종류 */
+	CDATE DATE default SYSDATE
 );
 
-CREATE SEQUENCE GAME_RESULT_SEQ INCREMENT BY 1;
+CREATE SEQUENCE GAME_SEQ INCREMENT BY 1;
 
 /*MEMBER*/
 drop table MEMBER;
@@ -217,3 +218,20 @@ create table MEMBER(
 );
 
 create sequence MEMBER_SEQ increment by 1 start with 1 nocache;
+
+/* HELPER */
+drop table HELPER;
+drop sequence HELPER_SEQ;
+
+/* HELPER */
+
+create table HELPER(
+	SEQ number constraint HELPER_PK primary key,
+	MEMBER_SEQ NUMBER,
+	CDATE DATE DEFAULT SYSDATE,
+	GAME_DATE DATE,
+	GAME_TODAY NUMBER DEFAULT 0 
+);
+
+create sequence HELPER_SEQ INCREMENT BY 1 start with 1 nocache;
+

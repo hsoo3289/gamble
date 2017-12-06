@@ -13,8 +13,8 @@
 	</resultMap>
 
 	<insert id="insert" parameterType="Cash"> <!-- 캐시 충전 -->
-		insert into CASH(HISTORY,MONEY,CHARING,MEMBER_SEQ)
-		values(#{history}, #{money}, #{charing}, MEMBER_SEQ)
+		insert into CASH(SEQ,MONEY,CHARING,MEMBER_SEQ)
+		values(CASH_SEQ.NEXTVAL, #{money}, #{charing}, #{member_seq})
 	</insert>
 	
 	<delete id="delete" parameterType="Cash"> <!-- 캐시 충전 -->

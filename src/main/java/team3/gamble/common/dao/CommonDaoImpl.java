@@ -40,7 +40,7 @@ public class CommonDaoImpl implements CommonDao {
 	
 	@Override
 	public <T extends DTO> long nextSeq(T dto) {
-		return sqlSession.selectOne(dto.getNameSpace());
+		return sqlSession.selectOne(dto.getNameSpace(), dto);
 	}
 	
 	@Override

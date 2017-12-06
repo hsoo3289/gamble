@@ -53,3 +53,9 @@
 					BOARD</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 </ul>
+<div class="wrapper">
+<img src="resources/img/iu2.jpg" width=250>
+</div>
+<div class="wrapper">
+<img src="resources/img/maxresdefault.jpg" width=250>
+</div>

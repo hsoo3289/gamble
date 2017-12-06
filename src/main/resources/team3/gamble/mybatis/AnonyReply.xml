@@ -1,1 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team3.gamble.mybatis.anonyreply">
+	
+	<resultMap id="AnonyReply"  type="AnonyReply">	
+		
+		<result property="seq" column="SEQ"/>
+		<result property="name" column="NAME"/>
+		<result property="pwd" column="PWD"/>
+		<result property="reply_content" column="REPLY_CONTENT"/>
+		<result property="hate_count" column="HATE_COUNT"/>
+		<result property="like_count" column="LIKE_COUNT"/>
+		<result property="parent_seq" column="PARENT_SEQ"/>
+		<result property="cdate" column="CDATE"/>	
+		
+	</resultMap>
+	
+	<select id="list" resultType="AnonyReply" parameterType="AnonyReply">
+		select * from ${dbName} where PARENT_SEQ=#{parent_seq} order by SEQ desc
+	</select>
+	
+	<select id="get_hate_count" parameterType="AnonyReply">
+		select hate_count from ${dbName} where SEQ=#{seq}
+	</select>
+	
+	<select id="get_like_count" parameterType="AnonyReply">
+		select like_count from ${dbName} where SEQ=#{seq}
+	</select>
+	
+	<insert id="insert" parameterType="AnonyReply">
+		insert into ${dbName} (SEQ, NAME, PWD, REPLY_CONTENT, PARENT_SEQ)
+		values(${dbName}_SEQ.NEXTVAL, #{name}, #{pwd}, #{reply_content}, #{parent_seq})
+	</insert>
+	
+	<update id="hate_count" parameterType="AnonyReply">
+		update ${dbName} set HATE_COUNT=HATE_COUNT+1 where SEQ=#{seq}
+	</update>
+	
+	<update id="like_count" parameterType="AnonyReply">
+		update ${dbName} set LIKE_COUNT=LIKE_COUNT+1 where SEQ=#{seq}
+	</update>
+	
+	<delete id="delete" parameterType="AnonyReply">
+		delete from ${dbName} where SEQ=#{seq}
+	</delete>
+</mapper>

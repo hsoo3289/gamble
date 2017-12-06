@@ -48,7 +48,7 @@
 		SUBJECT=#{subject}, CONTENT=#{content}, RDATE=SYSDATE
 	</update>
 
-	<delete id="delete" parameterType="long">
+	<delete id="delete" parameterType="Board">
 		delete from ${dbName}
 		where SEQ= #{seq}
 	</delete>
