@@ -12,7 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import team3.gamble.common.dao.CommonDao;
-import team3.gamble.model.AnonyBoard;
 import team3.gamble.model.Board;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,19 +26,19 @@ public class DAOtest_Board {
 	@Test
 	public void testCreate() throws Exception {
 		Board dto = new Board();
-		Board dtoforseq = (Board) new Board().setDbName(dbName).setMethod("nextseq");
+		
 		dto.setMethod("insert");
 		dto.setDbName(dbName);
 		
-		dto.setSeq(dao.nextSeq(dtoforseq));
+		dto.setSeq(3);
 		dto.setSubject("aaa");
 		dto.setContent("aaa");
-		dto.setWriter_seq(1);
+		dto.setWriter_seq(2);
 		dao.dml(dto);
-		dto.setSeq(dao.nextSeq(dtoforseq));
+		dto.setSeq(4);
 		dao.dml(dto);
-		dto.setParent_seq(2);
-		dto.setSeq(dao.nextSeq(dtoforseq));
+		dto.setParent_seq(1);
+		dto.setSeq(5);
 		dao.dml(dto);
 		
 		logger.info("#testCreate()");
@@ -64,11 +63,11 @@ public class DAOtest_Board {
 		Board dto = new Board();
 		dto.setMethod("item");
 		dto.setDbName(dbName);
-		dto.setNo(2);
+		dto.setSeq(2);
 		Board result = dao.item(dto);
-
+		
 		logger.info("#testListAll()");
-		System.out.println("####testListAll()");
+		System.out.println("####testListAll() result:"+result.getId());
 	}
 	
 	@Test
@@ -76,8 +75,8 @@ public class DAOtest_Board {
 		Board dto = new Board();
 		dto.setMethod("update");
 		dto.setDbName(dbName);
-		dto.setSubject("bb");
-		dto.setContent("bb");
+		dto.setSubject("cc");
+		dto.setContent("cc");
 		dto.setSeq(2);
 
 		dao.dml(dto);
@@ -92,7 +91,7 @@ public class DAOtest_Board {
 		dto.setMethod("delete");
 		dto.setDbName(dbName);
 
-		dto.setNo(1);
+		dto.setSeq(4);
 
 		dao.dml(dto);
 		

@@ -13,8 +13,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import team3.gamble.common.dao.CommonDao;
 import team3.gamble.model.AnonyBoard;
-import team3.gamble.model.Board;
-import team3.gamble.model.DTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })
@@ -69,7 +67,7 @@ public class DAOtest_AnonyBoard {
 		AnonyBoard result = dao.item(dto);
 
 		logger.info("#testListAll()");
-		System.out.println("####testListAll()");
+		System.out.println("####testListAll() result:"+result.getName());
 	}
 	
 	@Test

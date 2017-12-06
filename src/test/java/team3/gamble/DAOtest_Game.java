@@ -29,7 +29,7 @@ public class DAOtest_Game {
 		dto.setMethod("insert");
 		dto.setDbName(dbName);
 
-		dto.setMember_seq(1);
+		dto.setMember_seq(2);
 		dto.setPlayer_remaining(1000);
 		dto.setBet_amount(1000);
 		dto.setThis_amount(1000);

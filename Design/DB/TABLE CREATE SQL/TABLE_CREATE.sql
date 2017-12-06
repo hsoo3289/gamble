@@ -1,5 +1,25 @@
+/*MEMBER*/
+drop table MEMBER cascade constraint;
+drop sequence MEMBER_SEQ;
+
+/*MEMBER*/
+create table MEMBER(
+	NO 	number constraint MEMBER_PK primary key, /*회원번호*/
+	NAME	varchar2(15),			     /*이름*/
+	ID		varchar2(15),			     /*아이디*/
+	PWD		varchar2(15),			     /*비밀번호*/
+	EMAIL	varchar2(30),			     /*이메일*/
+	PHONE   varchar2(30),			     /*핸드폰번호*/
+	ACCNUM  varchar2(40),			     /*계좌번호*/
+	MONEY	NUMBER,				     /*잔액*/
+	JOINDATE date default SYSDATE,		     /*회원가입날짜*/
+	AUTHOR_LEVEL NUMBER
+);
+
+create sequence MEMBER_SEQ increment by 1 start with 1 nocache;
+
 /* ANONYMOUS_BOARD  */
-drop table ANONYMOUS_BOARD;
+drop table ANONYMOUS_BOARD cascade constraint;
 drop sequence ANONYMOUS_BOARD_SEQ;
 purge recyclebin;
 
@@ -19,7 +39,7 @@ create table ANONYMOUS_BOARD(
 create sequence ANONYMOUS_BOARD_SEQ increment by 1 start with 1 nocache;
 
 /* ANONYMOUS_BOARD_REPLY  */
-drop table ANONYMOUS_BOARD_REPLY;
+drop table ANONYMOUS_BOARD_REPLY cascade constraint;
 drop sequence ANONYMOUS_BOARD_REPLY_SEQ;
 purge recyclebin;
 
@@ -37,7 +57,7 @@ create table ANONYMOUS_BOARD_REPLY(
 create sequence ANONYMOUS_BOARD_REPLY_SEQ increment by 1 start with 1 nocache;
 
 /* ANONYMOUS_BOARD_FILE  */
-DROP TABLE ANONYMOUS_BOARD_FILE;
+DROP TABLE ANONYMOUS_BOARD_FILE cascade constraint;
 DROP SEQUENCE ANONYMOUS_BOARD_FILE_SEQ;
 
 CREATE TABLE ANONYMOUS_BOARD_FILE (
@@ -51,7 +71,7 @@ CREATE TABLE ANONYMOUS_BOARD_FILE (
 create SEQUENCE ANONYMOUS_BOARD_FILE_SEQ;
 
 /*CASH*/
-drop table CASH;
+drop table CASH cascade constraint;
 drop sequence CASH_SEQ;
 purge recyclebin;
 
@@ -67,7 +87,7 @@ create table CASH(
 create sequence CASH_SEQ INCREMENT BY 1;
 
 /*CONSULTING BOARD FILE*/
-DROP TABLE CONSULTING_BOARD_FILE;
+DROP TABLE CONSULTING_BOARD_FILE cascade constraint;
 DROP SEQUENCE CONSULTING_BOARD_FILE_SEQ;
 /* 파일 */
 CREATE TABLE CONSULTING_BOARD_FILE (
@@ -81,7 +101,7 @@ CREATE TABLE CONSULTING_BOARD_FILE (
 create SEQUENCE CONSULTING_BOARD_FILE_SEQ;
 
 /* CONSULTING_BOARD_REPLY  */
-drop table CONSULTING_BOARD_REPLY;
+drop table CONSULTING_BOARD_REPLY cascade constraint;
 drop sequence CONSULTING_BOARD_REPLY_SEQ;
 purge recyclebin;
 
@@ -100,9 +120,8 @@ create sequence CONSULTING_BOARD_REPLY_SEQ increment by 1 start with 1 nocache;
 
 /* CONSULTING_BOARD */
 
-drop table CONSULTING_BOARD;
+drop table CONSULTING_BOARD cascade constraint;
 drop sequence CONSULTING_BOARD_SEQ;
-drop view CONSULTING_BOARD_VIEW;
 purge recyclebin;
 
 create table CONSULTING_BOARD(
@@ -119,17 +138,27 @@ create table CONSULTING_BOARD(
 
 create sequence CONSULTING_BOARD_SEQ increment by 1 start with 1 nocache;
 
-create or replace view CONSULTING_BOARD_VIEW
-as SELECT ROWNUM as ROWNUMBER, JOINBOARD.* from
-(select * from CONSULTING_BOARD left outer join MEMBER on (WRITER_SEQ=MEMBER.SEQ)) as JOINBOARD
+drop view CONSULTING_BOARD_VIEW cascade constraint;
+
+CREATE OR REPLACE FORCE VIEW "TEAM3"."CONSULTING_BOARD_VIEW" (
+"REPLYLEVEL", "ROWNUMBER", "SEQ", "SUBJECT", "CONTENT", "WRITER_SEQ", "VIEW_COUNT", 
+"LIKE_COUNT", "CDATE", "RDATE", "PARENT_SEQ", "NO", "NAME", "ID", "PWD", "EMAIL", "PHONE", 
+"ACCNUM", "MONEY", "JOINDATE", "AUTHOR_LEVEL"
+) AS
+SELECT LEVEL as REPLYLEVEL, ROWNUM as ROWNUMBER, 
+JOINBOARD."SEQ",JOINBOARD."SUBJECT",JOINBOARD."CONTENT",JOINBOARD."WRITER_SEQ",
+JOINBOARD."VIEW_COUNT",JOINBOARD."LIKE_COUNT",JOINBOARD."CDATE",JOINBOARD."RDATE",
+JOINBOARD."PARENT_SEQ",JOINBOARD."NO",JOINBOARD."NAME",JOINBOARD."ID",JOINBOARD."PWD",
+JOINBOARD."EMAIL",JOINBOARD."PHONE",JOINBOARD."ACCNUM",JOINBOARD."MONEY",
+JOINBOARD."JOINDATE",JOINBOARD."AUTHOR_LEVEL" from
+(select * from CONSULTING_BOARD left outer join MEMBER on (WRITER_SEQ=NO)) 
+JOINBOARD
 start with PARENT_SEQ is null
 connect by prior SEQ = PARENT_SEQ
 order siblings by SEQ desc;
 
-
-
 /* GAME_BOARD_FILE*/
-DROP TABLE GAME_BOARD_FILE;
+DROP TABLE GAME_BOARD_FILE cascade constraint;
 DROP SEQUENCE GAME_BOARD_FILE_SEQ;
 
 /* 파일 */
@@ -144,7 +173,7 @@ CREATE TABLE GAME_BOARD_FILE (
 create SEQUENCE GAME_BOARD_FILE_SEQ;
 
 /* GAME_BOARD_REPLY  */
-drop table GAME_BOARD_REPLY;
+drop table GAME_BOARD_REPLY cascade constraint;
 drop sequence GAME_BOARD_REPLY_SEQ;
 purge recyclebin;
 
@@ -164,7 +193,7 @@ create sequence GAME_BOARD_REPLY_SEQ increment by 1 start with 1 nocache;
 
 /* GAME_BOARD */
 
-drop table GAME_BOARD;
+drop table GAME_BOARD cascade constraint;
 drop sequence GAME_BOARD_SEQ;
 purge recyclebin;
 
@@ -180,16 +209,27 @@ create table GAME_BOARD(
 	PARENT_SEQ number
 );
 
+drop view GAME_BOARD_VIEW cascade constraint;
+
+CREATE OR REPLACE FORCE VIEW "TEAM3"."GAME_BOARD_VIEW" ("ROWNUMBER", "SEQ", "SUBJECT", "CONTENT", "WRITER_SEQ", "VIEW_COUNT", "LIKE_COUNT", "CDATE", "RDATE", "PARENT_SEQ", "NO", "NAME", "ID", "PWD", "EMAIL", "PHONE", "ACCNUM", "MONEY", "JOINDATE", "AUTHOR_LEVEL") AS 
+SELECT ROWNUM as ROWNUMBER, JOINBOARD."SEQ",JOINBOARD."SUBJECT",JOINBOARD."CONTENT",JOINBOARD."WRITER_SEQ",JOINBOARD."VIEW_COUNT",JOINBOARD."LIKE_COUNT",JOINBOARD."CDATE",JOINBOARD."RDATE",JOINBOARD."PARENT_SEQ",JOINBOARD."NO",JOINBOARD."NAME",JOINBOARD."ID",JOINBOARD."PWD",JOINBOARD."EMAIL",JOINBOARD."PHONE",JOINBOARD."ACCNUM",JOINBOARD."MONEY",JOINBOARD."JOINDATE",JOINBOARD."AUTHOR_LEVEL" from
+(select * from GAME_BOARD left outer join MEMBER on (WRITER_SEQ=NO))
+JOINBOARD
+start with PARENT_SEQ is null
+connect by prior SEQ = PARENT_SEQ
+order siblings by SEQ desc;
+ 
+
 create sequence GAME_BOARD_SEQ increment by 1 start with 1 nocache;
 
 /* GAME DB */
-DROP TABLE GAME;
+DROP TABLE GAME cascade constraint;
 DROP SEQUENCE GAME_SEQ;
 
 /* GAME RESULT */
 CREATE TABLE GAME (
-	MEMBER_SEQ NUMBER, /* 회원번호 */
-	GAME_NO NUMBER, /* 게임회차 */
+	GAME_NO NUMBER primary key, /* 게임회차 */
+	MEMBER_SEQ NUMBER,  /* 회원번호 */
 	PLAYER_REMAINING NUMBER, /* 회원잔액 */
 	BET_AMOUNT NUMBER, /* 배팅금액 */
 	THIS_AMOUNT NUMBER, /* 금회금액 */
@@ -199,28 +239,9 @@ CREATE TABLE GAME (
 
 CREATE SEQUENCE GAME_SEQ INCREMENT BY 1;
 
-/*MEMBER*/
-drop table MEMBER;
-drop sequence MEMBER_SEQ;
-
-/*MEMBER*/
-create table MEMBER(
-	NO 	number constraint MEMBER_PK primary key, /*회원번호*/
-	NAME	varchar2(15),			     /*이름*/
-	ID		varchar2(15),			     /*아이디*/
-	PWD		varchar2(15),			     /*비밀번호*/
-	EMAIL	varchar2(30),			     /*이메일*/
-	PHONE   varchar2(30),			     /*핸드폰번호*/
-	ACCNUM  varchar2(40),			     /*계좌번호*/
-	MONEY	NUMBER,				     /*잔액*/
-	JOINDATE date default SYSDATE,		     /*회원가입날짜*/
-	AUTHOR_LEVEL NUMBER
-);
-
-create sequence MEMBER_SEQ increment by 1 start with 1 nocache;
 
 /* HELPER */
-drop table HELPER;
+drop table HELPER cascade constraint;
 drop sequence HELPER_SEQ;
 
 /* HELPER */
@@ -234,4 +255,6 @@ create table HELPER(
 );
 
 create sequence HELPER_SEQ INCREMENT BY 1 start with 1 nocache;
+
+
 

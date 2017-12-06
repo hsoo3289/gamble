@@ -63,7 +63,7 @@ public class DAOtest_Cash {
 		Cash result = dao.item(dto);
 
 		logger.info("#testListAll()");
-		System.out.println("####testListAll()");
+		System.out.println("####testListAll() result:"+result.getMoney());
 	}
 	
 	@Test

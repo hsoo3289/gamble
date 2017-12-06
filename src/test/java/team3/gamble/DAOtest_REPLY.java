@@ -28,7 +28,7 @@ public class DAOtest_REPLY {
 		reply.setMethod("insert");
 		reply.setDbName("consulting_board_reply");
 
-		reply.setWriter_seq(1);
+		reply.setWriter_seq(2);
 		reply.setParent_seq(2);
 		reply.setReply_content("aa");
 		
@@ -46,7 +46,7 @@ public class DAOtest_REPLY {
 		reply.setMethod("delete");
 		reply.setDbName("consulting_board_reply");
 
-		reply.setWriter_seq(1);
+		reply.setWriter_seq(2);
 
 		dao.dml(reply);
 		

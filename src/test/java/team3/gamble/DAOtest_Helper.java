@@ -30,12 +30,12 @@ public class DAOtest_Helper {
 		dto.setMethod("insert");
 		dto.setDbName(dbName);
 		
-		dto.setMember_seq(1);
+		dto.setMember_seq(2);
 		dto.setGame_today(1);
 		dto.setGame_date(new Date("2017/12/06"));
 		dao.dml(dto);
 		
-		dto.setMember_seq(3);
+		dto.setMember_seq(2);
 		dto.setGame_date(new Date("2017/12/05"));
 		dao.dml(dto);
 		
@@ -48,7 +48,7 @@ public class DAOtest_Helper {
 		Helper dto = new Helper(); 
 		dto.setMethod("list");
 		dto.setDbName(dbName);
-		dto.setMember_seq(1);
+		dto.setMember_seq(2);
 		List<Helper> list = dao.list(dto);
 		System.out.println("list.size(): " + list.size());
 

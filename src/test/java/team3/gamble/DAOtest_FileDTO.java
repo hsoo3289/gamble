@@ -13,7 +13,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import team3.gamble.common.dao.CommonDao;
 import team3.gamble.model.Board;
-import team3.gamble.model.DTO;
 import team3.gamble.model.FileDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -49,7 +48,7 @@ public class DAOtest_FileDTO {
 		dto.setDbName(dbName);
 		dto.setParent_seq(2);
 		
-		List list = dao.list(dto);
+		List<FileDTO> list = dao.list(dto);
 		System.out.println("list.size(): " + list.size());
 
 		logger.info("#testListAll()");

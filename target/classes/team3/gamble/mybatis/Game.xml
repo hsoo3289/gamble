@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="team3.gamble.mybatis.game">
 
 	<resultMap id="Game" type="Game">
@@ -14,18 +15,22 @@
 	</resultMap>
 
 	<insert id="insert" parameterType="Game">
-		insert into GAME (GAME_NO, MEMBER_SEQ, PLAYER_REMAINING, BET_AMOUNT,
+		insert into GAME (GAME_NO,
+		MEMBER_SEQ, PLAYER_REMAINING, BET_AMOUNT,
 		THIS_AMOUNT, GAME_NAME)
 		values(GAME_SEQ.NEXTVAL, #{member_seq},
-		#{player_remaining}, #{bet_amount}, #{this_amount}, #{game_name})
+		#{player_remaining},
+		#{bet_amount}, #{this_amount}, #{game_name})
 	</insert>
 
 	<delete id="delete" parameterType="Game">
-		delete from GAME where GAME_NO=#{game_no}
+		delete from GAME where
+		GAME_NO=#{game_no}
 	</delete>
 
 	<select id="list" parameterType="Game" resultType="Game">
-		select * from GAME where MEMBER_SEQ=#{member_seq}
+		select * from
+		GAME where MEMBER_SEQ=#{member_seq}
 	</select>
 
 </mapper>

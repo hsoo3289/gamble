@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
 <mapper namespace="team3.gamble.mybatis.board">
 
 	<resultMap id="boardResult" type="Board">
@@ -46,6 +47,7 @@
 		${dbName}
 		set
 		SUBJECT=#{subject}, CONTENT=#{content}, RDATE=SYSDATE
+		where SEQ=#{seq}
 	</update>
 
 	<delete id="delete" parameterType="Board">

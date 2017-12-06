@@ -75,7 +75,7 @@ public class DAOtest_MEMBER {
 		DTO result = dao.item(dto);
 
 		logger.info("#testListAll()");
-		System.out.println("####testListAll()");
+		System.out.println("####testListAll() result:"+result.getBoardName());
 	}
 	
 	@Test
