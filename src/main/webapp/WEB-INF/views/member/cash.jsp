@@ -21,21 +21,28 @@
 	</script>
 	<br/>
 	<div class="row" style="margin: 20px 0 20px 0">
-			<div class="col-xs-6" align='left' style="padding-left: 0px; width: 95px; margin-top: 70px;margin-left: 50px;">
-                  <p>결제 패키지</p>
-                  <dl>
-                      <dt>결제수단</dt>
-                      <dd>너님 클릭</dd>
-                  </dl>
-    		</div>
-	<form name="c" method="post" action="cash.do">
-		<div class="col-xs-6" align='center' style="padding-right: 0px; margin-left: 80px;margin-top: 50px;">
-		<label style="margin-right: 10px;margin-left: 35px;margin-bottom: 20px;">캐시 충전</label>
-		<div id="container" class="my_area_v2">
-		<div class="page-wrapper" style="width: 700px">
-		<div class="col-xs-6" align='left' style="padding-left: 0px; width: 150px;">
-		
-			<div class="radio">
+	<div class="col-lg-3" style="margin-top: 70px;">
+                    <div class="panel panel-warning" style="height: 162px;">
+                        <div style='text-align:center' class="panel-heading">
+                        	결제패키지
+                        </div>
+                        <div style='text-align:center' class="panel-body">
+                            <p>결제수단</p>
+                        </div>
+                        <div style='text-align:center'class="panel-body">
+                            	너님 클릭!
+                        </div>
+                    </div>
+                    <!-- /.col-lg-3 -->
+                </div>
+               <div class="panel panel-yellow">
+                        <div style='text-align:center' class="panel-heading">
+                            		캐시 충전
+                        </div>
+                        <div class="panel-body">
+                        <div id="page-wrapper">
+                        <div align='left' style="padding-right: 0px;">
+                            <div class="radio">
 				<label>
 					<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"><!-- checked=""라는게 끝에 있었음. -->
 					포인트 11000원
@@ -68,10 +75,11 @@
 					<input type="radio" name="optionsRadios" id="optionsRadios5" value="option5">
 					포인트 55000원
 				</label>
-			</div>
+					</div>
+				</div>
 			</div>
 			<!-- 여기를 반으로 나눠야 한다고.. -->
-				<div class="col-xs-6" align='right' style="padding-right: 0px; width: 150px; margin-left: 50px;">
+				<div align='right' style="padding-right: 0px;">
 			<div class="radio">
 				<label>
 					<input type="radio" name="optionsRadios" id="optionsRadios6" value="option6">
@@ -107,19 +115,13 @@
 				</label>
 				</div>
 					</div>
-				</div>
-			</div>
-	</div>
-<div class="row">
-<table align="center" style="margin-top: 300px;margin-left: 390px;">
-	<tr>
-	 <td colspan="2"><div align="center"><br/>
-	 	<input class="btn default" name="" type="button" value="충전요청" onclick="check()" style="margin-right: 140px;">
-	 	<input class="btn default" name="" type="button" value="뒤로가기" onclick="history.go(-1)">
-	 </div></td>
-	</tr>
-</table>
-</div>
+                        </div>
+                        <div class="panel-footer">
+                            <input class="btn default" name="" type="button" value="충전요청" onclick="check()" style="margin-right: 140px;">
+	 						<input class="btn default" name="" type="button" value="뒤로가기" onclick="history.go(-1)">
+                        </div>
+                    </div>
+	<form name="c" method="post" action="cash.do">
 </form>
 
 		</div>
