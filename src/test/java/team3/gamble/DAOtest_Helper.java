@@ -1,5 +1,6 @@
-package team3.web.gamble;
+package team3.gamble;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,30 +13,30 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import team3.gamble.common.dao.CommonDao;
-import team3.gamble.model.Board;
-import team3.gamble.model.DTO;
-import team3.gamble.model.FileDTO;
+import team3.gamble.model.Helper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })
-public class DAOtest_FileDTO {
+public class DAOtest_Helper {
 	// @Resource(name="addrDao")
 	@Inject
 	private CommonDao dao;
-	private static Logger logger = LoggerFactory.getLogger(DAOtest_FileDTO.class);
-	private String dbName="CONSULTING_BOARD_FILE";
+	private static Logger logger = LoggerFactory.getLogger(DAOtest_Helper.class);
+	private String dbName="CASH";
 
 	@Test
 	public void testCreate() throws Exception {
-		FileDTO dto = new FileDTO();
+		Helper dto = new Helper();
 		dto.setMethod("insert");
-		dto.setdbName(dbName);
-		dto.setOfname("file");
-		dto.setFname("file(1)");
-		dto.setParent_seq(2);
+		dto.setDbName(dbName);
+		
+		dto.setMember_seq(1);
+		dto.setGame_today(1);
+		dto.setGame_date(new Date("2017/12/06"));
 		dao.dml(dto);
-		dao.dml(dto);
-		dto.setParent_seq(3);
+		
+		dto.setMember_seq(3);
+		dto.setGame_date(new Date("2017/12/05"));
 		dao.dml(dto);
 		
 		logger.info("#testCreate()");
@@ -43,26 +44,26 @@ public class DAOtest_FileDTO {
 	}
 
 	@Test
-	public void testListAll() throws Exception {
-		FileDTO dto = new FileDTO();
+	public void testList() throws Exception {
+		Helper dto = new Helper(); 
 		dto.setMethod("list");
-		dto.setdbName(dbName);
-		dto.setParent_seq(2);
-		
-		List list = dao.list(dto);
+		dto.setDbName(dbName);
+		dto.setMember_seq(1);
+		List<Helper> list = dao.list(dto);
 		System.out.println("list.size(): " + list.size());
 
 		logger.info("#testListAll()");
 		System.out.println("####testListAll()");
 	}
-
+	
+	
 	@Test
 	public void testDelete() throws Exception {
-		Board dto = new Board();
+		Helper dto = new Helper();
 		dto.setMethod("delete");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 
-		dto.setNo(1);
+		dto.setSeq(2);
 
 		dao.dml(dto);
 		

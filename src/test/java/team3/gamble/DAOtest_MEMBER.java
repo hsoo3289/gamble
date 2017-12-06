@@ -1,4 +1,4 @@
-package team3.web.gamble;
+package team3.gamble;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class DAOtest_MEMBER {
 	public void testCreate() throws Exception {
 		Member dto = new Member();
 		dto.setMethod("insert");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 
 		dto.setName("aa");
 		dto.setId("bb");
@@ -56,7 +56,7 @@ public class DAOtest_MEMBER {
 	public void testListAll() throws Exception {
 		Member dto = new Member();
 		dto.setMethod("list");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 
 		List<Member> list = dao.list(dto);
 		System.out.println("list.size(): " + list.size());
@@ -69,7 +69,7 @@ public class DAOtest_MEMBER {
 	public void selectMember() throws Exception {
 		Member dto = new Member();
 		dto.setMethod("item");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 
 		dto.setNo(1);
 		DTO result = dao.item(dto);
@@ -82,7 +82,7 @@ public class DAOtest_MEMBER {
 	public void update() throws Exception {
 		Member dto = new Member();
 		dto.setMethod("update");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 
 		dto.setNo(1);
 		dto.setPwd("bbb");
@@ -99,7 +99,7 @@ public class DAOtest_MEMBER {
 	public void updateMoney() throws Exception {
 		Member dto = new Member();
 		dto.setMethod("updatemoney");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 
 		dto.setNo(2);
 		dto.setMoney(1000);
@@ -114,7 +114,7 @@ public class DAOtest_MEMBER {
 	public void updateAuthor() throws Exception {
 		Member dto = new Member();
 		dto.setMethod("updateautor");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 
 		dto.setNo(2);
 		dto.setAuthor_level(1);
@@ -129,7 +129,7 @@ public class DAOtest_MEMBER {
 	public void testDelete() throws Exception {
 		Member dto = new Member();
 		dto.setMethod("delete");
-		dto.setdbName(dbName);
+		dto.setDbName(dbName);
 
 		dto.setNo(1);
 

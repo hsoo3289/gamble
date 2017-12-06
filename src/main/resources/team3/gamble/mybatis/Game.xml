@@ -1,1 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team3.gamble.mybatis.game">
+
+	<resultMap id="Game" type="Game">
+		<result property="game_no" column="GAME_NO" />
+		<result property="member_seq" column="MEMBER_SEQ" />
+		<result property="player_remaining" column="PLAYER_REMAINING" />
+		<result property="bet_amount" column="BET_AMOUNT" />
+		<result property="this_amount" column="THIS_AMOUNT" />
+		<result property="game_name" column="GAME_NAME" />
+		<result property="cdate" column="CDATE" />
+	</resultMap>
+
+	<insert id="insert" parameterType="Game">
+		insert into GAME (GAME_NO, MEMBER_SEQ, PLAYER_REMAINING, BET_AMOUNT,
+		THIS_AMOUNT, GAME_NAME)
+		values(GAME_SEQ.NEXTVAL, #{member_seq},
+		#{player_remaining}, #{bet_amount}, #{this_amount}, #{game_name})
+	</insert>
+
+	<delete id="delete" parameterType="Game">
+		delete from GAME where GAME_NO=#{game_no}
+	</delete>
+
+	<select id="list" parameterType="Game" resultType="Game">
+		select * from GAME where MEMBER_SEQ=#{member_seq}
+	</select>
+
+</mapper>

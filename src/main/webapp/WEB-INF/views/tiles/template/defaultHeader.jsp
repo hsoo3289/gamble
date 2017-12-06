@@ -11,6 +11,7 @@
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="${pageContext.request.contextPath}">GAMBLE</a>
+			
 		</div>
 		<!-- /.navbar-header -->
 

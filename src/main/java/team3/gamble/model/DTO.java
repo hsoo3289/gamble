@@ -24,14 +24,10 @@ abstract public class DTO {
 	public void setBoardName(String boardName) {
 		this.boardName = boardName;
 	}
-
-	public void setDbName(String dbName) {
-		this.dbName = dbName;
-	}
 	
-	public void setdbName(@PathVariable("dbName")String dbName) {
+	public DTO setDbName(@PathVariable("dbName")String dbName) {
 		this.dbName = dbName;
-		
+		return this;
 	}
 	
 	public DTO setMethod(@PathVariable("method")String method) {
