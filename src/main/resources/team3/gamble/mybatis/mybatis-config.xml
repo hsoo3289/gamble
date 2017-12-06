@@ -5,27 +5,11 @@
 <configuration>
 
 	<typeAliases>
-		<typeAlias alias="Game" type="team3.gamble.model.Game" />
-		<typeAlias alias="Board" type="team3.gamble.model.Board" />
 		<typeAlias alias="Reply" type="team3.gamble.model.Reply" />
-		<typeAlias alias="FileDTO" type="team3.gamble.model.FileDTO" />
-		<typeAlias alias="Member" type="team3.gamble.model.Member" />
-		<typeAlias alias="Cash" type="team3.gamble.model.Cash" />
-		<typeAlias alias="Helper" type="team3.gamble.model.Helper" />
-		<typeAlias alias="AnonyBoard" type="team3.gamble.model.AnonyBoard" />
-		<typeAlias alias="AnonyReply" type="team3.gamble.model.AnonyReply" />
 	</typeAliases>
 
 	<mappers>
-		<mapper resource="team3/gamble/mybatis/Game.xml" /> <!--  -->
-		<mapper resource="team3/gamble/mybatis/Board.xml" /> <!--  -->
 		<mapper resource="team3/gamble/mybatis/Reply.xml" /> <!--  -->
-		<mapper resource="team3/gamble/mybatis/FileDTO.xml" /> <!--  -->
-		<mapper resource="team3/gamble/mybatis/Member.xml" /> <!--  -->
-		<mapper resource="team3/gamble/mybatis/Cash.xml" /> <!--  -->
-		<mapper resource="team3/gamble/mybatis/Helper.xml" /> <!--  -->
-		<mapper resource="team3/gamble/mybatis/AnonyBoard.xml" />
-		<mapper resource="team3/gamble/mybatis/AnonyReply.xml" />
 	</mappers>
 
 </configuration>
