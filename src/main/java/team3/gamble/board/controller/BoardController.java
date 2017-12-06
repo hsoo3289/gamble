@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import team3.gamble.board.service.BoardService;
+import team3.gamble.common.service.CommonService;
 import team3.gamble.model.Board;
 
 @SessionAttributes("user")
@@ -17,7 +17,7 @@ import team3.gamble.model.Board;
 @RequestMapping("{service}/{dbName}board/")
 public class BoardController {
 	@Autowired
-	BoardService service;
+	CommonService service;
 	
 	@RequestMapping("{view}.page")
 	ModelAndView list(@PathVariable("dbName")String dbName, 

@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import team3.gamble.member.service.MemberService;
+import team3.gamble.common.service.CommonService;
 
 @SessionAttributes("user")
 @Controller
 @RequestMapping("member")
 public class MemberController {
 	@Autowired
-	private MemberService service;
+	private CommonService service;
 	
 	@RequestMapping("{method}.form")
 	ModelAndView form(@PathVariable String method){

@@ -1,4 +1,4 @@
-package team3.gamble;
+package team3.gamble.dao;
 
 import java.util.List;
 

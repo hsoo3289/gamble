@@ -1,4 +1,4 @@
-package team3.gamble;
+package team3.gamble.dao;
 
 import java.util.List;
 
@@ -12,31 +12,29 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import team3.gamble.common.dao.CommonDao;
-import team3.gamble.model.AnonyReply;
+import team3.gamble.model.Reply;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })
-public class DAOtest_AnonyReply {
-	private static final String dbName = "Anonymous_board_reply";
+public class DAOtest_REPLY {
 	// @Resource(name="addrDao")
 	@Inject
 	private CommonDao dao;
-	private static Logger logger = LoggerFactory.getLogger(DAOtest_AnonyReply.class);
+	private static Logger logger = LoggerFactory.getLogger(DAOtest_REPLY.class);
 
 	@Test
 	public void testCreate() throws Exception {
-		AnonyReply dto = new AnonyReply();
-		dto.setMethod("insert");
-		dto.setDbName(dbName);
+		Reply reply = new Reply();
+		reply.setMethod("insert");
+		reply.setDbName("consulting_board_reply");
 
-		dto.setName("aa");
-		dto.setPwd("aa");
-		dto.setParent_seq(2);
-		dto.setReply_content("aa");
+		reply.setWriter_seq(2);
+		reply.setParent_seq(2);
+		reply.setReply_content("aa");
 		
-		dao.dml(dto);
-		dto.setName("bb");
-		dao.dml(dto);
+		dao.dml(reply);
+		reply.setWriter_seq(2);
+		dao.dml(reply);
 		
 		logger.info("#testCreate()");
 		System.out.println("####testCreate()");
@@ -44,13 +42,13 @@ public class DAOtest_AnonyReply {
 
 	@Test
 	public void testDelete() throws Exception {
-		AnonyReply dto = new AnonyReply();
-		dto.setMethod("delete");
-		dto.setDbName(dbName);
+		Reply reply = new Reply();
+		reply.setMethod("delete");
+		reply.setDbName("consulting_board_reply");
 
-		dto.setName("cc");
+		reply.setWriter_seq(2);
 
-		dao.dml(dto);
+		dao.dml(reply);
 		
 		logger.info("#testDelete()");
 		System.out.println("####testDelete()");
@@ -58,12 +56,12 @@ public class DAOtest_AnonyReply {
 
 	@Test
 	public void testListAll() throws Exception {
-		AnonyReply dto = new AnonyReply();
-		dto.setMethod("list");
-		dto.setDbName(dbName);
+		Reply reply = new Reply();
+		reply.setMethod("list");
+		reply.setDbName("consulting_board_reply");
 
-		dto.setParent_seq(2);
-		List<AnonyReply> list = dao.list(dto);
+		reply.setParent_seq(2);
+		List<Reply> list = dao.list(reply);
 		System.out.println("list.size(): " + list.size());
 
 		logger.info("#testListAll()");
@@ -72,15 +70,15 @@ public class DAOtest_AnonyReply {
 	
 	@Test
 	public void testHateCount() throws Exception {
-		AnonyReply dto = new AnonyReply();
-		dto.setMethod("hate_count");
-		dto.setDbName(dbName);
+		Reply reply = new Reply();
+		reply.setMethod("hate_count");
+		reply.setDbName("consulting_board_reply");
 
-		dto.setSeq(2);
-		dao.dml(dto);
+		reply.setSeq(2);
+		dao.dml(reply);
 
-		dto.setMethod("like_count");
-		dao.dml(dto);
+		reply.setMethod("like_count");
+		dao.dml(reply);
 
 		logger.info("#testListAll()");
 		System.out.println("####testListAll()");

@@ -59,3 +59,6 @@
 <div class="wrapper">
 <img src="${pageContext.request.contextPath}/resources/img/maxresdefault.jpg" width=250>
 </div>
+<div class="wrapper">
+<img src="${pageContext.request.contextPath}/resources/img/breath.jpg" width=250>
+</div>
