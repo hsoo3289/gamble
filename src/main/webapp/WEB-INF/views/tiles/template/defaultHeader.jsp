@@ -32,7 +32,7 @@
 		<div>
 			<c:choose>
 				<c:when test="${user eq null}">
-					<form id="login_form" action="member/login.do" method="post">
+					<form id="login_form" action="${pageContext.request.contextPath}/member/login.do" method="post">
 						<input name="id" id="id"> <input name="pwd" id="pwd"
 							type="password">
 						<input type="button" value="로그인" onclick="login()">
@@ -41,7 +41,7 @@
 				</c:when>
 				<c:otherwise>
 					<b>${user.name}</b>
-					<a class="button" href="member/logout.do">로그아웃</a>
+					<a class="button" href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 				</c:otherwise>
 			</c:choose>
 			<div id="login_msg"></div>

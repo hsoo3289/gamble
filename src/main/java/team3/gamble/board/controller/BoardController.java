@@ -12,9 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import team3.gamble.common.service.CommonService;
 import team3.gamble.model.Board;
 
-@SessionAttributes("user")
 @Controller
-@RequestMapping("{service}/{dbName}board/")
+@RequestMapping("{serviceName}/{dbName}board/")
 public class BoardController {
 	@Autowired
 	CommonService service;
@@ -22,46 +21,55 @@ public class BoardController {
 	@RequestMapping("{view}.page")
 	ModelAndView list(@PathVariable("dbName")String dbName, 
 			@PathVariable("view") String view, 
-			@PathVariable("service")String service) {
-		return new ModelAndView(service+"/"+dbName+"board/"+view);
+			@PathVariable("serviceName")String serviceName) {
+		return new ModelAndView(serviceName+"/"+dbName+"board/"+view);
 		
 	}
 	
-	@RequestMapping("boardList.do")
-	ModelAndView list() {
-		List<Board> list = null;
-		// service.method로 결과값 매핑 필요
-		return new ModelAndView("boardList", "list", list);
+	@RequestMapping("list.do")
+	ModelAndView list(Board board, 
+			@PathVariable("service")String serviceName) {
+		board.setMethod("list");
+		List<Board> list = service.list(board);
+		String uri = serviceName+"/list";
+		return new ModelAndView(uri, "list", list);
 		
 	}
 	
 	@RequestMapping("item.do")
-	ModelAndView item(Board board) {
-		List<Board> list = null;
-		// service.method로 결과값 매핑 필요
-		return new ModelAndView("list", "list", list);
+	ModelAndView item(Board board,
+			@PathVariable("service")String serviceName) {
+		board.setMethod("item");
+		Board item = service.item(board);
+		String uri = serviceName+"/list";
+		return new ModelAndView(uri, "item", item);
 		
 	}
 	
 	@RequestMapping("insert.do")
-	void insert(Board board) {
-		//service.insert(board);
-		
+	ModelAndView insert(Board board,
+			@PathVariable("service")String serviceName) {
+		board.setMethod("insert");
+		service.dml(board);
+		String uri = "redirect:"+serviceName+"/list";
+		return new ModelAndView(uri);
 	}
 	
 	@RequestMapping("delete.do")
-	ModelAndView delete(Board board) {
+	ModelAndView delete(Board board,
+			@PathVariable("service")String serviceName) {
 		List<Board> list = null;
-		// service.method로 결과값 매핑 필요
-		return new ModelAndView("list", "list", list);
+		String uri = "redirect:"+serviceName+"/list";
+		return new ModelAndView(uri);
 		
 	}
 	
 	@RequestMapping("update.do")
-	ModelAndView list(Board board) {
+	ModelAndView update(Board board,
+			@PathVariable("service")String serviceName) {
 		List<Board> list = null;
-		// service.method로 결과값 매핑 필요
-		return new ModelAndView("list", "list", list);
+		String uri = "redirect:"+serviceName+"/list";
+		return new ModelAndView(uri);
 		
 	}
 
