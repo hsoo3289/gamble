@@ -28,10 +28,10 @@
 			value="/WEB-INF/views/{1}/{2}board/{3}.jsp" />
 	</definition> <!-- BoardView Page -->
 
-	<definition name="member/*" extends="base-definition">
+	<definition name="*/*" extends="base-definition">
 		<put-attribute name="title" value="memberService" />
 		<put-attribute name="body"
-			value="/WEB-INF/views/member/{1}.jsp" />
+			value="/WEB-INF/views/{1}/{2}.jsp" />
 	</definition> <!-- BoardView Page -->
 
 	<definition name="boardView" extends="base-definition">

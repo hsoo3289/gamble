@@ -23,6 +23,10 @@
 	<select id="item" parameterType="Member" resultType="Member"> <!-- 정보 조회 -->
 		select * from MEMBER where NO=#{no}
 	</select>
+	
+	<select id="login" parameterType="Member" resultType="Member"> <!-- 정보 조회 -->
+		select * from MEMBER where ID=#{id}
+	</select>
 
 	<insert id="insert" parameterType="Member"> <!-- 회원 가입 -->
 		insert into MEMBER(NO, NAME, ID, PWD, EMAIL, PHONE, ACCNUM,
@@ -31,7 +35,6 @@
 		#{email}, #{phone}, #{accnum},
 		#{author_level})
 	</insert>
-
 
 	<update id="update" parameterType="Member"> <!-- 정보 수정 -->
 		update MEMBER set PWD=#{pwd}, EMAIL=#{email}, PHONE=#{phone},

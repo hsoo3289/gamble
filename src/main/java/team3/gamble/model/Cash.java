@@ -14,7 +14,7 @@ public class Cash extends DTO {
 	private int charing;
 	private Date chardate;
 	private long member_seq;
-	
+	private int approve;
 	public long getSeq() {
 		return seq;
 	}
@@ -29,6 +29,9 @@ public class Cash extends DTO {
 	}
 	public long getMember_seq() {
 		return member_seq;
+	}
+	public int getApprove() {
+		return approve;
 	}
 	public void setSeq(long seq) {
 		this.seq = seq;
@@ -45,6 +48,7 @@ public class Cash extends DTO {
 	public void setMember_seq(long member_seq) {
 		this.member_seq = member_seq;
 	}
-	
-	
+	public void setApprove(int approve) {
+		this.approve = approve;
+	}
 }

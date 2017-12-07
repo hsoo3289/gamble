@@ -9,7 +9,7 @@
 			<script type="text/javascript">
 		function check()
 		{
-			if(c.optionsRadios.value == "")
+			if(c.money.value == "")
 			{
 				alert("금액을 설정해주세여!")
 				return false;
@@ -37,35 +37,35 @@
 		
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"><!-- checked=""라는게 끝에 있었음. -->
+					<input type="radio" name="money" id="optionsRadios1" value=11000><!-- checked=""라는게 끝에 있었음. -->
 					포인트 11000원
 				</label>
 			</div>
 			&nbsp;
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+					<input type="radio" name="money" id="optionsRadios2" value="option2">
 					포인트 22000원
 				</label>
 			</div>
 			&nbsp;
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+					<input type="radio" name="money" id="optionsRadios3" value="option3">
 					포인트 33000원
 				</label>
 			</div>
 			&nbsp;
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios4" value="option5">
+					<input type="radio" name="money" id="optionsRadios4" value="option5">
 					포인트 44000원
 				</label>
 			</div>
 			&nbsp;
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios5" value="option5">
+					<input type="radio" name="money" id="optionsRadios5" value="option5">
 					포인트 55000원
 				</label>
 			</div>
@@ -74,35 +74,35 @@
 				<div class="col-xs-6" align='right' style="padding-right: 0px; width: 150px; margin-left: 50px;">
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios6" value="option6">
+					<input type="radio" name="money" id="optionsRadios6" value="option6">
 					포인트 66000원
 				</label>
 			</div>
 			&nbsp;
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios7" value="option7">
+					<input type="radio" name="money" id="optionsRadios7" value="option7">
 					포인트 77000원
 				</label>
 			</div>
 			&nbsp;
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios8" value="option8">
+					<input type="radio" name="money" id="optionsRadios8" value="option8">
 					포인트 88000원
 				</label>
 			</div>
 			&nbsp;
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios9" value="option9">
+					<input type="radio" name="money" id="optionsRadios9" value="option9">
 					포인트 99000원
 				</label>
 			</div>
 			&nbsp;
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios10" value="option10">
+					<input type="radio" name="money" id="optionsRadios10" value="option10">
 					포인트 110000원
 				</label>
 				</div>

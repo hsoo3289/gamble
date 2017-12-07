@@ -34,8 +34,7 @@ public class CommonDaoImpl implements CommonDao {
 	
 	@Override
 	public <T extends DTO> int count(T dto) {
-		sqlSession.update(dto.getNsDTO()+".count", dto);
-		return sqlSession.selectOne(dto.getNsDTO()+".count_get", dto);
+		return sqlSession.selectOne(dto.getNameSpace(), dto);
 	}
 	
 	@Override

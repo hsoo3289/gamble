@@ -33,5 +33,9 @@
 	<select id="list" parameterType="Cash" resultType="Cash"> <!-- 충전 내역 -->
 		select * from CASH where MEMBER_SEQ=#{member_seq}
 	</select>
+	
+	<select id="approve_list" parameterType="Cash" resultType="Cash"> <!-- 충전 내역 -->
+		select * from CASH where APPROVE=0
+	</select>
 
 </mapper>

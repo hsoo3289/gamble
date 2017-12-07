@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div>
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-static-top" role="navigation"
@@ -11,9 +12,14 @@
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="${pageContext.request.contextPath}">GAMBLE</a>
+			<c:if test="${user ne null}"> <b>${user.name}</b></c:if>
 		</div>
 		<!-- /.navbar-header -->
-
+		<div>
+			<input>
+			<input>
+			<button type="button">로그인</button>
+		</div>
 		<ul class="nav navbar-top-links navbar-right">
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"> <i class="fa fa-envelope fa-fw"></i>
