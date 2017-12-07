@@ -1,16 +1,18 @@
 package team3.gamble.member.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import team3.gamble.common.service.CommonService;
 import team3.gamble.model.Member;
 
-@SessionAttributes("user")
 @Controller
 @RequestMapping("member")
 public class MemberController {
@@ -48,6 +50,23 @@ public class MemberController {
 	ModelAndView update(Member member) {
 		service.dml(member.setMethod("update"));
 		return new ModelAndView("info","user", member);
+	}
+	
+	@RequestMapping("login.do")
+	ModelAndView login(Member member, HttpSession session) {
+		member.setMethod("login");
+		Member user = service.item(member);
+		if(!user.exist()) return new ModelAndView("redirect:/");
+		if(!user.pwdcheck(member.getPwd())) return new ModelAndView("redirect:/");
+		session.removeAttribute("user");
+		session.setAttribute("user", user);
+		return new ModelAndView("redirect:/","user",user);
+	}
+	
+	@RequestMapping("logout.do")
+	ModelAndView logout(HttpSession session) {
+		session.removeAttribute("user");
+		return new ModelAndView("redirect:/");
 	}
 	
 }

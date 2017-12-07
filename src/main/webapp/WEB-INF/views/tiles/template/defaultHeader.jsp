@@ -2,12 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script>
 	function login() {
-		if(login_form.id.value==""){
-			alert("id를 입력 하시오");
+		if (login_form.id.value == "") {
+			$("#login_msg").html("아이디를 입력하시오.");
+			login_form.id.focus();
 			return false;
 		}
-		if(login_form.pwd.value==""){
-			alert("pwd를 입력 하시오");
+		if (login_form.pwd.value == "") {
+			$("#login_msg").html("비밀번호를 입력하시오.");
+			login_form.pwd.focus();
 			return false;
 		}
 		login_form.submit();
@@ -25,17 +27,27 @@
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="${pageContext.request.contextPath}">GAMBLE</a>
-			<c:if test="${user ne null}">
-				<b>${user.name}</b>
-			</c:if>
 		</div>
 		<!-- /.navbar-header -->
 		<div>
-			<form id="login_form">
-				<input id="id"> <input id="pwd">
-				<button onclick="login()">로그인</button>
-			</form>
+			<c:choose>
+				<c:when test="${user eq null}">
+					<form id="login_form" action="member/login.do" method="post">
+						<input name="id" id="id"> <input name="pwd" id="pwd"
+							type="password">
+						<input type="button" value="로그인" onclick="login()">
+						<div id="login_msg"></div>
+					</form>
+				</c:when>
+				<c:otherwise>
+					<b>${user.name}</b>
+					<a class="button" href="member/logout.do">로그아웃</a>
+				</c:otherwise>
+			</c:choose>
+			<div id="login_msg"></div>
 		</div>
+
+
 		<ul class="nav navbar-top-links navbar-right">
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"> <i class="fa fa-envelope fa-fw"></i>
