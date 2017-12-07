@@ -18,6 +18,14 @@ public class Member extends DTO {
 	private int money;
 	private Date joindate;
 	private int author_level;
+	
+	public boolean exist() {
+		return no!=0;
+	}
+	
+	public boolean pwdcheck(String pwd) {
+		return this.pwd.equals(pwd);
+	}
 
 	public long getNo() {
 		return no;
