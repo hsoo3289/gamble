@@ -28,7 +28,6 @@ public class DAOtest_Cash {
 		Cash dto = new Cash();
 		dto.setMethod("insert");
 		dto.setDbName(dbName);
-		
 		dto.setMoney(1000);
 		dto.setCharing(100);
 		dto.setMember_seq(2);

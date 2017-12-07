@@ -7,6 +7,11 @@
 		<font size="5"><strong>회원정보</strong></font>
 		<hr width="500" size="2">
 	</div>
+	<script type="text/javascript">
+		function update(){
+			location.href="update.do"
+		}
+	</script>
 	<table class="table table-striped table-bordered" border="1"
 		width="600" align="center" cellpadding="3" cellspacing="1"
 		style="width: 502px;">
@@ -41,7 +46,7 @@
 	</table>
 	<hr width='500' size='2' noshade>
 	<b>
-		<button class="btn default" onclick="">정보수정</button> |
+		<button class="btn default" onclick="update()">정보수정</button> |
 		<button class="btn default" onclick="history.go(-1)">뒤로가기</button>
 	</b>
 	<hr width='500' size='2' noshade>
