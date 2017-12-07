@@ -184,11 +184,13 @@
 					</c:choose></td>
 			</tr>
 			<tr>
-				<td colspan="2"><div align="center">
-						<br /> <input id="join" class="btn default" name="" type="button"
-							value="가입" onclick="submit()"> <input class="btn default"
-							name="" type="reset" value="다시쓰기">
-					</div></td>
+				<td colspan="2">
+				 <div align="center">
+				 <br/> 
+					<input id="join" class="btn default" name="" type="button" value="가입" onclick="submit()"> 
+					<input class="btn default" name="" type="reset" value="다시쓰기">
+				 </div>
+				</td>
 			</tr>
 		</table>
 	</form>
