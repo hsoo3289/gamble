@@ -9,7 +9,7 @@
 	</div>
 	<script type="text/javascript">
 		function update(){
-			location.href="update.do"
+			location.href="update.page"
 		}
 	</script>
 	<table class="table table-striped table-bordered" border="1"

@@ -53,22 +53,19 @@
 		}
 	}
 
-	function idCheck(id) {
-		var xhttp;
-		if (id.length < 4) {
-			document.getElementById("idcheck").innerHTML = "<p class='text-danger'>입력 ID 4자 미만";
-			return;
-		}
-		xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				flag = (this.responseText.includes("success"));
-				console.log(flag);
-				document.getElementById("idcheck").innerHTML = this.responseText;
+	function idCheck(id){
+		$.ajax({
+			type: 'GET',
+			url : "",
+			data : {"id":id},
+			success: function(data){
+				if(data){
+					alert("사용할수 없는 아이디 입니다.");
+				}else{
+					alert("사용 가능한 아이디 입니다.");
+				}
 			}
-		};
-		xhttp.open("GET", "idcheck.do?id=" + id, true);
-		xhttp.send();
+		});
 	}
 	function move_focus(id){
 		if(event.keyCode == 13) document.getElementById(id).focus();

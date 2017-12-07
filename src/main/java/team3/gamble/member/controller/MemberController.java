@@ -1,5 +1,6 @@
 package team3.gamble.member.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +49,9 @@ public class MemberController {
 	
 	@RequestMapping("update.do")
 	ModelAndView update(Member member) {
+		System.out.println("여기로 오니?");
 		service.dml(member.setMethod("update"));
-		return new ModelAndView("info","user", member);
+		return new ModelAndView("member/info","user", member);
 	}
 	
 	@RequestMapping("login.do")
@@ -64,9 +66,12 @@ public class MemberController {
 	}
 	
 	@RequestMapping("logout.do")
-	ModelAndView logout(HttpSession session) {
+	ModelAndView logout(HttpSession session){
 		session.removeAttribute("user");
 		return new ModelAndView("redirect:/");
 	}
-	
+	@RequestMapping("idcheck.do")
+	ModelAndView idcheck(Member member){
+		return null;
+	}
 }
