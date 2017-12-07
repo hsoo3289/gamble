@@ -20,8 +20,8 @@
 		}
 	</script>
 	<br/>
-	<div class="row" style="margin: 20px 0 20px 0">
-	<div class="col-lg-3" style="margin-top: 70px;">
+	<div class="row">
+	<div class="col-lg-3" style="margin-top: 80px;margin-left: 40px;">
                     <div class="panel panel-warning" style="height: 162px;">
                         <div style='text-align:center' class="panel-heading">
                         	결제패키지
@@ -35,12 +35,12 @@
                     </div>
                     <!-- /.col-lg-3 -->
                 </div>
-               <div class="panel panel-yellow" style="height: 352px;">
-                        <div style='text-align:center' class="panel-heading" style="margin-left: 200px;">
-                            		캐시 충전
-                        </div>
-               <div class="panel-container" id="page-wrapper" style="margin-left: 200px;">
-                 <div class="row">
+       <div class="panel-container" id="page-wrapper" style="margin-left: 0px;">
+          <div class="panel panel-yellow" style="height: 352px;">
+                   		<div style='text-align:center' class="panel-heading" style="margin-left: 200px;">
+                                                                  캐시 충전
+                   		</div>
+            <div class="row" id = "page-wrapper">
                    <div class="col-xs-6" align='left' style="padding-right: 0px;">
 			            <div class="radio">
 							<label>
@@ -114,13 +114,14 @@
 							</label>
 							</div>
 					</div>
-                        </div>
-                 </div>
-                        <div class="panel-footer">
-                            <input class="btn default" name="" type="button" value="충전요청" onclick="check()" style="margin-right: 140px;">
-	 						<input class="btn default" name="" type="button" value="뒤로가기" onclick="history.go(-1)">
-                        </div>
-                    </div>
+              </div>
+                 
+                  <div class="panel-footer">
+                      <input class="btn default" name="" type="button" value="충전요청" onclick="check()" style="margin-right: 140px;">
+					  <input class="btn default" name="" type="button" value="뒤로가기" onclick="history.go(-1)">
+                  </div>
+          </div>              
+       </div>
 	<form name="c" method="post" action="cash.do">
 </form>
 
