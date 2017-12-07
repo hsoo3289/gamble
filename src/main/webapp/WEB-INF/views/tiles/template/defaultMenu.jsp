@@ -35,7 +35,7 @@
 	<li><a href="#"><i class="fa fa-coffee fa-fw"></i> 상담 서비스<span
 			class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
-			<li><a href="${pageContext.request.contextPath}/consulting/consultingboard/list.page"><i class="fa fa-smile-o"></i> CONSULTING BOARD</a></li>
+			<li><a href="${pageContext.request.contextPath}/consulting/consultingboard/list.do"><i class="fa fa-smile-o"></i> CONSULTING BOARD</a></li>
 			<li><a href="${pageContext.request.contextPath}/consulting/anonymousboard/list.page"><i class="fa fa-comments-o"></i> ANONYMOUS BOARD</a></li>
 			<li><a href="${pageContext.request.contextPath}/consulting/helper/list.page"><i class="fa fa-heart"></i> HELPER</a></li>
 		</ul> <!-- /.nav-second-level --></li>
@@ -44,23 +44,23 @@
 	<li><a href="#"><i class="fa fa-desktop fa-fw"></i> 게 임<span
 			class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
-			<li><a href="${pageContext.request.contextPath}/game/game/play.page"><i class="fa fa-gamepad fa-fw"></i> GAME
+			<li><a href="${pageContext.request.contextPath}/game/play.page"><i class="fa fa-gamepad fa-fw"></i> GAME
 					PLAY</a></li>
-			<li><a href="${pageContext.request.contextPath}/game/game_result/game_result.page"><i class="fa fa-bar-chart-o fa-fw"></i> RESULT
+			<li><a href="${pageContext.request.contextPath}/game/game_result.page"><i class="fa fa-bar-chart-o fa-fw"></i> RESULT
 					CHECK</a></li>
 			<li><a
-				href="${pageContext.request.contextPath}/game/gameboard/list.page"><i class="glyphicon glyphicon-list-alt"></i> GAME
+				href="${pageContext.request.contextPath}/game/list.page"><i class="glyphicon glyphicon-list-alt"></i> GAME
 					BOARD</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 </ul>
 
 <div class="wrapper">
-<img src="${pageContext.request.contextPath}/resources/img/maxresdefault.jpg" width=250>
+<img src="${pageContext.request.contextPath}/img/maxresdefault.jpg" width=250>
 </div>
 <div class="wrapper">
-<img src="${pageContext.request.contextPath}/resources/img/breath.jpg" width=250>
+<img src="${pageContext.request.contextPath}/img/breath.jpg" width=250>
 </div>
 <div class="wrapper">
-<img src="${pageContext.request.contextPath}/resources/img/leg.jpg" width=250>
+<img src="${pageContext.request.contextPath}/img/leg.jpg" width=250>
 </div>
 

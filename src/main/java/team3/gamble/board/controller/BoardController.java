@@ -13,7 +13,7 @@ import team3.gamble.common.service.CommonService;
 import team3.gamble.model.Board;
 
 @Controller
-@RequestMapping("{serviceName}/{dbName}board/")
+@RequestMapping("{serviceName}/consultingboard/")
 public class BoardController {
 	@Autowired
 	CommonService service;
@@ -28,47 +28,52 @@ public class BoardController {
 	
 	@RequestMapping("list.do")
 	ModelAndView list(Board board, 
-			@PathVariable("service")String serviceName) {
+			@PathVariable("serviceName")String serviceName) {
+		board.setDbName("consulting_board_view");
 		board.setMethod("list");
 		List<Board> list = service.list(board);
-		String uri = serviceName+"/list";
+		String uri = serviceName+"consulting/consultingboard/list";
 		return new ModelAndView(uri, "list", list);
 		
 	}
 	
 	@RequestMapping("item.do")
 	ModelAndView item(Board board,
-			@PathVariable("service")String serviceName) {
+			@PathVariable("serviceName")String serviceName) {
 		board.setMethod("item");
+		board.setDbName("consultingboard_board_view");
 		Board item = service.item(board);
-		String uri = serviceName+"/list";
+		String uri = serviceName+"consulting/list";
 		return new ModelAndView(uri, "item", item);
 		
 	}
 	
 	@RequestMapping("insert.do")
 	ModelAndView insert(Board board,
-			@PathVariable("service")String serviceName) {
+			@PathVariable("serviceName")String serviceName) {
+		board.setDbName("consulting_board");
 		board.setMethod("insert");
 		service.dml(board);
-		String uri = "redirect:"+serviceName+"/list";
+		String uri = "redirect:"+serviceName+"consulting/list";
 		return new ModelAndView(uri);
 	}
 	
 	@RequestMapping("delete.do")
 	ModelAndView delete(Board board,
-			@PathVariable("service")String serviceName) {
+			@PathVariable("serviceName")String serviceName) {
+		board.setDbName("consultingboard");
 		List<Board> list = null;
-		String uri = "redirect:"+serviceName+"/list";
+		String uri = "redirect:"+serviceName+"consulting/list";
 		return new ModelAndView(uri);
 		
 	}
 	
 	@RequestMapping("update.do")
 	ModelAndView update(Board board,
-			@PathVariable("service")String serviceName) {
+			@PathVariable("serviceName")String serviceName) {
+		board.setDbName("consulting_board");
 		List<Board> list = null;
-		String uri = "redirect:"+serviceName+"/list";
+		String uri = "redirect:"+serviceName+"consulting/list";
 		return new ModelAndView(uri);
 		
 	}

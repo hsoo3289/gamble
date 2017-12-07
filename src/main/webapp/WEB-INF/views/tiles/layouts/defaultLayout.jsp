@@ -11,32 +11,32 @@
 
 <!-- Bootstrap Core CSS -->
 <link
-	href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css"
+	href="bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 
 <!-- MetisMenu CSS -->
 <link
-	href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/metisMenu/dist/metisMenu.min.css"
+	href="${pageContext.request.contextPath}/bootstrap/bower_components/metisMenu/dist/metisMenu.min.css"
 	rel="stylesheet">
 
 <!-- Timeline CSS -->
 <link
-	href="${pageContext.request.contextPath}/resources/bootstrap/dist/css/timeline.css"
+	href="${pageContext.request.contextPath}/bootstrap/dist/css/timeline.css"
 	rel="stylesheet">
 
 <!-- Custom CSS -->
 <link
-	href="${pageContext.request.contextPath}/resources/bootstrap/dist/css/sb-admin-2.css"
+	href="${pageContext.request.contextPath}/bootstrap/dist/css/sb-admin-2.css"
 	rel="stylesheet">
 
 <!-- Morris Charts CSS -->
 <link
-	href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/morrisjs/morris.css"
+	href="${pageContext.request.contextPath}/bootstrap/bower_components/morrisjs/morris.css"
 	rel="stylesheet">
 
 <!-- Custom Fonts -->
 <link
-	href="${pageContext.request.contextPath}/resources/bootstrap/bower_components/font-awesome/css/font-awesome.min.css"
+	href="${pageContext.request.contextPath}/bootstrap/bower_components/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 
 </head>
@@ -71,23 +71,23 @@
 
 	<!-- jQuery -->
 	<script
-		src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
+		src="${pageContext.request.contextPath}/bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script
-		src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		src="${pageContext.request.contextPath}/bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 	<!-- Metis Menu Plugin JavaScript -->
 	<script
-		src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+		src="${pageContext.request.contextPath}/bootstrap/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
 	<!-- Morris Charts JavaScript
-	<script src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/raphael/raphael-min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/bootstrap/bower_components/morrisjs/morris.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/bootstrap/js/morris-data.js"></script>
+	<script src="${pageContext.request.contextPath}/bootstrap/bower_components/raphael/raphael-min.js"></script>
+	<script src="${pageContext.request.contextPath}/bootstrap/bower_components/morrisjs/morris.min.js"></script>
+	<script src="${pageContext.request.contextPath}/bootstrap/js/morris-data.js"></script>
  -->
 	<!-- Custom Theme JavaScript -->
 	<script
-		src="${pageContext.request.contextPath}/resources/bootstrap/dist/js/sb-admin-2.js"></script>
+		src="${pageContext.request.contextPath}/bootstrap/dist/js/sb-admin-2.js"></script>
 </body>
 </html>

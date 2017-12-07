@@ -8,7 +8,7 @@
 	<div class="row">
 		<h1>Hello world!</h1>
 
-		<img src="resources/img/home.gif">
+		<img src="img/home.gif">
 		<P>The time on the server is ${serverTime}.</P>
 	</div>
 </body>
