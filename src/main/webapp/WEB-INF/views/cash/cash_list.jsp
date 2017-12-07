@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <body>
 	<center>
+	<center>
 		<div class="row">
 			<hr width='700' size='2' noshade>
 			<h2>충전 리스트</h2>
@@ -16,6 +17,7 @@
 		<h2>충전 리스트</h2>
 		<hr width='700' size='2' noshade>
 	  </div>
+		</div>
 		<table class="table table-striped table-bordered" border="1"
 			width="600" align="center" cellpadding="3" cellspacing="1"
 			style="width: 702px;">
