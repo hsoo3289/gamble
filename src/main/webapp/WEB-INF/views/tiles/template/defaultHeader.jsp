@@ -1,5 +1,18 @@
 <%@ page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script>
+	function login() {
+		if(login_form.id.value==""){
+			alert("id를 입력 하시오");
+			return false;
+		}
+		if(login_form.pwd.value==""){
+			alert("pwd를 입력 하시오");
+			return false;
+		}
+		login_form.submit();
+	}
+</script>
 <div>
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-static-top" role="navigation"
@@ -12,13 +25,16 @@
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="${pageContext.request.contextPath}">GAMBLE</a>
-			<c:if test="${user ne null}"> <b>${user.name}</b></c:if>
+			<c:if test="${user ne null}">
+				<b>${user.name}</b>
+			</c:if>
 		</div>
 		<!-- /.navbar-header -->
 		<div>
-			<input>
-			<input>
-			<button type="button">로그인</button>
+			<form id="login_form">
+				<input id="id"> <input id="pwd">
+				<button onclick="login()">로그인</button>
+			</form>
 		</div>
 		<ul class="nav navbar-top-links navbar-right">
 			<li class="dropdown"><a class="dropdown-toggle"
@@ -197,7 +213,7 @@
 		</ul>
 		<!-- /.navbar-top-links -->
 
-		
+
 		<!-- /.navbar-static-side -->
 	</nav>
 </div>
