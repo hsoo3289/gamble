@@ -5,12 +5,25 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <body>
+<<<<<<< HEAD
 	<center>
+=======
+	<center>
+>>>>>>> branch 'master' of http://github.com/hsoo83/gamble
 		<div class="row">
 			<hr width='700' size='2' noshade>
 			<h2>충전 리스트</h2>
 			<hr width='700' size='2' noshade>
+<<<<<<< HEAD
 		</div>
+=======
+		</div>
+	  <div class="row">
+		<hr width='700' size='2' noshade>
+		<h2>충전 리스트</h2>
+		<hr width='700' size='2' noshade>
+	  </div>
+>>>>>>> branch 'master' of http://github.com/hsoo83/gamble
 		<table class="table table-striped table-bordered" border="1"
 			width="600" align="center" cellpadding="3" cellspacing="1"
 			style="width: 702px;">
