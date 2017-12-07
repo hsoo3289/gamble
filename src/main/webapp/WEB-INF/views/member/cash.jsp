@@ -77,7 +77,6 @@
 				</label>
 					</div>
 				</div>
-			</div>
 			<!-- 여기를 반으로 나눠야 한다고.. -->
 				<div align='right' style="padding-right: 0px;">
 			<div class="radio">
@@ -116,6 +115,7 @@
 				</div>
 					</div>
                         </div>
+                 </div>
                         <div class="panel-footer">
                             <input class="btn default" name="" type="button" value="충전요청" onclick="check()" style="margin-right: 140px;">
 	 						<input class="btn default" name="" type="button" value="뒤로가기" onclick="history.go(-1)">
