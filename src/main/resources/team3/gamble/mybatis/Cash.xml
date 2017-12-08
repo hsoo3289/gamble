@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="team3.gamble.mybatis.cash">
+<mapper namespace="team3.gamble.mybatis.member.cash">
 
 	<resultMap id="Cash" type="Cash">
 		<result property="seq" column="SEQ" />			<!-- 충전내역 -->
@@ -12,29 +12,29 @@
 		<result property="approve" column="APPROVE" />
 	</resultMap>
 
-	<insert id="insert" parameterType="Cash"> <!-- 캐시 충전 -->
+	<insert id="insert" parameterType="hashmap"> <!-- 캐시 충전 -->
 		insert into CASH(SEQ,MONEY,CHARING,MEMBER_SEQ)
 		values(CASH_SEQ.NEXTVAL, #{money}, #{charing}, #{member_seq})
 	</insert>
 	
-	<delete id="delete" parameterType="Cash"> <!-- 캐시 충전 -->
+	<delete id="delete" parameterType="hashmap"> <!-- 캐시 충전 -->
 		delete from CASH where SEQ=#{seq}
 	</delete>
 
-	<update id="approve" parameterType="Cash">
+	<update id="approve" parameterType="hashmap">
 		update CASH set APPROVE = 1
 		where seq = #{seq}
 	</update>
 
-	<select id="item" parameterType="Cash" resultType="Cash"> <!-- 충전 내역 -->
+	<select id="item" parameterType="hashmap" resultType="hashmap"> <!-- 충전 내역 -->
 		select * from CASH where SEQ=#{seq}
 	</select>
 	
-	<select id="list" parameterType="Cash" resultType="Cash"> <!-- 충전 내역 -->
+	<select id="list" parameterType="hashmap" resultType="hashmap"> <!-- 충전 내역 -->
 		select * from CASH where MEMBER_SEQ=#{member_seq}
 	</select>
 	
-	<select id="approve_list" parameterType="Cash" resultType="Cash"> <!-- 충전 내역 -->
+	<select id="approve_list" parameterType="hashmap" resultType="hashmap"> <!-- 충전 내역 -->
 		select * from CASH where APPROVE=0
 	</select>
 

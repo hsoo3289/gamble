@@ -4,10 +4,6 @@ import java.util.Date;
 
 public class Board extends Member{
 
-	@Override
-	String getDTOName() {
-		return "board";
-	}
 	private long seq;
 	private String subject;
 	private String content;

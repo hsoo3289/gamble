@@ -3,10 +3,6 @@
 
 
 
-<html>
-<head>
-<title>간단한 게시판</title>
-
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -70,12 +66,10 @@
 		xhttp.open("GET", "idcheck.do?id=" + id, true);
 		xhttp.send();
 	}
-	function move_focus(id){
-		if(event.keyCode == 13) document.getElementById(id).focus();
+	function move_focus(id) {
+		if (event.keyCode == 13) document.getElementById(id).focus();
 		return;
 	}
-	
-	
 </script>
 <meta charset='utf-8'>
 </head>
@@ -86,7 +80,8 @@
 		<a class="btn btn-default btn-xs" href='../'>인덱스</a>
 		<hr width="600" size="2" noshade>
 	</center>
-	<div id="page-wrapper" style="min-height: 480px; margin: 0 20% 2% 20%; align:center; ">
+	<div id="page-wrapper"
+		style="min-height: 480px; margin: 0 20% 2% 20%; align: center;">
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">REGISTER</h1>
@@ -112,14 +107,17 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>NICK</label> <input id="nick" name="nick" class="form-control" onkeypress="move_focus('pwd')">
+								<label>NICK</label> <input id="nick" name="nick"
+									class="form-control" onkeypress="move_focus('pwd')">
 							</div>
 							<div class="form-group">
-								<label>PASSWORD</label> <input id="pwd" name="pwd" type="password" onkeypress="move_focus('pwd2')"
+								<label>PASSWORD</label> <input id="pwd" name="pwd"
+									type="password" onkeypress="move_focus('pwd2')"
 									class="form-control" onkeyup="pwdCheck()">
 							</div>
 							<div class="form-group">
-								<label>PASSWORD CHECK</label> <input id="pwd2" name="pwd2" type="password" onkeypress="move_focus('name')"
+								<label>PASSWORD CHECK</label> <input id="pwd2" name="pwd2"
+									type="password" onkeypress="move_focus('name')"
 									class="form-control" onkeyup="pwdCheck()">
 								<div id="pwdcheckmsg">
 									<p class="text-muted">패스워드는 4자 이상으로 작성</p>
@@ -127,29 +125,32 @@
 							</div>
 
 							<div class="form-group">
-								<label>NAME</label> <input name="name" id="name" class="form-control" onkeypress="move_focus('ssn')">
+								<label>NAME</label> <input name="name" id="name"
+									class="form-control" onkeypress="move_focus('ssn')">
 							</div>
 
 							<div class="form-group">
-								<label>SOCIAL SECURITY NUMBER</label> <input name="ssn" id="ssn" onkeypress="move_focus('email')"
-									class="form-control">
+								<label>SOCIAL SECURITY NUMBER</label> <input name="ssn" id="ssn"
+									onkeypress="move_focus('email')" class="form-control">
 							</div>
 
 							<div class="form-group">
-								<label>E-MAIL</label> <input name="email" id="email" class="form-control" onkeypress="move_focus('phone')">
+								<label>E-MAIL</label> <input name="email" id="email"
+									class="form-control" onkeypress="move_focus('phone')">
 							</div>
 
 							<div class="form-group">
-								<label>CONTACT</label> <input name="phone" id="phone" class="form-control" onkeypress="move_focus('submit_button')">
+								<label>CONTACT</label> <input name="phone" id="phone"
+									class="form-control" onkeypress="move_focus('submit_button')">
 							</div>
 
 							<div class="form-group" style="text-align: center;">
 
-								<input type="button" id="submit_button" class="btn btn-outline btn-success"
-									style="margin: 10px" value="전송하기" onclick="check(this)">
-								&nbsp;&nbsp;&nbsp; <input type="reset"
-									class="btn btn-outline btn-warning" style="margin: 10px"
-									value="다시입력">
+								<input type="button" id="submit_button"
+									class="btn btn-outline btn-success" style="margin: 10px"
+									value="전송하기" onclick="check(this)"> &nbsp;&nbsp;&nbsp;
+								<input type="reset" class="btn btn-outline btn-warning"
+									style="margin: 10px" value="다시입력">
 							</div>
 					</div>
 
@@ -169,5 +170,3 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>

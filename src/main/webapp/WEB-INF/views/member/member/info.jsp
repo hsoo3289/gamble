@@ -8,41 +8,49 @@
 		<hr width="500" size="2">
 	</div>
 	<script type="text/javascript">
-		function update(){
-			location.href="update.do"
+		function update() {
+			location.href = "update.do"
 		}
 	</script>
 	<table class="table table-striped table-bordered" border="1"
 		width="600" align="center" cellpadding="3" cellspacing="1"
 		style="width: 502px;">
-		<tr>
-			<td width='100' align='center'>회원번호</td>
-			<td>${user.no}</td>
-		</tr>
-		<tr>
-			<td align='center'>이름</td>
-			<td>${user.name}</td>
-		</tr>
-		<tr>
-			<td align='center'>ID</td>
-			<td>${user.id}</td>
-		</tr>
-		<tr>
-			<td align='center'>PWD</td>
-			<td>${user.pwd}</td>
-		</tr>
-		<tr>
-			<td align='center'>이메일</td>
-			<td>${user.email}</td>
-		</tr>
-		<tr>
-			<td align='center'>핸드폰번호</td>
-			<td>${user.phone}</td>
-		</tr>
-		<tr>
-			<td align='center'>계좌번호</td>
-			<td>${user.accnum}</td>
-		</tr>
+		<c:choose>
+			<c:when test="${user eq null}">
+				<tr><td span='5'>로그인 하시오</td>
+				</tr>
+			</c:when>
+			<c:otherwise>
+				<tr>
+					<td width='100' align='center'>회원번호</td>
+					<td>${user.no}</td>
+				</tr>
+				<tr>
+					<td align='center'>이름</td>
+					<td>${user.name}</td>
+				</tr>
+				<tr>
+					<td align='center'>ID</td>
+					<td>${user.id}</td>
+				</tr>
+				<tr>
+					<td align='center'>PWD</td>
+					<td>${user.pwd}</td>
+				</tr>
+				<tr>
+					<td align='center'>이메일</td>
+					<td>${user.email}</td>
+				</tr>
+				<tr>
+					<td align='center'>핸드폰번호</td>
+					<td>${user.phone}</td>
+				</tr>
+				<tr>
+					<td align='center'>계좌번호</td>
+					<td>${user.accnum}</td>
+				</tr>
+			</c:otherwise>
+		</c:choose>
 	</table>
 	<hr width='500' size='2' noshade>
 	<b>

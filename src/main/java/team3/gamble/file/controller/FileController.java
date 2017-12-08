@@ -18,7 +18,7 @@ public class FileController {
 	
 	@RequestMapping("list.do")
 	public void list(FileDTO dto) {
-		service.list(dto);
+//		service.list(dto);
 	}
 	
 	@RequestMapping("upload.do")

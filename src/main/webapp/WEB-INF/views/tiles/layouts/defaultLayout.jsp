@@ -11,7 +11,7 @@
 
 <!-- Bootstrap Core CSS -->
 <link
-	href="bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css"
+	href="${pageContext.request.contextPath}/bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 
 <!-- MetisMenu CSS -->

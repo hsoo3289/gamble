@@ -14,7 +14,7 @@
 		<result property="cdate" column="CDATE" />
 	</resultMap>
 
-	<insert id="insert" parameterType="Game">
+	<insert id="insert" parameterType="hashmap">
 		insert into GAME (GAME_NO,
 		MEMBER_SEQ, PLAYER_REMAINING, BET_AMOUNT,
 		THIS_AMOUNT, GAME_NAME)
@@ -23,12 +23,12 @@
 		#{bet_amount}, #{this_amount}, #{game_name})
 	</insert>
 
-	<delete id="delete" parameterType="Game">
+	<delete id="delete" parameterType="hashmap">
 		delete from GAME where
 		GAME_NO=#{game_no}
 	</delete>
 
-	<select id="list" parameterType="Game" resultType="Game">
+	<select id="list" parameterType="hashmap" resultType="hashmap">
 		select * from
 		GAME where MEMBER_SEQ=#{member_seq}
 	</select>

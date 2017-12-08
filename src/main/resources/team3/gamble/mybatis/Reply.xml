@@ -17,24 +17,24 @@
 		
 	</resultMap>
 	
-	<select id="list" resultType="Reply" parameterType="Reply">
+	<select id="list" resultType="hashmap" parameterType="hashmap">
 		select * from ${dbName} where PARENT_SEQ=#{parent_seq} order by SEQ desc
 	</select>
 	
-	<insert id="insert" parameterType="Reply">
+	<insert id="insert" parameterType="hashmap">
 		insert into ${dbName} (SEQ, WRITER_SEQ, REPLY_CONTENT, PARENT_SEQ)
 		values(${dbName}_SEQ.NEXTVAL, #{writer_seq}, #{reply_content}, #{parent_seq})
 	</insert>
 	
-	<update id="hate_count" parameterType="Reply">
+	<update id="hate_count" parameterType="hashmap">
 		update ${dbName} set HATE_COUNT=HATE_COUNT+1 where SEQ=#{seq}
 	</update>
 	
-	<update id="like_count" parameterType="Reply">
+	<update id="like_count" parameterType="hashmap">
 		update ${dbName} set LIKE_COUNT=LIKE_COUNT+1 where SEQ=#{seq}
 	</update>
 	
-	<delete id="delete" parameterType="Reply">
+	<delete id="delete" parameterType="hashmap">
 		delete from ${dbName} where SEQ=#{seq}
 	</delete>
 </mapper>

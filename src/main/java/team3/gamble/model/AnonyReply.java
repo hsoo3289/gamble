@@ -2,12 +2,8 @@ package team3.gamble.model;
 
 import java.util.Date;
 
-public class AnonyReply extends DTO{
-	@Override
-	String getDTOName() {
-		return "anonyreply";
-	}
-	
+public class AnonyReply{
+
 	private long seq;
 	private String name;
 	private String pwd;

@@ -2,7 +2,7 @@ package team3.gamble.model;
 
 import java.util.Date;
 
-public class Reply extends DTO {
+public class Reply{
 
 	private long seq;
 	private long writer_seq;
@@ -11,12 +11,7 @@ public class Reply extends DTO {
 	private int like_count;
 	private long parent_seq;
 	private Date cdate;
-	
-	@Override
-	String getDTOName() {
-		return "Reply";
-	}
-	
+
 	public long getSeq() {
 		return seq;
 	}

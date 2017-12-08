@@ -27,11 +27,11 @@
 			</c:if>
 			<c:forEach items="${list}" var="cash">
 				<tr>
-					<td align="center">${cash.seq}</td>
-					<td align="center">${cash.seq}</td>
-					<td align="center">${cash.charing}</td>
-					<td align="center">${cash.chardate}</td>
-					<td align="center">${cash.approve}</td>
+					<td align="center">${cash.SEQ}</td>
+					<td align="center">${cash.MEMBER_SEQ}</td>
+					<td align="center">${cash.CHARING}</td>
+					<td align="center">${cash.CHARDATE}</td>
+					<td align="center">${cash.APPROVE}</td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -2,13 +2,8 @@ package team3.gamble.model;
 
 import java.util.Date;
 
-public class Helper extends DTO{
+public class Helper{
 
-	@Override
-	String getDTOName() {
-		return "helper";
-	}
-	
 	private long seq;
 	private long member_seq;
 	private Date cdate;

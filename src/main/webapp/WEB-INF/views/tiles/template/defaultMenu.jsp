@@ -19,37 +19,37 @@
 	<li><a href="#"><i class="fa fa-user fa-fw"></i> 회 원<span
 			class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
-			<li><a href="${pageContext.request.contextPath}/member/join.form"><i class="fa fa-pencil-square-o"></i> 회원가입</a></li>
-			<li><a href="${pageContext.request.contextPath}/member/info.page"><i class="fa fa-info-circle"></i> 회원정보</a></li>
+			<li><a href="${pageContext.request.contextPath}/member/member/register.page"><i class="fa fa-pencil-square-o"></i> 회원가입</a></li>
+			<li><a href="${pageContext.request.contextPath}/member/member/item.item.info"><i class="fa fa-info-circle"></i> 회원정보</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 
 	<!-- nav fist level cash 서비스 -->
 	<li><a href="#"><i class="fa fa-won fa-fw "></i>CASH<span class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
-			<li><a href="${pageContext.request.contextPath}/cash/cash.page"><i class="fa fa-money"></i> cash 충전</a></li>
-			<li><a href="${pageContext.request.contextPath}/cash/cash_list.page"><i class="glyphicon glyphicon-th-list"></i> 충전 이력</a></li>
-			<li><a href="${pageContext.request.contextPath}/cash/cash_approve.page"><i class="fa fa-check-square-o"></i> 관리자 승인</a></li>
+			<li><a href="${pageContext.request.contextPath}/member/cash/cash.page"><i class="fa fa-money"></i> cash 충전</a></li>
+			<li><a href="${pageContext.request.contextPath}/member/cash/list.list.cash_list"><i class="glyphicon glyphicon-th-list"></i> 충전 이력</a></li>
+			<li><a href="${pageContext.request.contextPath}/member/cash/approve_list.list.cash_approve"><i class="fa fa-check-square-o"></i> 관리자 승인</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 		
 	<!-- nav fist level Game 서비스 -->
 	<li><a href="#"><i class="fa fa-coffee fa-fw"></i> 상담 서비스<span
 			class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
-			<li><a href="${pageContext.request.contextPath}/consulting/consultingboard/list.do"><i class="fa fa-smile-o"></i> CONSULTING BOARD</a></li>
-			<li><a href="${pageContext.request.contextPath}/consulting/anonymousboard/list.page"><i class="fa fa-comments-o"></i> ANONYMOUS BOARD</a></li>
-			<li><a href="${pageContext.request.contextPath}/consulting/helper/list.page"><i class="fa fa-heart"></i> HELPER</a></li>
+			<li><a href="${pageContext.request.contextPath}/consulting/consulting_board/list.list.list"><i class="fa fa-smile-o"></i> CONSULTING BOARD</a></li>
+			<li><a href="${pageContext.request.contextPath}/consulting/anonymous_board/list.list.list"><i class="fa fa-comments-o"></i> ANONYMOUS BOARD</a></li>
+			<li><a href="${pageContext.request.contextPath}/consulting/helper/list.list.list"><i class="fa fa-heart"></i> HELPER</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 
 	<!-- nav fist level Consulting 서비스 -->
 	<li><a href="#"><i class="fa fa-desktop fa-fw"></i> 게 임<span
 			class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
-			<li><a href="${pageContext.request.contextPath}/game/play.page"><i class="fa fa-gamepad fa-fw"></i> GAME
+			<li><a href="${pageContext.request.contextPath}/game/game/play.page"><i class="fa fa-gamepad fa-fw"></i> GAME
 					PLAY</a></li>
-			<li><a href="${pageContext.request.contextPath}/game/game_result.page"><i class="fa fa-bar-chart-o fa-fw"></i> RESULT
+			<li><a href="${pageContext.request.contextPath}/game/game/game_result.page"><i class="fa fa-bar-chart-o fa-fw"></i> RESULT
 					CHECK</a></li>
 			<li><a
-				href="${pageContext.request.contextPath}/game/list.page"><i class="glyphicon glyphicon-list-alt"></i> GAME
+				href="${pageContext.request.contextPath}/game/game_baord/list.list.list"><i class="glyphicon glyphicon-list-alt"></i> GAME
 					BOARD</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 </ul>
