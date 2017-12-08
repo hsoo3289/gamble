@@ -36,7 +36,7 @@
 		#{author_level})
 	</insert>
 
-	<update id="update" parameterType="Member"> <!-- 정보 수정 list -->
+	<update id="update" parameterType="Member"> <!-- 정보 수정  -->
 		update MEMBER set PWD=#{pwd}, EMAIL=#{email}, PHONE=#{phone},
 		ACCNUM=#{accnum}
 		where NO=#{no}

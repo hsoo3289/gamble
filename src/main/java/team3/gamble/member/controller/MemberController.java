@@ -43,6 +43,7 @@ public class MemberController {
 	
 	@RequestMapping("delete.do")
 	ModelAndView delete(Member member){
+		System.out.println("삭제로 오니?");
 		service.dml(member.setMethod("delete"));
 		return new ModelAndView("redirect:/","user",new Member());
 	}
