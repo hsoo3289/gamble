@@ -19,7 +19,7 @@
 	<li><a href="#"><i class="fa fa-user fa-fw"></i> 회 원<span
 			class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
-			<li><a href="${pageContext.request.contextPath}/member/member/register.page"><i class="fa fa-pencil-square-o"></i> 회원가입</a></li>
+			<li><a href="${pageContext.request.contextPath}/member/member/join.page"><i class="fa fa-pencil-square-o"></i> 회원가입</a></li>
 			<li><a href="${pageContext.request.contextPath}/member/member/item.item.info?no=${user.no}"><i class="fa fa-info-circle"></i> 회원정보</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 

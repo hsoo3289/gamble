@@ -4,16 +4,6 @@
 
 <script type="text/javascript">
 	function check() {
-		if (f.name.value == "") {
-			alert("이름을 입력해주세요!");
-			f.name.focus();
-			return false;
-		}
-		if (f.id.value == "") {
-			alert("ID를 입력해주세요!");
-			f.id.focus();
-			return false;
-		}
 		if (f.pwd.value == "") {
 			alert("비밀번호를 입력해주세요!");
 			f.pwd.focus();
@@ -39,11 +29,8 @@
 			f.accnum.focus();
 			return false;
 		}
-		if('${user}' != null){
-			f.action="update.do"
-		}
 		if (f.submit()) {
-			alert("회원가입 성공!");
+			alert("정보 수정완료!");
 		}
 	}
 	function move_focus(id) {
@@ -53,89 +40,85 @@
 </script>
 
 		<body onload="f.name.focus()">
+	
 <div class="page-wrapper" style="text-align: center;">
 	<div class="row">
 		<hr width="500" size="2">
-			<font size="5"><strong>회원 가입</strong></font>
+		 		<font size="5"><strong>정보 수정</strong></font>
 		<hr width="500" size="2">
 	</div>
-	
-	<form name="f" method="post" action="join.do">
+	<div class="table" style="text align: center;">	
+	<form name="f" method="post" action="update.do.info">
 		<table class="table table-striped table-bordered" border="1"
 			width="600" align="center" cellpadding="3" cellspacing="1"
 			style="width: 502px;">
 			<tr>
 				<th>이름</th>
 				<td>
+				<input type="hidden" name="no" value="${user.no}">
 					<input class="form-control" id="name" name="name"
-					  placeholder="한글만 입력해주세요" type="text" size="30" maxlength="30"
-						style="width: 206px;" onkeypress="move_focus('id')">
+					  value="${user.name}" type="text" size="30" maxlength="30"
+						style="width: 206px;" disabled>
 				</td>
 			</tr>
 			<tr>
 				<th>ID</th>
 				<td>
-					<input class="form-control" id="id" name="id"
-					  placeholder="ID를 입력해주세요" onkeyup="idCheck(this.value)" type="text" size="30" maxlength="30"
-					    style="width: 206px;" onkeypress="move_focus('pwd')">
-					 
-				</td>				
+					<input class="form-control" id="id" name="id" value="${user.id}"
+						type="text" size="30" maxlength="30" style="width: 206px;"
+						 disabled>
+				</td>
 			</tr>
 			<tr>
 				<th>PWD</th>
 				<td>
-					<input class="form-control" id="pwd" name="pwd"
-					  placeholder="PWD를 입력해주세요" type="password" size="30"
-						maxlength="30" style="width: 206px;"
-						  onkeypress="move_focus('pwd2')">
+					<input class="form-control" id="pwd" name="pwd" value="${user.pwd}"
+						type="password" size="30" maxlength="30" style="width: 206px;"
+						 onkeypress="move_focus('pwd2')">
 				</td>
 			</tr>
 			<tr>
 				<th>PWD 재입력</th>
 				<td>
-					<input class="form-control" id="pwd2" name="pwd2"
-						placeholder="PWD를 재입력해주세요" type="password" size="30"
-						  maxlength="30" style="width: 206px;"
-							onkeypress="move_focus('email')">
+					<input class="form-control" id="pwd2" name="pwd2" value="${user.pwd}"
+								type="password" size="30" maxlength="30" style="width: 206px;"
+								onkeypress="move_focus('email')">
 				</td>
 			</tr>
 			<tr>
 				<th>이메일</th>
 				<td>
 					<input class="form-control" id="email" name="email"
-						placeholder="E-mail을 입력해주세요" type="text" size="30"
-						  maxlength="30" style="width: 206px;"
-							onkeypress="move_focus('phone')">
+						value="${user.email}" type="text" size="30" maxlength="30"
+						  style="width: 206px;" onkeypress="move_focus('phone')">
 				</td>
 			</tr>
 			<tr>
 				<th>핸드폰번호</th>
 				<td>
 					<input class="form-control" id="phone" name="phone"
-						placeholder="핸드폰 번호를 입력해주세요" type="text" size="30"
-						  maxlength="30" style="width: 206px;"
-							onkeypress="move_focus('accnum')">
+						value="${user.phone}" type="text" size="30" maxlength="30"
+							style="width: 206px;" onkeypress="move_focus('accnum')">
 				</td>
 			</tr>
 			<tr>
 				<th>계좌번호</th>
 				<td>
 					<input class="form-control" id="accnum" name="accnum"
-						placeholder="-를 뺀 숫자만 입력해주세요" type="text" size="30"
-						  maxlength="30" style="width: 206px;"
-							onkeypress="move_focus('join')">
+								value="${user.accnum}" type="text" size="30" maxlength="30"
+								style="width: 206px;" onkeypress="move_focus('join')">
 				</td>
 			</tr>
 				<tr>
 					<td colspan="2">
 					<div align="center">
 				 		<br/>
-						<input id="join" class="btn default" name="join" type="button" value="가입" onclick="submit()">
-						<input id="reset"class="btn default" name="reset" type="reset" value="다시쓰기">
+						<input id="join" class="btn default" name="" type="button" value="수정 완료" onclick="submit()">
+						<input class="btn default" name="" type="reset" value="다시쓰기">
 				 	</div>
 					</td>
 				</tr>
 			</table>
 		</form>
-	
+	</div>
 </div>

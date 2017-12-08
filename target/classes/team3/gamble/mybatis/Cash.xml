@@ -35,7 +35,7 @@
 	</select>
 	
 	<select id="approve_list" parameterType="hashmap" resultType="hashmap"> <!-- 충전 내역 -->
-		select * from CASH where APPROVE=0
+		select * from CASH where APPROVE=0 or APPROVE is null
 	</select>
 
 </mapper>
