@@ -30,14 +30,14 @@ public class CashController {
 	
 	@RequestMapping("cash_list.page")
 	ModelAndView cashList(Cash cash) {
-		cash.setMember_seq(2);
+		cash.setMember_seq(6);
 		cash.setMethod("list");
 		return new ModelAndView("cash/cash_list","list",service.list(cash));
 	}
 	
 	@RequestMapping("cash.do")
 	ModelAndView cash(Cash cash) {
-		cash.setMember_seq(2);
+		cash.setMember_seq(6);
 		service.dml(cash.setMethod("insert"));
 		cash.setMethod("list");
 		return new ModelAndView("cash/cash_list","list",service.list(cash));

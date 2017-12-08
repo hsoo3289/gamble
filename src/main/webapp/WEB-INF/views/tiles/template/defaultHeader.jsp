@@ -42,6 +42,8 @@
 				<c:otherwise>
 					<b>${user.name}</b>
 					<a class="button" href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
+					<br/>
+					<b>${user.money}원 보유중</b>
 				</c:otherwise>
 			</c:choose>
 			<div id="login_msg"></div>
