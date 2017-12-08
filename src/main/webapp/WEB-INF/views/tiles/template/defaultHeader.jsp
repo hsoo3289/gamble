@@ -58,18 +58,13 @@
 				</c:when>
 				<c:otherwise>
 					<b>${user.name}</b>
-<<<<<<< HEAD
-					<a class="button" href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
+						<a class="button" href="${pageContext.request.contextPath}/member/member/logout.do.index">로그아웃</a>
 					<br/>
 					<b>${user.money}원 보유중</b>
-=======
-					<a class="button" href="${pageContext.request.contextPath}/member/member/logout.do.index">로그아웃</a>
->>>>>>> branch 'master' of http://github.com/hsoo83/gamble
 				</c:otherwise>
 			</c:choose>
 			<div id="login_msg"></div>
 		</div>
-
 
 		<ul class="nav navbar-top-links navbar-right">
 			<li class="dropdown"><a class="dropdown-toggle"

@@ -20,14 +20,14 @@
 			class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
 			<li><a href="${pageContext.request.contextPath}/member/member/register.page"><i class="fa fa-pencil-square-o"></i> 회원가입</a></li>
-			<li><a href="${pageContext.request.contextPath}/member/member/item.item.info"><i class="fa fa-info-circle"></i> 회원정보</a></li>
+			<li><a href="${pageContext.request.contextPath}/member/member/item.item.info?no=${user.no}"><i class="fa fa-info-circle"></i> 회원정보</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 
 	<!-- nav fist level cash 서비스 -->
 	<li><a href="#"><i class="fa fa-won fa-fw "></i>CASH<span class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
 			<li><a href="${pageContext.request.contextPath}/member/cash/cash.page"><i class="fa fa-money"></i> cash 충전</a></li>
-			<li><a href="${pageContext.request.contextPath}/member/cash/list.list.cash_list"><i class="glyphicon glyphicon-th-list"></i> 충전 이력</a></li>
+			<li><a href="${pageContext.request.contextPath}/member/cash/list.list.cash_list?member_seq=${user.no}"><i class="glyphicon glyphicon-th-list"></i> 충전 이력</a></li>
 			<li><a href="${pageContext.request.contextPath}/member/cash/approve_list.list.cash_approve"><i class="fa fa-check-square-o"></i> 관리자 승인</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 		

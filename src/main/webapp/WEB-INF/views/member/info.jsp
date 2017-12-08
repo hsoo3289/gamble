@@ -13,7 +13,7 @@
 		}
 		function userDelete()
 		{
-			location.href='delete.do?no=${user.no}'
+			location.href='delete.do.index?no=${user.no}'
 			alert=("탈퇴성공!");
 		}
 	</script>
@@ -24,7 +24,7 @@
 			<td width='100' align='center'>회원번호</td>
 			<td>${user.no}</td>
 		</tr>
-		<tr>
+		<tr> 
 			<td align='center'>이름</td>
 			<td>${user.name}</td>
 		</tr>
