@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="team3.gamble.mybatis.anonyboard">
+<mapper namespace="team3.gamble.mybatis.anonyboard.anony_board">
 
 	<resultMap id="AnonyBoard" type="AnonyBoard">
 		<result property="seq"			column="SEQ" />
@@ -18,22 +18,22 @@
 
 	</resultMap>
 
-	<select id="list" resultType="AnonyBoard">
+	<select id="list" resultType="hashmap">
 		select * from ${dbName}
 		order by SEQ
 	</select>
 
-	<select id="item" resultType="AnonyBoard">
+	<select id="item" resultType="hashmap">
 		select * from ${dbName}
 		where SEQ=#{seq}
 	</select>
 
-	<select id="nextseq" parameterType="AnonyBoard" resultType="long">
+	<select id="nextseq" parameterType="hashmap" resultType="long">
 		select
 		${dbName}_SEQ.NEXTVAL from DUAL
 	</select>
 
-	<insert id="insert" parameterType="AnonyBoard">
+	<insert id="insert" parameterType="hashmap">
 		insert into ${dbName}(SEQ, SUBJECT, CONTENT, NAME, PWD
 		<if test="parent_seq neq null">,PARENT_SEQ</if>
 		)
@@ -42,14 +42,14 @@
 		)
 	</insert>
 
-	<update id="update" parameterType="AnonyBoard">
+	<update id="update" parameterType="hashmap">
 		update
 		${dbName}
 		set
 		SUBJECT=#{subject}, CONTENT=#{content}, RDATE=SYSDATE
 	</update>
 
-	<delete id="delete" parameterType="AnonyBoard">
+	<delete id="delete" parameterType="hashmap">
 		delete from ${dbName}
 		where SEQ= #{seq}
 	</delete>

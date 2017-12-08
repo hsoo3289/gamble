@@ -2,7 +2,7 @@ package team3.gamble.model;
 
 import org.springframework.web.multipart.MultipartRequest;
 
-public class FileDTO extends DTO{
+public class FileDTO{
 	private String DTOName="file";
 	long seq;
 	long parent_seq;
@@ -42,10 +42,6 @@ public class FileDTO extends DTO{
 	}
 	public void setOfname(String ofname) {
 		this.ofname = ofname;
-	}
-	@Override
-	String getDTOName() {
-		return this.DTOName;
 	}
 
 	public long getParent_seq() {

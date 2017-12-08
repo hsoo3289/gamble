@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import team3.gamble.common.dao.CommonDao;
-import team3.gamble.model.DTO;
+import team3.gamble.model.Path;
 import team3.gamble.model.Page;
 
 @Service
@@ -15,32 +15,32 @@ public class CommonServiceImpl implements CommonService{
 	private CommonDao dao;
 
 	@Override
-	public <T extends DTO> List<T> list(Page page, T dto) {
-		return dao.list(page, dto);
+	public <T> List<T> list(Page page,Path path, T dto) {
+		return dao.list(page, path.getNameSpace(), dto);
 	}
 
 	@Override
-	public <T extends DTO> List<T> list(T dto) {
-		return dao.list(dto);
+	public <T> List<T> list(Path path, T dto) {
+		return dao.list(path.getNameSpace(), dto);
 	}
 
 	@Override
-	public <T extends DTO> void dml(T board) {
-		dao.dml(board);
+	public <T> int dml(Path path, T dto) {
+		return dao.dml(path.getNameSpace(), dto);
 	}
 
 	@Override
-	public <T extends DTO> T item(T dto) {
-		return dao.item(dto);
+	public <T> T item(Path path, T dto) {
+		return dao.item(path.getNameSpace(), dto);
 	}
 
 	@Override
-	public <T extends DTO> int count(T dto) {
-		return dao.count(dto);
+	public <T> int count(Path path, T dto) {
+		return dao.count(path.getNameSpace(), dto);
 	}
 
 	@Override
-	public <T extends DTO> long nextSeq(T dto) {
-		return dao.nextSeq(dto);
+	public <T> long nextSeq(Path path, T dto) {
+		return dao.nextSeq(path.getNameSpace(), dto);
 	}
 }

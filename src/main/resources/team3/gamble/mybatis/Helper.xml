@@ -11,16 +11,16 @@
 		<result property="game_today"	column="GAME_TODAY" />
 	</resultMap>
 
-	<insert id="insert" parameterType="Helper"> 
+	<insert id="insert" parameterType="hashmap"> 
 		insert into Helper (SEQ, MEMBER_SEQ, GAME_DATE, GAME_TODAY)
 		values(HELPER_SEQ.NEXTVAL, #{member_seq}, #{game_date}, #{game_today})
 	</insert>
 
-	<delete id="delete" parameterType="Helper"> 
+	<delete id="delete" parameterType="hashmap"> 
 		delete from Helper where SEQ=#{seq}
 	</delete>
 
-	<select id="list" parameterType="Helper" resultType="Helper"> 
+	<select id="list" parameterType="hashmap" resultType="hashmap"> 
 		select * from Helper where MEMBER_SEQ=#{member_seq}
 	</select>
 

@@ -18,12 +18,12 @@
 
 	</resultMap>
 
-	<select id="list" resultType="Board">
+	<select id="list" resultType="hashmap">
 		select * from ${dbName}
 		order by SEQ
 	</select>
 
-	<select id="item" resultType="Board">
+	<select id="item" resultType="hashmap">
 		select * from ${dbName}
 		where SEQ=#{seq}
 	</select>
@@ -33,7 +33,7 @@
 		${dbName}_SEQ.NEXTVAL from DUAL
 	</select>
 
-	<insert id="insert" parameterType="Board">
+	<insert id="insert" parameterType="hashmap">
 		insert into ${dbName}(SEQ, SUBJECT, CONTENT, WRITER_SEQ
 		<if test="parent_seq neq null">,PARENT_SEQ</if>
 		)
@@ -42,7 +42,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterType="Board">
+	<update id="update" parameterType="hashmap">
 		update
 		${dbName}
 		set
@@ -50,7 +50,7 @@
 		where SEQ=#{seq}
 	</update>
 
-	<delete id="delete" parameterType="Board">
+	<delete id="delete" parameterType="hashmap">
 		delete from ${dbName}
 		where SEQ= #{seq}
 	</delete>

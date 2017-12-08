@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="team3.gamble.mybatis.member">
+<mapper namespace="team3.gamble.mybatis.member.member">
 
 	<resultMap id="memberResult" type="Member">
 		<result property="no" column="NO" />						<!-- 회원번호 -->
@@ -16,11 +16,11 @@
 		<result property="author_level" column="AUTHOR_LEVEL" />		<!-- 회원등급 -->
 	</resultMap>
 
-	<select id="list" resultType="Member">
+	<select id="list" resultType="hashmap">
 		select * from MEMBER
 	</select>
 
-	<select id="item" parameterType="Member" resultType="Member"> <!-- 정보 조회 -->
+	<select id="item" parameterType="hashmap" resultType="hashmap"> <!-- 정보 조회 -->
 		select * from MEMBER where NO=#{no}
 	</select>
 	
@@ -28,7 +28,7 @@
 		select * from MEMBER where ID=#{id}
 	</select>
 
-	<insert id="insert" parameterType="Member"> <!-- 회원 가입 -->
+	<insert id="insert" parameterType="hashmap"> <!-- 회원 가입 -->
 		insert into MEMBER(NO, NAME, ID, PWD, EMAIL, PHONE, ACCNUM,
 		AUTHOR_LEVEL)
 		values(MEMBER_SEQ.nextval, #{name}, #{id}, #{pwd},
@@ -36,25 +36,34 @@
 		#{author_level})
 	</insert>
 
+<<<<<<< HEAD
 	<update id="update" parameterType="Member"> <!-- 정보 수정  -->
+=======
+	<update id="update" parameterType="hashmap"> <!-- 정보 수정 -->
+>>>>>>> branch 'master' of http://github.com/hsoo83/gamble
 		update MEMBER set PWD=#{pwd}, EMAIL=#{email}, PHONE=#{phone},
 		ACCNUM=#{accnum}
 		where NO=#{no}
 	</update>
+<<<<<<< HEAD
 	
 	<update id="updatemoney" parameterType="Member">
+=======
+
+	<update id="updatemoney" parameterType="hashmap">
+>>>>>>> branch 'master' of http://github.com/hsoo83/gamble
 		update MEMBEr set
 		money=#{money}
 		where NO=#{no}
 	</update>
 
-	<update id="updateautor" parameterType="Member">
+	<update id="updateautor" parameterType="hashmap">
 		update MEMBEr set
 		AUTHOR_LEVEL=#{author_level}
 		where NO=#{no}
 	</update>
 
-	<delete id="delete" parameterType="Member"> <!-- 회원 탈퇴 -->
+	<delete id="delete" parameterType="hashmap"> <!-- 회원 탈퇴 -->
 		delete from MEMBER where NO=#{no}
 	</delete>
 

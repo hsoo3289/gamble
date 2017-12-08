@@ -2,12 +2,7 @@ package team3.gamble.model;
 
 import java.util.Date;
 
-public class Game extends DTO {
-
-	@Override
-	String getDTOName() {
-		return "game";
-	}
+public class Game{
 
 	private long game_no;
 	private long member_seq;

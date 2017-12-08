@@ -12,7 +12,24 @@
 			login_form.pwd.focus();
 			return false;
 		}
-		login_form.submit();
+		delete_reply();
+	}
+	function delete_reply() {
+		console.log($("#login_form").serialize());
+		$.ajax({
+			type : "POST",
+			url : "${pageContext.request.contextPath}/member/member/login.do.index",
+			data : $("#login_form").serialize()
+			,
+			success : function(reply) {
+				console.log(reply);
+				
+				$("#login_msg").html(reply);
+				if(reply=="success") location.reload();
+				else if(reply=="id error") login_form.id.focus();
+				else login_form.pwd.focus();
+			}
+		});
 	}
 </script>
 <div>
@@ -32,18 +49,22 @@
 		<div>
 			<c:choose>
 				<c:when test="${user eq null}">
-					<form id="login_form" action="${pageContext.request.contextPath}/member/login.do" method="post">
+					<form id="login_form" action="${pageContext.request.contextPath}/member/member/login.do.index" method="post">
 						<input name="id" id="id"> <input name="pwd" id="pwd"
-							type="password">
+							type="password" style="ime-mode:disable;">
 						<input type="button" value="로그인" onclick="login()">
-						<div id="login_msg"></div>
+						<div id="login_msg"><c:if test="${login_msg ne null}">${login_msg}</c:if></div>
 					</form>
 				</c:when>
 				<c:otherwise>
 					<b>${user.name}</b>
+<<<<<<< HEAD
 					<a class="button" href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 					<br/>
 					<b>${user.money}원 보유중</b>
+=======
+					<a class="button" href="${pageContext.request.contextPath}/member/member/logout.do.index">로그아웃</a>
+>>>>>>> branch 'master' of http://github.com/hsoo83/gamble
 				</c:otherwise>
 			</c:choose>
 			<div id="login_msg"></div>

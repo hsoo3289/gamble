@@ -2,13 +2,8 @@ package team3.gamble.model;
 
 import java.sql.Date;
 
-public class Cash extends DTO {
-	
-	@Override
-	String getDTOName() {
-		return "cash";
-	}
-	
+public class Cash{
+
 	private long seq;
 	private int money;
 	private int charing;

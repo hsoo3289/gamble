@@ -2,21 +2,21 @@ package team3.gamble.common.service;
 
 import java.util.List;
 
-import team3.gamble.model.DTO;
+import team3.gamble.model.Path;
 import team3.gamble.model.Page;
 
-public interface CommonService {
-
-	<T extends DTO> List<T> list(Page page, T dto);
-
-	<T extends DTO> List<T> list(T dto);
-
-	<T extends DTO> void dml(T board);
-
-	<T extends DTO> T item(T dto);
-
-	<T extends DTO> int count(T dto);
-
-	<T extends DTO> long nextSeq(T dto);
+public interface CommonService{
+	
+	<T> List<T> list(Page page, Path path, T dto);
+	
+	<T> List<T> list(Path path, T dto);
+	
+	<T> int dml(Path path, T dto);
+	
+	<T> T item(Path path, T dto);
+	
+	<T> int count(Path path, T dto);
+	
+	<T> long nextSeq(Path path, T dto);
 
 }

@@ -2,13 +2,7 @@ package team3.gamble.model;
 
 import java.util.Date;
 
-public class AnonyBoard extends DTO {
-
-	@Override
-	String getDTOName() {
-		return "anonyboard";
-	}
-
+public class AnonyBoard{
 	private long seq;
 	private String subject;
 	private String content;
