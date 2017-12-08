@@ -36,22 +36,13 @@
 		#{author_level})
 	</insert>
 
-<<<<<<< HEAD
-	<update id="update" parameterType="Member"> <!-- 정보 수정  -->
-=======
 	<update id="update" parameterType="hashmap"> <!-- 정보 수정 -->
->>>>>>> branch 'master' of http://github.com/hsoo83/gamble
 		update MEMBER set PWD=#{pwd}, EMAIL=#{email}, PHONE=#{phone},
 		ACCNUM=#{accnum}
 		where NO=#{no}
 	</update>
-<<<<<<< HEAD
 	
-	<update id="updatemoney" parameterType="Member">
-=======
-
 	<update id="updatemoney" parameterType="hashmap">
->>>>>>> branch 'master' of http://github.com/hsoo83/gamble
 		update MEMBEr set
 		money=#{money}
 		where NO=#{no}

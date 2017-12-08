@@ -15,66 +15,6 @@ import team3.gamble.model.Member;
 
 @RequestMapping("member")
 public class MemberController {
-<<<<<<< HEAD
-	@Autowired
-	private CommonService service;
-	// 테스트용
-	@RequestMapping("{view}.page")
-	ModelAndView register(@PathVariable String view){
-		return new ModelAndView("member/"+view);
-	}
-	
-	@RequestMapping("{method}.form")
-	ModelAndView form(@PathVariable String method){
-		return new ModelAndView("member/"+method);
-	}
-	
-	@RequestMapping("{method}.check")
-	int check(Member member) {
-		return service.count(member);
-	}
-	
-	@RequestMapping("join.do")
-	ModelAndView join(Member member){
-		service.dml(member.setMethod("insert"));
-		return new ModelAndView("redirect:/","user",member);
-	}
-	
-	@RequestMapping("delete.do")
-	ModelAndView delete(Member member){
-		System.out.println("삭제로 오니?");
-		service.dml(member.setMethod("delete"));
-		return new ModelAndView("redirect:/","user",new Member());
-	}
-	
-	@RequestMapping("update.do")
-	ModelAndView update(Member member) {
-		System.out.println("여기로 오니?");
-		service.dml(member.setMethod("update"));
-		return new ModelAndView("member/info","user", member);
-	}
-	
-	@RequestMapping("login.do")
-	ModelAndView login(Member member, HttpSession session) {
-		member.setMethod("login");
-		Member user = service.item(member);
-		if(!user.exist()) return new ModelAndView("redirect:/");
-		if(!user.pwdcheck(member.getPwd())) return new ModelAndView("redirect:/");
-		session.removeAttribute("user");
-		session.setAttribute("user", user);
-		return new ModelAndView("redirect:/","user",user);
-	}
-	
-	@RequestMapping("logout.do")
-	ModelAndView logout(HttpSession session){
-		session.removeAttribute("user");
-		return new ModelAndView("redirect:/");
-	}
-	@RequestMapping("idcheck.do")
-	ModelAndView idcheck(Member member){
-		return null;
-	}
-=======
 //	@Autowired
 //	private CommonService service;
 //	
@@ -95,5 +35,4 @@ public class MemberController {
 //		return new ModelAndView("redirect:/");
 //	}
 //	
->>>>>>> branch 'master' of http://github.com/hsoo83/gamble
 }
