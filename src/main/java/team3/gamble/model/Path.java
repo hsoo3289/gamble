@@ -50,7 +50,7 @@ public class Path{
 	}
 	
 	public String getViewPath() {
-		if(view.equals("index")) return "/";
+		if(view.equals("index")) return "redirect:/";
 		return serviceName+"/"+dbName+"/"+view;
 	}
 	
