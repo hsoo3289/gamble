@@ -22,7 +22,7 @@
 	</delete>
 
 	<update id="approve" parameterType="hashmap">
-		update CASH set APPROVE = 1
+		update CASH set APPROVE = 0
 		where seq = #{seq}
 	</update>
 

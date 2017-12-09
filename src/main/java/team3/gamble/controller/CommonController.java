@@ -26,7 +26,7 @@ public class CommonController{
 		return new ModelAndView(path.getViewPath());
 	}
 	
-	@RequestMapping({"{method}/{returnMethod}.{returnType}.{view}", "{returnMethod}.{returnType}.{view}"})
+	@RequestMapping("{returnMethod}.{returnType}.{view}")
 	ModelAndView method(Path path, @RequestParam Map<String, Object> params) {
 		params.put("dbName", path.getDbName());
 		
@@ -42,6 +42,7 @@ public class CommonController{
 		}
 		return mv;
 	}
+	
 	
 	@RequestMapping("login.do.{view}")
 	@ResponseBody String login(HttpSession session, Path path, Member member) {

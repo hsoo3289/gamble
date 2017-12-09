@@ -3,6 +3,7 @@ package team3.gamble.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 public class Path{
@@ -33,7 +34,13 @@ public class Path{
 	}
 
 	public void setReturnMethod(String returnMethod) {
-		this.returnMethod = returnMethod;
+		if(returnMethod.contains(".")) {
+			int index = returnMethod.indexOf('.');
+			this.method = returnMethod.substring(0, index);
+			this.returnMethod = returnMethod.substring(index+1);
+		} else {
+			this.returnMethod = returnMethod;
+		}
 	}
 
 	public void setReturnType(String returnType) {
