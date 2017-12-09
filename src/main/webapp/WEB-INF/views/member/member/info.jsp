@@ -59,12 +59,12 @@
 	</table>
 	<hr width='500' size='2' noshade>
 	<b>
-		<button class="btn default" onclick="update()">정보수정</button> |
-		<button class="btn default" onclick="history.go(-1)">뒤로가기</button>
+		<button type="button" class="btn btn-outline btn-info" onclick="update()">정보수정</button>&nbsp;&nbsp;
+		<button type="button" class="btn btn-outline btn-info" onclick="history.go(-1)">뒤로가기</button>
 	</b>
 	<hr width='500' size='2' noshade>
 	<b>
-		<button class="btn default" onclick="userDelete()">회원탈퇴</button>
+		<button type="button" class="btn btn-outline btn-danger" onclick="userDelete()">회원탈퇴</button>
 	</b>
 </div>
 

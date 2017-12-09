@@ -138,8 +138,8 @@
 					<td colspan="2">
 					<div align="center">
 				 		<br/>
-						<input id="join" class="btn default" name="join" type="button" value="가입" onclick="submit()">
-						<input id="reset"class="btn default" name="reset" type="reset" value="다시쓰기">
+						<input id="join" class="btn btn-outline btn-info" name="join" type="button" value="가입" onclick="submit()">
+						<input id="reset"class="btn btn-outline btn-danger" name="reset" type="reset" value="다시쓰기">
 				 	</div>
 					</td>
 				</tr>
