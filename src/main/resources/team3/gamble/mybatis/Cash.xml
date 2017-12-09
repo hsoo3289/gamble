@@ -27,11 +27,11 @@
 	</update>
 
 	<select id="item" parameterType="hashmap" resultType="hashmap"> <!-- 충전 내역 -->
-		select * from CASH where SEQ=#{seq}
+		select * from CASH where SEQ=#{seq} 
 	</select>
 	
 	<select id="list" parameterType="hashmap" resultType="hashmap"> <!-- 충전 내역 -->
-		select * from CASH where MEMBER_SEQ=#{member_seq}
+		select * from CASH where MEMBER_SEQ=#{member_seq} order by SEQ desc
 	</select>
 	
 	<select id="approve_list" parameterType="hashmap" resultType="hashmap"> <!-- 충전 내역 -->

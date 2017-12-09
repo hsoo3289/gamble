@@ -11,13 +11,18 @@
 		function update() {
 			location.href = "update.page"
 		}
+		function userDelete() {
+			location.href = 'delete.do.index?no=${user.no}'
+			alert = ("탈퇴성공!");
+		}
 	</script>
 	<table class="table table-striped table-bordered" border="1"
 		width="600" align="center" cellpadding="3" cellspacing="1"
 		style="width: 502px;">
 		<c:choose>
 			<c:when test="${user eq null}">
-				<tr><td span='5'>로그인 하시오</td>
+				<tr>
+					<td>로그인 하시오</td>
 				</tr>
 			</c:when>
 			<c:otherwise>
@@ -59,7 +64,7 @@
 	</b>
 	<hr width='500' size='2' noshade>
 	<b>
-		<button class="btn default" onclick="">회원탈퇴</button>
+		<button class="btn default" onclick="userDelete()">회원탈퇴</button>
 	</b>
 </div>
 
