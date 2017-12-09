@@ -113,8 +113,9 @@
 					<td colspan="2">
 					<div align="center">
 				 		<br/>
-						<input id="join" class="btn default" name="" type="button" value="수정 완료" onclick="submit()">
-						<input class="btn default" name="" type="reset" value="다시쓰기">
+						<input id="join" class="btn btn-outline btn-info" name="" type="button" value="수정 완료" onclick="submit()">
+						<input class="btn btn-outline btn-danger" name="" type="reset" value="다시쓰기">
+						<button type="button" class="btn btn-outline btn-info" onclick="history.go(-1)">뒤로가기</button>
 				 	</div>
 					</td>
 				</tr>

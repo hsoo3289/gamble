@@ -29,11 +29,9 @@
 	</select>
 
 	<insert id="insert" parameterType="hashmap"> <!-- 회원 가입 -->
-		insert into MEMBER(NO, NAME, ID, PWD, EMAIL, PHONE, ACCNUM,
-		AUTHOR_LEVEL)
+		insert into MEMBER(NO, NAME, ID, PWD, EMAIL, PHONE, ACCNUM)
 		values(MEMBER_SEQ.nextval, #{name}, #{id}, #{pwd},
-		#{email}, #{phone}, #{accnum},
-		#{author_level})
+		#{email}, #{phone}, #{accnum})
 	</insert>
 
 	<update id="update" parameterType="hashmap"> <!-- 정보 수정 -->

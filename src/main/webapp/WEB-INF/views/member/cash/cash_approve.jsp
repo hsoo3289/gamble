@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <body>
 	<center>
 		<div class="row">
@@ -19,6 +20,7 @@
 				<th style='text-align: center' width='15%'>충전금액</th>
 				<th style='text-align: center' width='20%'>신청날짜</th>
 				<th style='text-align: center' width='10%'>승인상태</th>
+				<th style='text-align: center' width='10%'>체크</th>
 			</tr>
 			<c:if test="${empty list}">
 				<tr>
@@ -32,6 +34,16 @@
 					<td align="center">${cash.CHARING}</td>
 					<td align="center">${cash.CHARDATE}</td>
 					<td align="center">${cash.APPROVE}</td>
+					<c:choose>
+						<c:when test="${cash.approve ne 1}">
+					<td align="center"><input class="btn btn-outline btn-success" name="agree" type="button"
+						value="승인" onclick="location.href="'update?SEQ=${item.SEQ}"/list.list.cash_approve.page'"></td>
+						</c:when>
+						<c:otherwise>
+					<td align="center"><input class="btn btn-danger disabled" name="agree" type="button"
+						value="승인완료" onclick="agree()"></td>
+						</c:otherwise>
+					</c:choose>
 				</tr>
 			</c:forEach>
 		</table>

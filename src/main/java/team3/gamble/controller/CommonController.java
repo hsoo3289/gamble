@@ -26,23 +26,6 @@ public class CommonController{
 		return new ModelAndView(path.getViewPath());
 	}
 	
-	@RequestMapping("login.do.{view}")
-	@ResponseBody String login(HttpSession session, Path path, Member member) {
-		path.setMethod("login");
-		Member user = service.item(path, member);
-		if(user==null) return "id error";
-		if(!user.pwdcheck(member.getPwd())) return "pwd error";
-		session.removeAttribute("user");
-		session.setAttribute("user", user);
-		return "success";
-	}
-	
-	@RequestMapping("logout.do.{view}")
-	ModelAndView logout(HttpSession session) {
-		session.removeAttribute("user");
-		return new ModelAndView("redirect:/");
-	}
-	
 	@RequestMapping({"{method}/{returnMethod}.{returnType}.{view}", "{returnMethod}.{returnType}.{view}"})
 	ModelAndView method(Path path, @RequestParam Map<String, Object> params) {
 		params.put("dbName", path.getDbName());
@@ -51,7 +34,7 @@ public class CommonController{
 		if(path.dmlexist()) mv.addObject("result", service.dml(path, params));
 		
 		path.changeMode();
-		switch(path.getReturnMethod()) {
+		switch(path.getReturnType()) {
 			case "list"	: mv.addObject("list", service.list(path, params)); break;
 			case "item"	: mv.addObject("item", service.item(path, params)); break;
 			case "count": mv.addObject("count", service.count(path, params)); break;
@@ -59,4 +42,6 @@ public class CommonController{
 		}
 		return mv;
 	}
+	
+
 }

@@ -31,12 +31,22 @@
 			}
 		});
 	}
+	function logout() {
+		location.href = "${pageContext.request.contextPath}/member/member/logout.do.index"
+	}
 </script>
 <div>
+
+
+
+
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-static-top" role="navigation"
 		style="margin-bottom: 0">
-		<div class="navbar-header">
+		
+		
+		
+		<div class="navbar-header" style="float: left">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
 				data-target=".navbar-collapse">
 				<span class="sr-only">Toggle navigation</span> <span
@@ -45,27 +55,40 @@
 			</button>
 			<a class="navbar-brand" href="${pageContext.request.contextPath}">GAMBLE</a>
 		</div>
+		
+		
+		
+		
 		<!-- /.navbar-header -->
-		<div>
+		<div style="float: left">
 			<c:choose>
 				<c:when test="${user eq null}">
-					<form id="login_form" action="${pageContext.request.contextPath}/member/member/login.do.index" method="post">
-						<input name="id" id="id"> <input name="pwd" id="pwd"
-							type="password" style="ime-mode:disable;">
-						<input type="button" value="로그인" onclick="login()">
+					<form id="login_form" action="${pageContext.request.contextPath}/member/member/login.do.index" method="post" style="margin-top: 10px;">
+						<input name="id" id="id" placeholder="ID"> <input name="pwd" id="pwd"
+							type="password" style="ime-mode:disable;" placeholder="PWD">
+						<input type="button" class="btn btn-outline btn-info" value="로그인" onclick="login()">
 						<div id="login_msg"><c:if test="${login_msg ne null}">${login_msg}</c:if></div>
 					</form>
 				</c:when>
 				<c:otherwise>
-					<b>${user.name}</b>
-						<a class="button" href="${pageContext.request.contextPath}/member/member/logout.do.index">로그아웃</a>
-					<br/>
-					<b>${user.money}원 보유중</b>
+					<div style="float: left;margin-top: 5px;margin-right: 10px;">
+					<b><h5><b>${user.name}</b></h5></b>
+					</div>
+					<div style="float: left;margin-top: 5px;margin-right: 10px;">
+					<b><h5><b>포인트: ${user.money}원</b></h5></b>
+					</div>
+					<div style="float: left">
+					<button type="button" class="btn btn-outline btn-danger" onclick="logout()" style="margin-top: 10px;padding-top: 3px;padding-left: 2px;padding-right: 2px;padding-bottom: 3px;">로그아웃</button>
+					</div>
 				</c:otherwise>
 			</c:choose>
 			<div id="login_msg"></div>
 		</div>
 
+
+
+
+		<div style="float:right">
 		<ul class="nav navbar-top-links navbar-right">
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"> <i class="fa fa-envelope fa-fw"></i>
@@ -241,9 +264,8 @@
 				</ul> <!-- /.dropdown-user --></li>
 			<!-- /.dropdown -->
 		</ul>
+		</div>
 		<!-- /.navbar-top-links -->
-
-
 		<!-- /.navbar-static-side -->
 	</nav>
 </div>

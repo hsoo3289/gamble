@@ -60,7 +60,7 @@
 	}
 </script>
 
-		<body onload="login_check()">
+	<body onload="login_check()">
 <div class="page-wrapper" style="text-align: center;">
 	<div class="row">
 		<hr width="500" size="2">
@@ -68,7 +68,7 @@
 		<hr width="500" size="2">
 	</div>
 	
-	<form name="f" method="post" action="join.do">
+	<form name="f" method="post" action="insert.do.index">
 		<table class="table table-striped table-bordered" border="1"
 			width="600" align="center" cellpadding="3" cellspacing="1"
 			style="width: 502px;">
@@ -84,7 +84,7 @@
 				<th>ID</th>
 				<td>
 					<input class="form-control" id="id" name="id"
-					  placeholder="ID를 입력해주세요" onkeyup="idCheck(this.value)" type="text" size="30" maxlength="30"
+					  placeholder="ID를 입력해주세요" type="text" size="30" maxlength="30"
 					    style="width: 206px;" onkeypress="move_focus('pwd')">
 					 
 				</td>				
@@ -138,8 +138,8 @@
 					<td colspan="2">
 					<div align="center">
 				 		<br/>
-						<input id="join" class="btn default" name="join" type="button" value="가입" onclick="submit()">
-						<input id="reset"class="btn default" name="reset" type="reset" value="다시쓰기">
+						<input id="join" class="btn btn-outline btn-info" name="join" type="button" value="가입" onclick="submit()">
+						<input id="reset"class="btn btn-outline btn-danger" name="reset" type="reset" value="다시쓰기">
 				 	</div>
 					</td>
 				</tr>
