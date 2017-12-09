@@ -21,7 +21,7 @@ public class Path{
 	}
 	
 	public boolean dmlexist() {
-		return !method.equals("null");
+		return method!=null;
 	}
 	
 	public String getReturnMethod() {

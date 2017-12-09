@@ -16,31 +16,31 @@ public class CommonServiceImpl implements CommonService{
 
 	@Override
 	public <T> List<T> list(Page page,Path path, T dto) {
-		return dao.list(page, path.getNameSpace(), dto);
+		return dao.list(page, path, dto);
 	}
 
 	@Override
 	public <T> List<T> list(Path path, T dto) {
-		return dao.list(path.getNameSpace(), dto);
+		return dao.list(path, dto);
 	}
 
 	@Override
 	public <T> int dml(Path path, T dto) {
-		return dao.dml(path.getNameSpace(), dto);
+		return dao.dml(path, dto);
 	}
 
 	@Override
 	public <T> T item(Path path, T dto) {
-		return dao.item(path.getNameSpace(), dto);
+		return dao.item(path, dto);
 	}
 
 	@Override
 	public <T> int count(Path path, T dto) {
-		return dao.count(path.getNameSpace(), dto);
+		return dao.count(path, dto);
 	}
 
 	@Override
 	public <T> long nextSeq(Path path, T dto) {
-		return dao.nextSeq(path.getNameSpace(), dto);
+		return dao.nextSeq(path, dto);
 	}
 }
