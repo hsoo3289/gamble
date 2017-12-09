@@ -43,5 +43,20 @@ public class CommonController{
 		return mv;
 	}
 	
-
+	@RequestMapping("login.do.{view}")
+	@ResponseBody String login(HttpSession session, Path path, Member member) {
+		path.setMethod("login");
+		Member user = service.item(path, member);
+		if(user==null) return "id error";
+		if(!user.pwdcheck(member.getPwd())) return "pwd error";
+		session.removeAttribute("user");
+		session.setAttribute("user", user);
+		return "success";
+	}
+	
+	@RequestMapping("logout.do.{view}")
+	ModelAndView logout(HttpSession session) {
+		session.removeAttribute("user");
+		return new ModelAndView("redirect:/");
+	}
 }
