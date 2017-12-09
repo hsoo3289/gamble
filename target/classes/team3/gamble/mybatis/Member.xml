@@ -32,8 +32,7 @@
 		insert into MEMBER(NO, NAME, ID, PWD, EMAIL, PHONE, ACCNUM,
 		AUTHOR_LEVEL)
 		values(MEMBER_SEQ.nextval, #{name}, #{id}, #{pwd},
-		#{email}, #{phone}, #{accnum},
-		#{author_level})
+		#{email}, #{phone}, #{accnum}, #{author_level})
 	</insert>
 
 	<update id="update" parameterType="hashmap"> <!-- 정보 수정 -->

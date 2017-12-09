@@ -10,9 +10,38 @@ public class Path{
 	private String serviceName;
 	private String dbName;
 	private String method;
+	private String returnMethod;
+	private String returnType;
 	private String view;
+	private boolean returnflag=false;
+	
+	
+	public void changeMode() {
+		returnflag = !returnflag;
+	}
+	
+	public boolean dmlexist() {
+		return !method.equals("null");
+	}
+	
+	public String getReturnMethod() {
+		return returnMethod;
+	}
+
+	public String getReturnType() {
+		return returnType;
+	}
+
+	public void setReturnMethod(String returnMethod) {
+		this.returnMethod = returnMethod;
+	}
+
+	public void setReturnType(String returnType) {
+		this.returnType = returnType;
+	}
 	
 	public String getNameSpace() {
+		String method = returnflag? returnMethod:this.method;
 		if(dbName.contains("anony_board_reply")) return ns+".anonyreply."+method;
 		if(dbName.contains("anony_board")) return ns+".anonyboard."+method;
 		if(dbName.contains("reply")) return ns+".reply."+method;
@@ -21,7 +50,7 @@ public class Path{
 	}
 	
 	public String getViewPath() {
-		if(view.equals("index")) return "/";
+		if(view.equals("index")) return "redirect:/";
 		return serviceName+"/"+dbName+"/"+view;
 	}
 	
