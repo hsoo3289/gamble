@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import team3.gamble.common.dao.CommonDao;
-import team3.gamble.common.util.FileUtil;
+import team3.gamble.dao.CommonDao;
 import team3.gamble.model.FileDTO;
+import team3.gamble.util.FileUtil;
 
 @Service
 public class FileService {

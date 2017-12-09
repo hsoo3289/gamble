@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import team3.gamble.common.service.CommonService;
+import team3.gamble.service.CommonService;
 
 @Controller
 @RequestMapping("game")

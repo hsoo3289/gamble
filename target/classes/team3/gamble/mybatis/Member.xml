@@ -41,7 +41,7 @@
 		ACCNUM=#{accnum}
 		where NO=#{no}
 	</update>
-	
+
 	<update id="updatemoney" parameterType="hashmap">
 		update MEMBEr set
 		money=#{money}

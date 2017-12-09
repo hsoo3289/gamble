@@ -77,12 +77,7 @@
 <meta charset='utf-8'>
 </head>
 <body onload="id.focus()">
-	<center>
-		<hr width="600" size="2" noshade>
-		<h2>SIMPLE BOARD(SPRING)</h2>
-		<a class="btn btn-default btn-xs" href='../'>인덱스</a>
-		<hr width="600" size="2" noshade>
-	</center>
+	
 	<div id="page-wrapper" style="min-height: 480px; margin: 0 20% 2% 20%; align:center; ">
 		<div class="row">
 			<div class="col-lg-12">

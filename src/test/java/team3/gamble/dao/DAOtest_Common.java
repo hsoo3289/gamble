@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import team3.gamble.common.dao.CommonDao;
+import team3.gamble.dao.CommonDao;
 import team3.gamble.model.Helper;
 import team3.gamble.model.Path;
 

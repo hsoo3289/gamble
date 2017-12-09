@@ -39,7 +39,7 @@
 	</beans:bean>
 
 	<context:component-scan base-package="team3.gamble" />
-	<context:component-scan base-package="team3.gamble.board.controller" />
+	<context:component-scan base-package="team3.gamble.controller" />
 	<context:component-scan base-package="team3.gamble.game.controller" />
 
 

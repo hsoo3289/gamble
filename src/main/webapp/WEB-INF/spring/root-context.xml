@@ -25,16 +25,6 @@
 
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
-<!-- 
-	<bean id="BoardController" class="team3.gamble.board.controller.CommonController" />
-	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-		<property name="mappings">
-			<props>
-				<prop key="**/consultingboard/**">BoardController</prop>
-			</props>
-		</property>
-	</bean>
-	 -->
 	
 	
 	<context:annotation-config />
