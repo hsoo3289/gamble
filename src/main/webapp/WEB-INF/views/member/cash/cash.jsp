@@ -33,7 +33,7 @@
 		});
 	}
 </script>
-<br />
+<br/>
 
 <div align="center" class="col-lg-4" style="width: 202px;">
 	<div class="panel panel-warning">
@@ -49,10 +49,10 @@
 
 
 <div class="col-lg-4">
-	<div class="panel panel-yellow">
+	<form id="radioform" name="c" method="post" action="insert.do.index">
+	<div class="panel panel-yellow" style="width: 355px;">
 		<div align="center" class="panel-heading"><b>캐시 충전</b></div>
-		<div class="panel-body">
-			<form id="radioform" name="c" method="post" action="insert.do.index">
+		<div class="panel-body" style="width: 353px;">
 				<div style="float: left">
 					<div class="radio">
 						<label> <input type="radio" name="charing"
@@ -109,24 +109,25 @@
 							id="optionsRadios9" value="99000"> 포인트<b>99000</b>원
 						</label>
 					</div>
-					&nbsp;
+					&nbsp;	
 					<div class="radio">
 						<label> <input type="radio" name="charing"
 							id="optionsRadios10" value="110000"> 포인트 <b>110000</b>원
 						</label>
 					</div>
 				</div>
-			</form>
+			
 		</div>
 		<div align="center" class="panel-footer">
 			<input type="hidden" name="member_seq" value="${user.no}"> <input
-				type="hidden" name="money" value="${user.money}"> <input
-				class="btn btn-outline btn-danger" name="" type="button"
+				type="hidden" name="money" value="${user.money}"> 
+			<input class="btn btn-outline btn-danger" name="충전요청" type="button"
 				value="충전요청" onclick="check()" style="margin-right: 140px;">
-			<input class="btn btn-outline btn-info" name="" type="button"
+			<input class="btn btn-outline btn-info" name="뒤로가기" type="button"
 				value="뒤로가기" onclick="history.go(-1)">
 		</div>
 	</div>
+	</form>
 </div>
 
 
