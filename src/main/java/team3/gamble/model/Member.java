@@ -2,7 +2,9 @@ package team3.gamble.model;
 
 import java.sql.Date;
 
-public class Member{
+import org.springframework.web.bind.annotation.RequestParam;
+
+public class Member extends Path{
 
 	private long no;
 	private String name;

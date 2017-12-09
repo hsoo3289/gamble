@@ -37,7 +37,7 @@
 					<c:choose>
 						<c:when test="${cash.approve ne 1}">
 					<td align="center"><input class="btn btn-outline btn-success" name="agree" type="button"
-						value="승인" onclick="location.href="'update?SEQ=${item.SEQ}"/list.list.cash_approve.page'"></td>
+						value="승인" onclick="location.href='update?member_seq=${user.no}'/list.list.cash_approve.page'"></td>
 						</c:when>
 						<c:otherwise>
 					<td align="center"><input class="btn btn-danger disabled" name="agree" type="button"

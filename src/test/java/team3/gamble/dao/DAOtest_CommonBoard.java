@@ -47,11 +47,11 @@ public class DAOtest_CommonBoard {
 		dto.put("subject", "bbb");
 		dto.put("content", "ccc");
 		dto.put("writer_seq", 3);
-		dao.dml(path.getNameSpace(), dto);
+		dao.dml(path, dto);
 		
 		dto.put("seq", 9);
 		dto.put("parent_seq", 3);
-		dao.dml(path.getNameSpace(), dto);
+		dao.dml(path, dto);
 		
 		logger.info("#testCreate()");
 		System.out.println("####testCreate()");
@@ -68,7 +68,7 @@ public class DAOtest_CommonBoard {
 //		
 //		HashMap<String, Object> dto = new HashMap<String, Object>();
 //		dto.put("member_seq", 2);
-//		List<HashMap<String, Object>> list = dao.list(path.getNameSpace(), dto);
+//		List<HashMap<String, Object>> list = dao.list(path, dto);
 //		System.out.println("list.size(): " + list.size());
 //
 //		logger.info("#testListAll()");
@@ -86,7 +86,7 @@ public class DAOtest_CommonBoard {
 //		HashMap<String, Object> dto = new HashMap<String, Object>();
 //		dto.put("seq", 3);
 //
-//		dao.dml(path.getNameSpace(), dto);
+//		dao.dml(path, dto);
 //		
 //		logger.info("#testDelete()");
 //		System.out.println("####testDelete()");

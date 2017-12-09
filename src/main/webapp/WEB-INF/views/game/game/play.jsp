@@ -6,11 +6,12 @@
 <script>
 	function aa(){
 		console.log("aa");
-		window.open("../shooting/shooting/example2.html");
+		window.open("../driving/index.html");
+		//$("#area").load("../driving/index.html");
 	}
 </script>
 aaa
 
-<div class="row" id="area" style="text-align:center">??????</div>
+<div class="row" id="area" style="text-align:center;">??????</div>
 aa
 <button onclick="aa()">aa</button>

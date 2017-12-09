@@ -7,16 +7,16 @@ import team3.gamble.model.Page;
 
 public interface CommonDao{
 	
-	public <T> List<T> list(Page page, String ns, T dto);
+	public <T> List<T> list(Page page, Path path, T dto);
 	
-	public <T> List<T> list(String ns, T dto);
+	public <T> List<T> list(Path path, T dto);
 	
-	public <T> T item(String ns, T dto);
+	public <T> T item(Path path, T dto);
 	
-	public <T> int count(String ns, T dto);
+	public <T> int count(Path path, T dto);
 	
-	public <T> long nextSeq(String ns, T dto);
+	public <T> long nextSeq(Path path, T dto);
 	
-	public <T> int dml(String ns, T dto);
+	public <T> int dml(Path path, T dto);
 
 }

@@ -7,7 +7,7 @@ import java.util.Map;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-public class DTO extends LinkedHashMap{
+public class DTO2 extends LinkedHashMap{
 	private static final String ns = "team3.gamble.mybatis";
 	private String serviceName;
 	private String dbName;

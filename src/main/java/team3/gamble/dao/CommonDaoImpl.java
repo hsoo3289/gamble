@@ -17,33 +17,33 @@ public class CommonDaoImpl implements CommonDao {
 	private SqlSession sqlSession;
 	
 	@Override
-	public <T> List<T> list(Page page, String ns, T dto){
-		return sqlSession.selectList(ns, page);
+	public <T> List<T> list(Page page, Path path, T dto){
+		return sqlSession.selectList(path.getNameSpace(), page);
 	}
 	
 	@Override
-	public <T> List<T> list(String ns, T dto){
-		return sqlSession.selectList(ns, dto);
+	public <T> List<T> list(Path path, T dto){
+		return sqlSession.selectList(path.getNameSpace(), dto);
 	}
 	
 	@Override
-	public <T> T item(String ns, T dto) {
-		return sqlSession.selectOne(ns, dto);
+	public <T> T item(Path path, T dto) {
+		return sqlSession.selectOne(path.getNameSpace(), dto);
 	}
 	
 	@Override
-	public <T> int count(String ns, T dto) {
-		return sqlSession.selectOne(ns, dto);
+	public <T> int count(Path path, T dto) {
+		return sqlSession.selectOne(path.getNameSpace(), dto);
 	}
 	
 	@Override
-	public <T> long nextSeq(String ns, T dto) {
-		return sqlSession.selectOne(ns, dto);
+	public <T> long nextSeq(Path path, T dto) {
+		return sqlSession.selectOne(path.getNameSpace(), dto);
 	}
 	
 	@Override
-	public <T> int dml(String ns, T dto) {
-		return sqlSession.delete(ns, dto);
+	public <T> int dml(Path path, T dto) {
+		return sqlSession.delete(path.getNameSpace(), dto);
 	}
 	
 }
