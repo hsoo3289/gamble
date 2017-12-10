@@ -3,68 +3,137 @@
 
   <html lang="en">
   <head>
-  <title>Bootstrap Example</title>
+  <title>Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- 
-	<center>
-		<br/>
-		<h1>상담 게시판ver.1</h1>
-		
-		<a href='write.do' style="text-decoration:none">글쓰기</a>
-		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href='../' style="text-decoration:none">처음으로</a>	
-		<br/><br/>
-		
-		
-		
-		<table border='1' width='1000' align='center'>
-		
-		
-		
-		
-		
-		<th>글번호</th>
-		<th>제목</th>
-		<th>내용</th>
-		<th>작성자</th>
-		<th>조회수</th>
-		<th>추천수</th>
-		<th>작성일</th>
+
+<center>
 	
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
 	
+</head>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body align='right' style="background:url('/test/images/cat.jpg') no-repeat center center fixed;">
+	<div class="page-wrapper" style="width: 700px">
+	<br/>
 	
-	</tr>
-	<c:if test="${empty list}">    
-		<tr>
-			<td align ='center' colspan="6">데이터가 없음.</td>
-		</tr> 
-	</c:if> 
-	<c:forEach items="${list}" var="dto">
-		<tr>
-			<td align ='center'>${dto.seq}</td>          <!-- 글번호  -->  
-			 
-			<td align ='center'>${dto.subject}</td>      <!-- 제목  -->
-			
-			<td align ='center'> 
-			
-			<a href='view.do?seq=${dto.seq}'>${dto.content}</a>  <!-- 내용및 클릭시 상세보기  -->
-			</td>  
-			
-			<td align ='center'>${dto.writer_seq}</td>    <!-- 글쓴이  -->
+		
+		
+		<c:choose>
+		<c:when test="${user ne null && user.no ne -1}"><h3>${user.name} 님께서 상담게시판을 이용중입니다</h3><br />
 				
-			</td>
+			</c:when>
 			
-			<td align ='center'>${dto.view_count}</td> <!-- 조회수  -->
+			<c:otherwise>
+				<tr>
+					<th><h3>Guest님 접속중</h3></th>
+				</tr>
+		
+		</c:otherwise>
+	
+		</c:choose>
+		&nbsp;&nbsp;
+		<a href='nextseq.seq.insert' style="text-decoration:none">글쓰기</a>
+		&nbsp;&nbsp;&nbsp;
+		
+		<script>
+			function myFunction() {
+				if ('${user}' == null || '${user.no}' == -1) {
+					alert("로그인후 이용 가능합니다!");
+					return false;
+				//location.href="/board/list.do";
+				} else {
+					location.href = "login.do"
+				}
+			}
+			function mylogin() {
+				var myWindow = window.open("../member/login.do", "MsgWindow",
+					"top=500,left=500,width=400,height=150");
+			}
+		</script>
+		
+		
+		<a href='/spring01' style="text-decoration:none">처음으로</a>	
+		<br/>
+		<div class="row" style="margin: 20px 0 20px 0">
+			<div class="col-xs-6" align='left' style="padding-left: 0px;">
+				<select class='btn btn-primary' id='listCount' name='listCount'
+					onchange='listCnt();' >
+					
+					<option value='5'>5</option>
+					<option value='10'>10</option>
+					<option value='15'>15</option>
+					<option value='20'>20</option>
+				</select>
+			</div>
 			
-			<td align ='center'>${dto.like_count}</td> <!-- 추천수  -->
 			
-			<td align ='center'>${dto.cdate}</td> <!-- 작성일  -->
 			
-		</tr>
-	</c:forEach> 
-	</table>
+		
+		<table class="table table-striped table-bordered">
+			<tr>
+				<th align='center' width='10%'>글번호</th>
+				<th align='center' width='10%'>제목</th>
+				<th align='center' width='20%'>작성자</th>
+				<th align='center' width='30%'>내용</th>
+				
+				<th align='center' width='10%'>조회수</th>
+				<th align='center' width='10%'>추천수</th>
+				<th align='center' width='10%'>작성일</th>
+			
+			</tr>
+			<c:if test="${empty list}">
+				<tr>
+					<td align="center" colspan="5">데이터가 없음</td>
+				</tr>
+			</c:if>
+			<c:forEach items="${list}" var="dto">
+	
+			
+				<tr>
+					<td align="center">${dto.SEQ}</td>
+					<td align="center">${dto.SUBJECT}</td>
+					<td align="center">${dto.WRITER_SEQ}</td>
+					<td align="center"><a href='item.item.view?seq=${dto.SEQ}'>${dto.CONTENT}
+								</a></td>
+					
+					
+					
+					<td align="center">${dto.VIEW_COUNT}</td>
+					<td align="center">${dto.LIKE_COUNT}</td>
+					<td align="center">${dto.CDATE}</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<ul class="pagination">
+			<c:if test="${p.pageStartNum ne 1}">
+				<!--맨 첫페이지 이동 -->
+				<li><a onclick='pagePre(${p.pageCnt+1},${p.pageCnt});'>&laquo;</a></li>
+				<!--이전 페이지 이동 -->
+				<li><a onclick='pagePre(${p.pageStartNum},${p.pageCnt});'>&lsaquo;</a></li>
+			</c:if>
+
+			<!--페이지번호 -->
+			<c:forEach var='i' begin="${p.pageStartNum}" end="${p.pageLastNum}"
+				step="1">
+				<li class='pageIndex${i}'><a onclick='pageIndex(${i});'>${i}</a></li>
+			</c:forEach>
+
+			<c:if test="${p.lastChk}">
+				<!--다음 페이지 이동 -->
+				<li><a
+					onclick='pageNext(${p.pageStartNum},${p.total},${p.listCnt},${p.pageCnt});'>&rsaquo;</a></li>
+				<!--마지막 페이지 이동 -->
+				<li><a
+					onclick='pageLast(${p.pageStartNum},${p.total},${p.listCnt},${p.pageCnt});'>&raquo;</a></li>
+			</c:if>
+		</ul>
+	</div>
+</body>
+</html>
 </center>

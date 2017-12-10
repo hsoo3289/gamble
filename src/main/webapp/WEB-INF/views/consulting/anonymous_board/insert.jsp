@@ -1,4 +1,4 @@
-﻿<%@page contentType="text/html;charset=utf-8"%>
+<%@page contentType="text/html;charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
   <html lang="en">
@@ -35,7 +35,6 @@
 	</center>
 	<br/>
 	<form name="input" method="post" action="nextseq.seq.insert">   
-	  
 	   <table border="1" width="600" align="center"  cellpadding="3" cellspacing="1">
 	   
 	     
@@ -80,7 +79,7 @@
 			<div>
 
 				<hr width='600' size='2' noshade>
-				<center><a href='/spring01/consulting/consulting_board/list.list.list' style="text-decoration:none">목록</a></center>
+				<center><a href='/spring01/consulting/anonymous_board/list.list.list' style="text-decoration:none">목록</a></center>
 				<hr width='600' size='2' noshade>
 				
 	   <br>
