@@ -40,7 +40,7 @@
 		$("#reply_input").val("");
 	}
 	function init(seq) {
-		//viewcount(seq);
+		viewcount(seq);
 		replylist(seq);
 	//filelist(seq);
 	}
@@ -67,13 +67,13 @@
 	function viewcount(seq) {
 		$.ajax({
 			type : "GET",
-			url : "view_count.count.count",
+			url : "view_count.get_view_count.count.ajax",
 			data : {
 				"seq" : seq
 			},
-
 			success : function(reply) {
 				console.log(reply);
+				reply = 'ARTICLE NO : ${item.SEQ}&nbsp;&nbsp;VIEWS : '+reply;
 				$("#viewcount").html(reply);
 			}
 		});
@@ -99,7 +99,7 @@
 		console.log(seq);
 		$.ajax({
 			type : "get",
-			url : "like_count.count.count",
+			url : "like_count.get_like_count.count.ajax",
 			data : {
 				"seq" : seq
 			},
@@ -112,33 +112,35 @@
 	}
 
 	function reply_like_count(seq) {
-		var xhttp;
-
-		xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				var id = "reply_like_button_" + seq;
-				document.getElementById(id).innerHTML = "&nbsp;" + this.responseText;
+		console.log(seq);
+		$.ajax({
+			type : "get",
+			url : "../game_board_reply/like_count.get_like_count.count.ajax",
+			data : {
+				"seq" : seq
+			},
+			success : function(reply) {
+				console.log(reply);
+				$("#reply_like_button_"+seq).html("&nbsp;" + reply);
 			}
-		};
-		var url = "../game_board_reply/like_count.get_like_count.count.ajax?seq=" + seq;
-		xhttp.open("GET", url, true);
-		xhttp.send();
-
+		});
+		console.log("aaa");
 	}
 
 	function reply_hate_count(seq) {
-		var xhttp;
-		xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				var id = "reply_hate_button_" + seq;
-				document.getElementById(id).innerHTML = "&nbsp;" + this.responseText;
+		console.log(seq);
+		$.ajax({
+			type : "get",
+			url : "../game_board_reply/hate_count.get_hate_count.count.ajax",
+			data : {
+				"seq" : seq
+			},
+			success : function(reply) {
+				console.log(reply);
+				$("#reply_hate_button_"+seq).html("&nbsp;" + reply);
 			}
-		};
-		var url = "../reply/hate_count.count?seq=" + seq;
-		xhttp.open("GET", url, true);
-		xhttp.send();
+		});
+		console.log("aaa");
 	}
 </script>
 <body onload="init(${item.SEQ})">

@@ -26,11 +26,11 @@
 		values(${dbName}_SEQ.NEXTVAL, #{writer_seq}, #{reply_content}, #{parent_seq})
 	</insert>
 	
-	<select id="get_hate_count" resultType="int">
+	<select id="get_hate_count" resultType="int" parameterType="hashmap">
 		select HATE_COUNT from ${dbName} where SEQ=#{seq}
 	</select>
 	
-	<select id="get_like_count" resultType="int">
+	<select id="get_like_count" resultType="int" parameterType="hashmap">
 		select LIKE_COUNT from ${dbName} where SEQ=#{seq}
 	</select>
 	

@@ -48,6 +48,7 @@ public class Path{
 	}
 	
 	public String getNameSpace() {
+		
 		String method = returnflag? returnMethod:this.method;
 		if(dbName.contains("anony_board_reply")) return ns+".anonyreply."+method;
 		if(dbName.contains("anony_board")) return ns+".anonyboard."+method;

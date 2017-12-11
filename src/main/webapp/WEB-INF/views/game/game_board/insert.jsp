@@ -2,48 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-
-<html>
-<head>
-<title>간단한 게시판</title>
-
-<!-- Bootstrap Core CSS -->
-<link
-	href="${pageContext.request.contextPath}/bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<!-- MetisMenu CSS -->
-<link
-	href="${pageContext.request.contextPath}/bootstrap/bower_components/metisMenu/dist/metisMenu.min.css"
-	rel="stylesheet">
-<!-- Social Buttons CSS -->
-<link
-	href="${pageContext.request.contextPath}/bootstrap/bower_components/bootstrap-social/bootstrap-social.css"
-	rel="stylesheet">
-<!-- Custom CSS -->
-<link
-	href="${pageContext.request.contextPath}/bootstrap/dist/css/sb-admin-2.css"
-	rel="stylesheet">
-<!-- Custom Fonts -->
-<link
-	href="${pageContext.request.contextPath}/bootstrap/bower_components/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<!-- DataTables CSS -->
-<link
-	href="${pageContext.request.contextPath}/bootstrap/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css"
-	rel="stylesheet">
-<!-- DataTables Responsive CSS -->
-<!--
-<link
-	href="/bootstrap/bower_components/datatables-responsive/css/dataTables.responsive.css"
-	rel="stylesheet">
-	-->
-
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.js"></script>
-
-<script type="text/javascript" src="/spring/js/map.js"></script>
-<script type="text/javascript" src="/spring/js/stringBuffer.js"></script>
 
 <script type="text/javascript">
 	//폼에 데이터를 추가하기 위해 (파일을 전송하기 전 정보 유지
@@ -256,8 +217,7 @@
 
 	}
 </script>
-<meta charset='utf-8'>
-</head>
+
 <body onload="filelist(${item.seq})">
 	<center>
 		<hr width="600" size="2" noshade>
@@ -266,108 +226,108 @@
 			href='${pageContext.request.contextPath}'>INDEX</a>
 		<hr width="600" size="2" noshade>
 	</center>
-	<div id="page-wrapper" style="min-height: 828px; align: center;">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">WRITE ARTICLE</h1>
-			</div>
+
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">WRITE ARTICLE</h1>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+
+		<div class="panel-heading">
+			<p>
+				WRITER:
+				<c:choose>
+					<c:when test="${user eq null || user.no eq -1}"> 손님 </c:when>
+					<c:otherwise> ${user.name} </c:otherwise>
+				</c:choose>
+			</p>
 		</div>
 
-		<div class="panel panel-default">
+		<div class="panel-body">
 
-			<div class="panel-heading">
-				<p>
-					WRITER:
+			<div class="row">
+
+				<div class="col-lg-12">
 					<c:choose>
-						<c:when test="${user eq null || user.no eq -1}"> 손님 </c:when>
-						<c:otherwise> ${user.name} </c:otherwise>
+						<c:when test="${item ne null && item.SEQ ne null && item.SEQ ne ''}">
+							<form id="inputForm" name="inputForm" method="post"
+								action="update.list.list.list" enctype="multipart/form-data"
+								style="width: full">
+						</c:when>
+						<c:otherwise>
+							<form id="inputForm" name="inputForm" method="post"
+								action="insert.list.list.list" enctype="multipart/form-data"
+								style="width: full">
+						</c:otherwise>
 					</c:choose>
-				</p>
-			</div>
 
-			<div class="panel-body">
+					<div class="form-group">
+						<label>SUBJECT</label> <input type="text" name="subject"
+							id="subject" value="${item.SUBJECT}" size="60"
+							class="form-control">
+						<p class="help-block">제목을 입력 하세요.</p>
+					</div>
+					<div class="form-group">
+						<label>CONTENT</label>
+						<textarea name="content" id="content"
+							class="form-control dragDropDiv" rows="5" style="width: full">${item.CONTENT}</textarea>
+					</div>
+					<div class="form-group">
+						<div id="attachmentarea"></div>
+						<div id='fileTable'></div>
 
-				<div class="row">
+					</div>
 
-					<div class="col-lg-12">
+					<div class="form-group" align="center">
+						<input type="button" class="btn btn-outline btn-success"
+							name="submit_button" value="전송하기" onclick="submitFile()">
+						&nbsp;&nbsp;&nbsp; <input type="button"
+							class="btn btn-outline btn-primary" name="submit_button"
+							value="글목록" onclick="location.href='list.list.list'">
+						&nbsp;&nbsp;&nbsp; <input type="reset"
+							class="btn btn-outline btn-warning" value="다시입력">
+
+					</div>
+
+					<div>
 						<c:choose>
-							<c:when test="${item.seq ne null}">
-								<form id="inputForm" name="inputForm" method="post"
-									action="insert.list.list.list" enctype="multipart/form-data"
-									style="width: full">
+							<c:when test="${user eq null}">
+								<input type="hidden" value="-1" name="writer_seq">
 							</c:when>
 							<c:otherwise>
-								<form id="inputForm" name="inputForm" method="post"
-									action="update.list.list.list" enctype="multipart/form-data"
-									style="width: full">
+								<input type="hidden" value="${user.no}" name="writer_seq">
+							</c:otherwise>
+
+						</c:choose>
+						<c:choose>
+							<c:when test="${seq ne null}">
+								<input type="hidden" value="${seq}" name="seq">
+							</c:when>
+							<c:otherwise>
+								<input type="hidden" value="${item.SEQ}" name="seq">
 							</c:otherwise>
 						</c:choose>
 
-						<div class="form-group">
-							<label>SUBJECT</label> <input type="text" name="subject"
-								id="subject" value="${item.SUBJECT}" size="60"
-								class="form-control">
-							<p class="help-block">제목을 입력 하세요.</p>
-						</div>
-						<div class="form-group">
-							<label>CONTENT</label>
-							<textarea name="content" id="content"
-								class="form-control dragDropDiv" rows="5" style="width: full">${item.CONTENT}</textarea>
-						</div>
-						<div class="form-group">
-							<div id="attachmentarea"></div>
-							<div id='fileTable'></div>
 
-						</div>
+						<c:choose>
+							<c:when test="${pre_param.parent_seq eq null}">
+								<input type="hidden" value="-1" name="parent_seq"
+									id="parent_seq">
+							</c:when>
+							<c:otherwise>
+								<input type="hidden" value="${pre_param.parent_seq}"
+									name="parent_seq" id="parent_seq">
+							</c:otherwise>
+						</c:choose>
 
-						<div class="form-group" align="center">
-							<input type="button" class="btn btn-outline btn-success"
-								name="submit_button" value="전송하기" onclick="submitFile()">
-							&nbsp;&nbsp;&nbsp; <input type="button"
-								class="btn btn-outline btn-primary" name="submit_button"
-								value="글목록" onclick="location.href='list.list.list'">
-							&nbsp;&nbsp;&nbsp; <input type="reset"
-								class="btn btn-outline btn-warning" value="다시입력">
-
-						</div>
-
-						<div>
-							<c:choose>
-								<c:when test="${user eq null}">
-									<input type="hidden" value="-1" name="writer_seq">
-								</c:when>
-								<c:otherwise>
-									<input type="hidden" value="${user.no}" name="writer_seq">
-								</c:otherwise>
-
-							</c:choose>
-							<c:choose>
-								<c:when test="${seq ne null}">
-									<input type="hidden" value="${seq}" name="seq">
-								</c:when>
-								<c:otherwise>
-									<input type="hidden" value="${item.SEQ}" name="seq">
-								</c:otherwise>
-							</c:choose>
-
-
-							<c:choose>
-								<c:when test="${pre_param.parent_seq eq null}">
-									<input type="hidden" value="-1" name="parent_seq"
-										id="parent_seq">
-								</c:when>
-								<c:otherwise>
-									<input type="hidden" value="${pre_param.parent_seq}"
-										name="parent_seq" id="parent_seq">
-								</c:otherwise>
-							</c:choose>
-
-						</div>
-						</form>
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>
