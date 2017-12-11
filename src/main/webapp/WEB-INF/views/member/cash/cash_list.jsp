@@ -16,7 +16,6 @@
 			width="600" align="center" cellpadding="3" cellspacing="1"
 			style="width: 702px;">
 			<tr>
-				<th style='text-align: center' width='10%'>번호</th>
 				<th style='text-align: center' width='15%'>충전금액</th>
 				<th style='text-align: center' width='20%'>충전날짜</th>
 				<th style='text-align: center' width='10%'>승인상태</th>
@@ -28,7 +27,6 @@
 			</c:if>
 			<c:forEach items="${list}" var="cash">
 				<tr>
-					<td align="center">${cash.SEQ}</td>
 					<td align="center">${cash.CHARING}</td>
 					<td align="center">${cash.CHARDATE}</td>
 				<c:choose>

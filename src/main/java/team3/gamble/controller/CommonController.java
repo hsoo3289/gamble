@@ -62,4 +62,14 @@ public class CommonController{
 		return new ModelAndView("redirect:/");
 	}
 	
+	
+	@RequestMapping("IdCheck.item.{view}")
+	@ResponseBody String joinCheck(HttpSession session, Path path, Member member) {
+		path.setMethod("IdCheck");
+		Member id = service.item(path, member);
+		if(id!=null) return "중복된 아이디입니다";
+		session.removeAttribute("id");
+		session.setAttribute("id", id);
+		return "success";
+	}
 }

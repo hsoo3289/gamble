@@ -23,8 +23,14 @@
 
 </script>
 <br/>
-
-<div align="center" class="col-lg-4" style="width: 202px;">
+<div class="page-wrapper" style="text-align: center">
+	<div class="row">
+		<hr width="500" size="2">
+			<font size="5"><strong>CHARING</strong></font>
+		<hr width="500" size="2">
+	</div>
+	
+<div align="center" class="col-lg-4" style="width: 202px;margin-left: 315px;margin-top: 50px;">
 	<div class="panel panel-warning">
 		<div class="panel-heading">
 			<b>결제 패키지</b>
@@ -39,37 +45,42 @@
 
 <div class="col-lg-4">
 	<form id="radioform" name="c" method="post" action="insert.list.list.cash_list">
-	<div class="panel panel-yellow" style="width: 355px;">
+	<div class="panel panel-yellow" style="width: 502px;margin-top: 50px;">
 		<div align="center" class="panel-heading"><b>캐시 충전</b></div>
-		<div class="panel-body" style="width: 353px;">
+		<div class="panel-body" style="width: 353px;margin-left: 80px;">
+		<style>
+     	 .a{
+        color: #FDBC24;
+      	}
+   		</style>
 				<div style="float: left">
 					<div class="radio">
 						<label> <input type="radio" name="charing"
-							id="optionsRadios1" value="11000">포인트 <b>11000</b>원
+							id="optionsRadios1" value="11000"><p class="a"><i class="fa fa-database"></i></p>포인트<b>11000</b>원
 						</label>
 					</div>
 					&nbsp;
 					<div class="radio">
 						<label> <input type="radio" name="charing"
-							id="optionsRadios2" value="22000"> 포인트 <b>22000</b>원
+							id="optionsRadios2" value="22000"><p class="a"><i class="fa fa-database"></i></p>포인트<b>22000</b>원
 						</label>
 					</div>
 					&nbsp;
 					<div class="radio">
 						<label> <input type="radio" name="charing"
-							id="optionsRadios3" value="33000"> 포인트 <b>33000</b>원
+							id="optionsRadios3" value="33000"><p class="a"><i class="fa fa-database"></i></p>포인트<b>33000</b>원
+						</label>
+					</div>
+					&nbsp;	
+					<div class="radio">
+						<label> <input type="radio" name="charing"
+							id="optionsRadios4" value="44000"><p class="a"><i class="fa fa-database"></i></p>포인트<b>44000</b>원
 						</label>
 					</div>
 					&nbsp;
 					<div class="radio">
 						<label> <input type="radio" name="charing"
-							id="optionsRadios4" value="44000"> 포인트 <b>44000</b>원
-						</label>
-					</div>
-					&nbsp;
-					<div class="radio">
-						<label> <input type="radio" name="charing"
-							id="optionsRadios5" value="55000"> 포인트 <b>55000</b>원
+							id="optionsRadios5" value="55000"><p class="a"><i class="fa fa-database"></i></p>포인트<b>55000</b>원
 						</label>
 					</div>
 				</div>
@@ -77,31 +88,31 @@
 				<div style="float: right">
 					<div class="radio">
 						<label> <input type="radio" name="charing"
-							id="optionsRadios6" value="66000"> 포인트 <b>66000</b>원
+							id="optionsRadios6" value="66000"><p class="a"><i class="fa fa-database"></i></p>포인트<b>66000</b>원
 						</label>
 					</div>
 					&nbsp;
 					<div class="radio">
 						<label> <input type="radio" name="charing"
-							id="optionsRadios7" value="77000"> 포인트 <b>77000</b>원
+							id="optionsRadios7" value="77000"><p class="a"><i class="fa fa-database"></i></p>포인트<b>77000</b>원
 						</label>
 					</div>
 					&nbsp;
 					<div class="radio">
 						<label> <input type="radio" name="charing"
-							id="optionsRadios8" value="88000"> 포인트 <b>88000</b>원
+							id="optionsRadios8" value="88000"><p class="a"><i class="fa fa-database"></i></p>포인트<b>88000</b>원
 						</label>
 					</div>
 					&nbsp;
 					<div class="radio">
 						<label> <input type="radio" name="charing"
-							id="optionsRadios9" value="99000"> 포인트<b>99000</b>원
+							id="optionsRadios9" value="99000"><p class="a"><i class="fa fa-database"></i></p>포인트<b>99000</b>원
 						</label>
 					</div>
 					&nbsp;	
 					<div class="radio">
 						<label> <input type="radio" name="charing"
-							id="optionsRadios10" value="110000"> 포인트 <b>110000</b>원
+							id="optionsRadios10" value="110000"><p class="a"><i class="fa fa-database"></i></p>포인트<b>110000</b>원
 						</label>
 					</div>
 				</div>
@@ -117,6 +128,7 @@
 		</div>
 	</div>
 	</form>
+</div>
 </div>
 
 

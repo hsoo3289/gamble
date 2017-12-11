@@ -28,8 +28,8 @@
 		<ul class="nav nav-second-level">
 			<li><a href="${pageContext.request.contextPath}/member/cash/cash.page"><i class="fa fa-money"></i> cash 충전</a></li>
 			<li><a href="${pageContext.request.contextPath}/member/cash/list.list.cash_list?member_seq=${user.no}"><i class="glyphicon glyphicon-th-list"></i> 충전 이력</a></li>
-			<li><a href="${pageContext.request.contextPath}/member/cash/approve_list.list.cash_approve"><i class="fa fa-check-square-o"></i> 관리자 승인</a></li>		
-
+			<li><a href="${pageContext.request.contextPath}/member/cash/approve_list.list.cash_approve"><i class="fa fa-check-square-o"></i> 관리자 승인</a></li>	
+				
 		</ul> <!-- /.nav-second-level --></li>
 		
 	<!-- nav fist level Game 서비스 -->
@@ -53,6 +53,13 @@
 				href="${pageContext.request.contextPath}/game/game_baord/list.list.list"><i class="glyphicon glyphicon-list-alt"></i> GAME
 					BOARD</a></li>
 		</ul> <!-- /.nav-second-level --></li>
+	<!-- nav fist level 홈페이지 서비스 -->
+	<li><a href="#"><i class="fa  fa-plus-square fa-fw"></i>도박 중독 방지 사이트<span
+			class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			<li><a href="#" onclick="window.open('https://www.kcgp.or.kr/main.do','한국도박문제관리센터','width=1800, height=900, toolbar=no, menubar=no, scrollbars=no, resizable=yes');return false"><i class="fa fa-hospital-o fa-fw"></i> 한국도박문제관리센터</a></li>
+		</ul> <!-- /.nav-second-level --></li>	
+		
 </ul>
 
 <div class="wrapper">

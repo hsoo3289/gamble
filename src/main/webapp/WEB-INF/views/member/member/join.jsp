@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function login_check(){
 		console.log('${user}')
@@ -56,6 +57,20 @@
 		if (event.keyCode == 13) document.getElementById(id).focus();
 		return;
 	}
+	
+	function IdCheck(){
+		$ajax({
+			type : "POST",
+			url : "${pageContext.request.contextPath}/member/member/IdCheck.item.item.join.pag",
+			data : {"id":""},
+			success : function(reply){
+				console.log(reply);
+				$("#IdCheck_msg").html(reply);
+				if(reply=="success") location.reload();
+				else if(reply=="id error") join.page.id.focus();
+			}
+		});
+	}
 </script>
 
 
@@ -86,7 +101,7 @@
 					<input class="form-control" id="id" name="id"
 					  placeholder="ID를 입력해주세요" type="text" size="30" maxlength="30"
 					    style="width: 206px;" onkeypress="move_focus('pwd')">
-					
+					<input type="button" class="btn btn-info" value="중복확인" onclick="IdCheck">
 				</td>				
 			</tr>
 			<tr>
