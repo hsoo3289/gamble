@@ -65,7 +65,7 @@
 		$("#inputForm").submit();
 		//insertBoard();
 		sendFileToServer();
-		
+
 	}
 	//파일 전송 함수이다.
 	var insertBoard = function() {
@@ -75,16 +75,14 @@
 			type : "post",
 			url : '${item.method}.void', //Upload URL
 			data : json,
-			
-			
 		});
 	}
 
 
-	
+
 	var sendFileToServer = function() {
-		fd.append("parent_seq","${item.seq}");
-		console.log("sendFileToServer fd:"+fd);
+		fd.append("parent_seq", "${item.seq}");
+		console.log("sendFileToServer fd:" + fd);
 		$.ajax({
 			type : "post",
 			url : "/spring/board/file/insert.void", //Upload URL
@@ -137,16 +135,16 @@
 			},
 			tag : function() {
 				var tag = new StringBuffer();
-//				tag.append('<tr>');
-//				tag.append('<td>' + this.name + '</td>');
-//				tag.append('<td>' + this.size + '</td>');
-//				tag.append("<td><button id='" + this.name + "' onclick='delFile(this)'>취소</button></td>");
-//				tag.append('</tr>');
+				//				tag.append('<tr>');
+				//				tag.append('<td>' + this.name + '</td>');
+				//				tag.append('<td>' + this.size + '</td>');
+				//				tag.append("<td><button id='" + this.name + "' onclick='delFile(this)'>취소</button></td>");
+				//				tag.append('</tr>');
 				tag.append('<b>');
-				tag.append(this.name+"&nbsp;");
-				tag.append('<a style="float: right; margin-right: 15px;" class="glyphicon glyphicon-remove" onclick="delFile(this)" id='+this.name+'></a><br/>');
+				tag.append(this.name + "&nbsp;");
+				tag.append('<a style="float: right; margin-right: 15px;" class="glyphicon glyphicon-remove" onclick="delFile(this)" id=' + this.name + '></a><br/>');
 				tag.append('</b>');
-				
+
 				return tag.toString();
 			}
 		}
@@ -164,7 +162,7 @@
 		map.remove(formName);
 		// tr을 삭제하기 위해
 		$(e).parents('b').remove();
-		//alert('삭제 완료!');
+	//alert('삭제 완료!');
 	}
 	$(document).ready(function() {
 		var objDragDrop = $(".dragDropDiv");
@@ -221,14 +219,14 @@
 			return false;
 		}
 	}
-	
-	function deletefile(seq){
+
+	function deletefile(seq) {
 		$.ajax({
 			type : "GET",
 			url : "${pageContext.request.contextPath}/board/file/delete.void",
 			data : {
 				"seq" : seq,
-				"parent_seq":"${item.seq}"
+				"parent_seq" : "${item.seq}"
 			},
 			contentType : "html",
 			success : function(response) {
@@ -237,16 +235,15 @@
 				$("#attachmentarea").html(response);
 			}
 		});
-		
+
 	}
-	
-	function filelist(seq){
+
+	function filelist(seq) {
 		$.ajax({
 			type : "GET",
 			url : "${pageContext.request.contextPath}/board/file/list.list",
 			data : {
 				"parent_seq" : seq
-				
 			},
 
 			contentType : "json",
@@ -265,7 +262,8 @@
 	<center>
 		<hr width="600" size="2" noshade>
 		<h2>Simple Board with Model2</h2>
-		<a class="btn btn-default btn-xs" href='${pageContext.request.contextPath}'>INDEX</a>
+		<a class="btn btn-default btn-xs"
+			href='${pageContext.request.contextPath}'>INDEX</a>
 		<hr width="600" size="2" noshade>
 	</center>
 	<div id="page-wrapper" style="min-height: 828px; align: center;">
@@ -292,52 +290,79 @@
 				<div class="row">
 
 					<div class="col-lg-12">
-						<form id="inputForm" name="inputForm" method="post"
-							action="${item.method}.void" enctype="multipart/form-data"
-							style="width: full">
-							<div class="form-group">
-								<label>SUBJECT</label> <input type="text" name="subject"
-									id="subject" value="${item.subject}" size="60"
-									class="form-control">
-								<p class="help-block">제목을 입력 하세요.</p>
-							</div>
-							<div class="form-group">
-								<label>CONTENT</label>
-								<textarea name="content" id="content"
-									class="form-control dragDropDiv" rows="5" style="width: full">${item.content}</textarea>
-							</div>
-							<div class="form-group">
-								<div id="attachmentarea"></div>
-								<div id='fileTable'></div>
-								
-							</div>
+						<c:choose>
+							<c:when test="${item.seq ne null}">
+								<form id="inputForm" name="inputForm" method="post"
+									action="insert.list.list.list" enctype="multipart/form-data"
+									style="width: full">
+							</c:when>
+							<c:otherwise>
+								<form id="inputForm" name="inputForm" method="post"
+									action="update.list.list.list" enctype="multipart/form-data"
+									style="width: full">
+							</c:otherwise>
+						</c:choose>
 
-							<div class="form-group" align="center">
-								<input type="button" class="btn btn-outline btn-success"
-									name="submit_button" value="전송하기" onclick="submitFile()">
-								&nbsp;&nbsp;&nbsp; <input type="button"
-									class="btn btn-outline btn-primary" name="submit_button"
-									value="글목록" onclick="location.href='list.list'">
-								&nbsp;&nbsp;&nbsp; <input type="reset"
-									class="btn btn-outline btn-warning" value="다시입력">
-								
-							</div>
+						<div class="form-group">
+							<label>SUBJECT</label> <input type="text" name="subject"
+								id="subject" value="${item.SUBJECT}" size="60"
+								class="form-control">
+							<p class="help-block">제목을 입력 하세요.</p>
+						</div>
+						<div class="form-group">
+							<label>CONTENT</label>
+							<textarea name="content" id="content"
+								class="form-control dragDropDiv" rows="5" style="width: full">${item.CONTENT}</textarea>
+						</div>
+						<div class="form-group">
+							<div id="attachmentarea"></div>
+							<div id='fileTable'></div>
 
-							<div>
-								<input type="hidden" value="${user.no}" name="writer_seq">
-								<input type="hidden" value="${item.seq}" name="seq">
-								<c:choose>
-									<c:when test="${item.parent_seq eq null}">
-										<input type="hidden" value="-1" name="parent_seq"
-											id="parent_seq">
-									</c:when>
-									<c:otherwise>
-										<input type="hidden" value="${item.parent_seq}" name="parent_seq"
-											id="parent_seq">
-									</c:otherwise>
-								</c:choose>
+						</div>
 
-							</div>
+						<div class="form-group" align="center">
+							<input type="button" class="btn btn-outline btn-success"
+								name="submit_button" value="전송하기" onclick="submitFile()">
+							&nbsp;&nbsp;&nbsp; <input type="button"
+								class="btn btn-outline btn-primary" name="submit_button"
+								value="글목록" onclick="location.href='list.list.list'">
+							&nbsp;&nbsp;&nbsp; <input type="reset"
+								class="btn btn-outline btn-warning" value="다시입력">
+
+						</div>
+
+						<div>
+							<c:choose>
+								<c:when test="${user eq null}">
+									<input type="hidden" value="-1" name="writer_seq">
+								</c:when>
+								<c:otherwise>
+									<input type="hidden" value="${user.no}" name="writer_seq">
+								</c:otherwise>
+
+							</c:choose>
+							<c:choose>
+								<c:when test="${seq ne null}">
+									<input type="hidden" value="${seq}" name="seq">
+								</c:when>
+								<c:otherwise>
+									<input type="hidden" value="${item.SEQ}" name="seq">
+								</c:otherwise>
+							</c:choose>
+
+
+							<c:choose>
+								<c:when test="${pre_param.parent_seq eq null}">
+									<input type="hidden" value="-1" name="parent_seq"
+										id="parent_seq">
+								</c:when>
+								<c:otherwise>
+									<input type="hidden" value="${pre_param.parent_seq}"
+										name="parent_seq" id="parent_seq">
+								</c:otherwise>
+							</c:choose>
+
+						</div>
 						</form>
 					</div>
 				</div>

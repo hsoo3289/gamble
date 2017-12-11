@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="team3.gamble.mybatis.Reply">
+<mapper namespace="team3.gamble.mybatis.reply">
 	
 	<resultMap id="replyResult"  type="Reply">	
 		
@@ -18,13 +18,21 @@
 	</resultMap>
 	
 	<select id="list" resultType="hashmap" parameterType="hashmap">
-		select * from ${dbName} where PARENT_SEQ=#{parent_seq} order by SEQ desc
+		select * from ${dbName}_VIEW where PARENT_SEQ=#{parent_seq} order by SEQ desc
 	</select>
 	
 	<insert id="insert" parameterType="hashmap">
 		insert into ${dbName} (SEQ, WRITER_SEQ, REPLY_CONTENT, PARENT_SEQ)
 		values(${dbName}_SEQ.NEXTVAL, #{writer_seq}, #{reply_content}, #{parent_seq})
 	</insert>
+	
+	<select id="get_hate_count" resultType="int">
+		select HATE_COUNT from ${dbName} where SEQ=#{seq}
+	</select>
+	
+	<select id="get_like_count" resultType="int">
+		select LIKE_COUNT from ${dbName} where SEQ=#{seq}
+	</select>
 	
 	<update id="hate_count" parameterType="hashmap">
 		update ${dbName} set HATE_COUNT=HATE_COUNT+1 where SEQ=#{seq}

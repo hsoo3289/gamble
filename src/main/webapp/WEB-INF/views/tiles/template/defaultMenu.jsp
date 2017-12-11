@@ -50,7 +50,7 @@
 			<li><a href="${pageContext.request.contextPath}/game/game/game_result.page"><i class="fa fa-bar-chart-o fa-fw"></i> RESULT
 					CHECK</a></li>
 			<li><a
-				href="${pageContext.request.contextPath}/game/game_baord/list.list.list"><i class="glyphicon glyphicon-list-alt"></i> GAME
+				href="${pageContext.request.contextPath}/game/game_board/list.list.list"><i class="glyphicon glyphicon-list-alt"></i> GAME
 					BOARD</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 	<!-- nav fist level 홈페이지 서비스 -->

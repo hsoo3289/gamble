@@ -31,6 +31,7 @@ public class CommonController{
 		params.put("dbName", path.getDbName());
 		
 		ModelAndView mv = new ModelAndView(path.getViewPath());
+		mv.addObject("pre_param", params);
 		if(path.dmlexist()) mv.addObject("result", service.dml(path, params));
 		
 		path.changeMode();
@@ -43,6 +44,22 @@ public class CommonController{
 		return mv;
 	}
 	
+	@RequestMapping("{returnMethod}.{returnType}.{view}/ajax_view")
+	@ResponseBody ModelAndView ajaxView(Path path, @RequestParam Map<String, Object> params) {
+		params.put("dbName", path.getDbName());
+
+		ModelAndView mv = new ModelAndView("ajax/"+path.getView());
+		if(path.dmlexist()) mv.addObject("result", service.dml(path, params));
+		path.changeMode();
+		mv.addObject("list", service.list(path, params));
+		return mv;
+	}
+	
+	@RequestMapping("{returnMethod}.{returnType}.ajax")
+	@ResponseBody int ajax(Path path, @RequestParam Map<String, Object> params) {
+		params.put("dbName", path.getDbName());
+		return service.count(path, params);
+	}
 	
 	@RequestMapping("login.do.{view}")
 	@ResponseBody String login(HttpSession session, Path path, Member member) {
