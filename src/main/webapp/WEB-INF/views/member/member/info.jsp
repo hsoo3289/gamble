@@ -12,7 +12,7 @@
 			location.href = "update.page"
 		}
 		function userDelete() {
-			location.href = 'delete.do.index?no=${user.no}'
+			location.href = 'delete.void.do.index?no=${user.no}'
 			alert = ("탈퇴성공!");
 		}
 	</script>

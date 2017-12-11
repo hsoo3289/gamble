@@ -47,10 +47,8 @@
 			f.accnum.focus();
 			return false;
 		}
-		if('${user}' != null){
-			f.action="update.do"
-		}
 		if (f.submit()) {
+			
 			alert("회원가입 성공!");
 		}
 	}
@@ -58,29 +56,10 @@
 		if (event.keyCode == 13) document.getElementById(id).focus();
 		return;
 	}
-	
-	function idcheck(){
-		var id = $('#id').val();
-			$.ajax({
-				type:'POST',
-				url:'IdCheck.do',
-				data:{"id" : $("#id").val()},
-				success: function(result){
-					if(result=="no"){
-						$('#checkMessage').html('사용할 수 있는 아이디입니다.');
-						$('#checkType').attr('class','modal-content panel-success');
-					}
-					else{
-						$('#checkMessage').html('이미 존재하는 아이디입니다.');
-						$('#checkType').attr('class','modal-content panel-warning');
-					}
-					$('#checkModal').modal("show");
-				}
-			});
-		}
 </script>
 
-	<body onload="login_check()">
+
+<body onload="login_check()">
 <div class="page-wrapper" style="text-align: center;">
 	<div class="row">
 		<hr width="500" size="2">
@@ -88,7 +67,7 @@
 		<hr width="500" size="2">
 	</div>
 	
-	<form name="f" method="post" action="insert.do.index">
+	<form name="f" method="post" action="insert.void.do.index">
 		<table class="table table-striped table-bordered" border="1"
 			width="600" align="center" cellpadding="3" cellspacing="1"
 			style="width: 502px;">
@@ -106,7 +85,7 @@
 				<td>
 					<input class="form-control" id="id" name="id"
 					  placeholder="ID를 입력해주세요" type="text" size="30" maxlength="30"
-					    style="width: 206px;" onkeypress="move_focus('pwd')" onkeyup="idcheck()">
+					    style="width: 206px;" onkeypress="move_focus('pwd')">
 					
 				</td>				
 			</tr>
@@ -159,12 +138,12 @@
 					<td colspan="2">
 					<div align="center">
 				 		<br/>
-						<input id="join" class="btn btn-outline btn-info" name="join" type="button" value="가입" onclick="submit()">
+						<input id="join" class="btn btn-outline btn-info" name="join" type="button" value="가입" onclick="check()">
 						<input id="reset"class="btn btn-outline btn-danger" name="reset" type="reset" value="다시쓰기">
 				 	</div>
 					</td>
 				</tr>
 			</table>
 		</form>
-	
 </div>
+</body>

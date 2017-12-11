@@ -48,7 +48,7 @@
 		<hr width="500" size="2">
 	</div>
 	<div class="table" style="text align: center;">	
-	<form name="f" method="post" action="update.do.info">
+	<form name="f" method="post" action="update.item.item.info">
 		<table class="table table-striped table-bordered" border="1"
 			width="600" align="center" cellpadding="3" cellspacing="1"
 			style="width: 502px;">
