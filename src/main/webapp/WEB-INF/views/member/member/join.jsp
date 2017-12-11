@@ -61,7 +61,7 @@
 	function IdCheck(){
 		$ajax({
 			type : "POST",
-			url : "${pageContext.request.contextPath}/member/member/IdCheck.item.item.join.pag",
+			url : "${pageContext.request.contextPath}/member/member/IdCheck.item.item.join.page",
 			data : {"id":""},
 			success : function(reply){
 				console.log(reply);
