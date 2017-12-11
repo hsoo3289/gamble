@@ -74,6 +74,7 @@
 					<div style="float: left;margin-top: 5px;margin-right: 10px;">
 					<b><h5><b>${user.name}</b></h5></b>
 					</div>
+					
 					<div style="float: left;margin-top: 5px;margin-right: 10px;">
 					<b><h5><b>포인트: ${user.money}원</b></h5></b>
 					</div>

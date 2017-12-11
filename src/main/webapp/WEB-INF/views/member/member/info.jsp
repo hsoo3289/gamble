@@ -54,6 +54,10 @@
 					<td align='center'>계좌번호</td>
 					<td>${user.accnum}</td>
 				</tr>
+				<tr>
+					<td align='center'>보유 포인트</td>
+					<td>${user.money}</td>
+				</tr>
 			</c:otherwise>
 		</c:choose>
 	</table>

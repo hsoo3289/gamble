@@ -31,7 +31,14 @@
 					<td align="center">${cash.SEQ}</td>
 					<td align="center">${cash.CHARING}</td>
 					<td align="center">${cash.CHARDATE}</td>
-					<td align="center">${cash.APPROVE}</td>
+				<c:choose>
+					<c:when test="${cash.APPROVE eq 1}">	
+						<td align="center"><b class="text-danger">미승인</b></td>
+					</c:when>
+						<c:otherwise>
+							<td align="center"><b class="text-success">승인</b></td>
+						</c:otherwise>
+				</c:choose>
 				</tr>
 			</c:forEach>
 		</table>

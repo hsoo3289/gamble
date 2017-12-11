@@ -26,6 +26,7 @@ public class CommonController{
 		return new ModelAndView(path.getViewPath());
 	}
 	
+	
 	@RequestMapping("{returnMethod}.{returnType}.{view}")
 	ModelAndView method(Path path, @RequestParam Map<String, Object> params) {
 		params.put("dbName", path.getDbName());
@@ -60,4 +61,5 @@ public class CommonController{
 		session.removeAttribute("user");
 		return new ModelAndView("redirect:/");
 	}
+	
 }

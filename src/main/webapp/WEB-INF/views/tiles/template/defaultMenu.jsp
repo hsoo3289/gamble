@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8"%>
-
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <ul class="nav" id="side-menu">
 	<li class="sidebar-search">
@@ -28,7 +28,8 @@
 		<ul class="nav nav-second-level">
 			<li><a href="${pageContext.request.contextPath}/member/cash/cash.page"><i class="fa fa-money"></i> cash 충전</a></li>
 			<li><a href="${pageContext.request.contextPath}/member/cash/list.list.cash_list?member_seq=${user.no}"><i class="glyphicon glyphicon-th-list"></i> 충전 이력</a></li>
-			<li><a href="${pageContext.request.contextPath}/member/cash/approve_list.list.cash_approve"><i class="fa fa-check-square-o"></i> 관리자 승인</a></li>
+			<li><a href="${pageContext.request.contextPath}/member/cash/approve_list.list.cash_approve"><i class="fa fa-check-square-o"></i> 관리자 승인</a></li>		
+
 		</ul> <!-- /.nav-second-level --></li>
 		
 	<!-- nav fist level Game 서비스 -->

@@ -13,25 +13,14 @@
 		var charing = $(':input[name=charing]:radio:checked').val();
 		if (charing) {
 			alert(charing + "을 선택했습니다");
-			ajax_submit($('#radioform').serialize());
-			location.href = "list.list.cash_list?member_seq=${user.no}";
+			radioform.submit();
 			return true;
 		} else {
 			alert("금액을 선택하세요!");
 			return false;
 		}
 	}
-	function ajax_submit(val) {
-		console.log("ajax 실행:" + val);
-		$.ajax({
-			type : "post",
-			url : "insert.do.cash",
-			data : val,
-			success : function() {
-				console.log("성공");
-			}
-		});
-	}
+
 </script>
 <br/>
 
@@ -49,7 +38,7 @@
 
 
 <div class="col-lg-4">
-	<form id="radioform" name="c" method="post" action="insert.do.index">
+	<form id="radioform" name="c" method="post" action="insert.list.list.cash_list">
 	<div class="panel panel-yellow" style="width: 355px;">
 		<div align="center" class="panel-heading"><b>캐시 충전</b></div>
 		<div class="panel-body" style="width: 353px;">

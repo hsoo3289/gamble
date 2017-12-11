@@ -33,17 +33,10 @@
 					<td align="center">${cash.MEMBER_SEQ}</td>
 					<td align="center">${cash.CHARING}</td>
 					<td align="center">${cash.CHARDATE}</td>
-					<td align="center">${cash.APPROVE}</td>
-					<c:choose>
-						<c:when test="${cash.approve ne 1}">
+					<td align="center"><b class="text-danger">미승인</b></td>
 					<td align="center"><input class="btn btn-outline btn-success" name="agree" type="button"
 						value="승인" onclick="location.href='approve.approve_list.list.cash_approve?seq=${cash.SEQ}'"></td>
-						</c:when>
-						<c:otherwise>
-					<td align="center"><input class="btn btn-danger disabled" name="agree" type="button"
-						value="승인완료" onclick="agree()"></td>
-						</c:otherwise>
-					</c:choose>
+					
 				</tr>
 			</c:forEach>
 		</table>
