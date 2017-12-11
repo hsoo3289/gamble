@@ -24,6 +24,10 @@
 		select * from MEMBER where NO=#{no}
 	</select>
 	
+	<select id="IdCheck" parameterType="hashmap" resultType="int">
+		select count(*) from MEMBER where ID = #{id}
+	</select>
+	
 	<select id="login" parameterType="Member" resultType="Member"> <!-- 정보 조회 -->
 		select * from MEMBER where ID=#{id}
 	</select>

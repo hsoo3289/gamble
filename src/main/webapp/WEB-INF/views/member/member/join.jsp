@@ -59,22 +59,25 @@
 	}
 	
 	function IdCheck(){
-		$ajax({
+		console.log("aa");
+		$.ajax({
 			type : "POST",
-			url : "${pageContext.request.contextPath}/member/member/IdCheck.item.item.join.page",
-			data : {"id":""},
+			url : "${pageContext.request.contextPath}/member/member/item.item.info/ajax_view",
+			data : {"no":"6"},
 			success : function(reply){
 				console.log(reply);
+				//var msg;
+				//if(reply==0) msg = ??; 
+				//else msg =??;
 				$("#IdCheck_msg").html(reply);
-				if(reply=="success") location.reload();
-				else if(reply=="id error") join.page.id.focus();
 			}
-		});
+		}); //<div id="">////////</div>
 	}
 </script>
 
 
 <body onload="login_check()">
+<div id="IdCheck_msg"></div>
 <div class="page-wrapper" style="text-align: center;">
 	<div class="row">
 		<hr width="500" size="2">
@@ -101,7 +104,7 @@
 					<input class="form-control" id="id" name="id"
 					  placeholder="ID를 입력해주세요" type="text" size="30" maxlength="30"
 					    style="width: 206px;" onkeypress="move_focus('pwd')">
-					<input type="button" class="btn btn-info" value="중복확인" onclick="IdCheck">
+					<input type="button" class="btn btn-info" value="중복확인" onclick="IdCheck()">
 				</td>				
 			</tr>
 			<tr>

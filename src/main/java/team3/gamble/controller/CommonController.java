@@ -59,7 +59,7 @@ public class CommonController{
 	@RequestMapping("{returnMethod}.{returnType}.ajax")
 	@ResponseBody String ajax(Path path, @RequestParam Map<String, Object> params) {
 		params.put("dbName", path.getDbName());
-		service.dml(path, params);
+		if(path.dmlexist()) service.dml(path, params);
 		path.changeMode();
 		return String.valueOf(service.count(path, params));
 	}
@@ -79,15 +79,5 @@ public class CommonController{
 	ModelAndView logout(HttpSession session) {
 		session.removeAttribute("user");
 		return new ModelAndView("redirect:/");
-	}
-	
-	@RequestMapping("IdCheck.item.{view}")
-	@ResponseBody String IdCheck(HttpSession session, Path path, Member member) {
-		path.setMethod("IdCheck");
-		Member id = service.item(path, member);
-		if(id!=null) return "중복된 아이디입니다";
-		session.removeAttribute("id");
-		session.setAttribute("id", id);
-		return "success";
 	}
 }
