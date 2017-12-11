@@ -1,46 +1,45 @@
 <%@page contentType="text/html;charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<center>
-	<br />
-	<h1>상담 게시판ver.1</h1>
-	<a href='write.do' style="text-decoration: none">글쓰기</a>
-	&nbsp;&nbsp;&nbsp;&nbsp; <a href='../' style="text-decoration: none">처음으로</a>
-	<br /> <br />
-	<table border='1' width='1000' align='center'>
-		<tr>
-			<th>글번호</th>
-			<th>제목</th>
-			<th>내용</th>
-			<th>작성자</th>
-			<th>조회수</th>
-			<th>추천수</th>
-			<th>작성일</th>
-		</tr>
-		<c:if test="${empty list}">
-			<tr>
-				<td align='center' colspan="6">데이터가 없음.</td>
-			</tr>
-		</c:if>
-		<c:forEach items="${list}" var="dto">
-			<tr>
-				<td align='center'>${dto.seq}</td>
-				<!-- 글번호  -->
-				<td align='center'>${dto.subject}</td>
-				<!-- 제목  -->
-				<td align='center'><a href='view.do?seq=${dto.seq}'>${dto.content}</a>
-					<!-- 내용및 클릭시 상세보기  --></td>
-				<td align='center'>${dto.writer_seq}</td>
-				<!-- 글쓴이  -->
-				</td>
-				<td align='center'>${dto.view_count}</td>
-				<!-- 조회수  -->
-				<td align='center'>${dto.like_count}</td>
-				<!-- 추천수  -->
-				<td align='center'>${dto.cdate}</td>
-				<!-- 작성일  -->
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="chart_div"></div>
+<html>
+<head>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+	google.charts.load('current', {
+		'packages' : [ 'corechart' ]
+	});
+	google.charts.setOnLoadCallback(drawChart);
 
-			</tr>
-		</c:forEach>
-	</table>
-</center>
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable([
+				[ '기간', '도박중독자', '도박관리자' ], [ '횟수', 2000, 0 ],
+				[ '1', 1600, 400 ], [ '2', 1400, 600 ],
+				[ '3', 1200, 800 ],	[ '4', 1000, 1000], 
+				[ '5', 800, 1200 ], [ '6', 700, 1300 ], 
+				[ '7', 600, 1400 ],	[ '8', 500, 1500 ],
+				[ '8', 400 ,1600 ] 
+				]);
+
+		var options = {
+			title : 'Company Performance',
+			curveType : 'function',
+			legend : {
+				position : 'bottom'
+			}
+		};
+
+		var chart = new google.visualization.LineChart(document
+				.getElementById('curve_chart'));
+
+		chart.draw(data, options);
+	}
+</script>
+</head>
+<body>
+	<div id="curve_chart" style="width: 900px; height: 500px"></div>
+</body>
+</html>
