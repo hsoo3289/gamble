@@ -9,19 +9,17 @@
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-	google.charts.load('current', {
-		'packages' : [ 'corechart' ]
-	});
+	google.charts.load('current',{'packages': [ 'corechart' ] });
 	google.charts.setOnLoadCallback(drawChart);
 
 	function drawChart() {
 		var data = google.visualization.arrayToDataTable([
 				[ '기간', '도박중독자', '도박관리자' ], [ '횟수', 2000, 0 ],
-				[ '1', 1600, 400 ], [ '2', 1400, 600 ],
-				[ '3', 1200, 800 ],	[ '4', 1000, 1000], 
+				[ '1', 1600, 400 ], [ '2', 1300, 700 ],
+				[ '3', 1100, 900 ],	[ '4', 950, 1050 ], 
 				[ '5', 800, 1200 ], [ '6', 700, 1300 ], 
 				[ '7', 600, 1400 ],	[ '8', 500, 1500 ],
-				[ '8', 400 ,1600 ] 
+				[ '9', 400 ,1600 ] 
 				]);
 
 		var options = {
@@ -40,6 +38,8 @@
 </script>
 </head>
 <body>
-	<div id="curve_chart" style="width: 900px; height: 500px"></div>
+<div id="curve_chart" style="width: 900px; height: 500px">
+</div>
 </body>
+
 </html>
