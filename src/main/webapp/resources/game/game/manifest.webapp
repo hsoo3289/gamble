@@ -1,0 +1,22 @@
+﻿{
+	"name": "RCP",
+	"description": "aa",
+	"version": "1.0.0.0",
+	"launch_path": "/game/game/",
+	"orientation": ["portrait"],
+	"icons": {
+		"16": "/game/game/icon-16.png",
+		"32": "/game/game/icon-32.png",
+		"128": "/game/game/icon-128.png",
+		"256": "/game/game/icon-256.png"
+	},
+	"developer": {
+		"name": "hsoo",
+		"url": ""
+	},
+	"default_locale": "en",
+	"permissions": {
+	},
+	"appcache_path": "/game/game/offline.appcache",
+	"fullscreen": "true"
+}

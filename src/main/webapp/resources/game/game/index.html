@@ -1,97 +1,74 @@
-<!DOCTYPE HTML>
-<html lang="en-US" manifest="manifest.appcache-disabled">
+﻿<!DOCTYPE html>
+<html manifest="offline.appcache">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>Jewel Warrior</title>
-    
-    <link rel="stylesheet" href="styles/main.css" />
-    <link rel="stylesheet" href="styles/fontfaces.css" />
-    <link rel="stylesheet" href="styles/mobile.css" 
-          media="screen and (max-device-width: 768px) and (orientation: portrait),
-                 screen and (max-device-width: 1024px) and (orientation: landscape)"/>
-                 
-    <link rel="apple-touch-icon-precomposed" href="images/ios-icon.png"/>  
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ios-icon-ipad.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ios-icon-iphone4.png"/>
-    
-    <link rel="apple-touch-startup-image" 
-          href="images/ios-startup-748x1024.png" 
-          media="screen and (min-device-width: 768px) and (orientation:landscape)" />
-    <link rel="apple-touch-startup-image" 
-          href="images/ios-startup-768x1004.png" 
-          media="screen and (min-device-width: 768px) and (orientation:portrait)" />
-    <link rel="apple-touch-startup-image" 
-          href="images/ios-startup-320x460.png"
-          media="screen and (max-device-width:320px)"/>
-          
-    <meta name="apple-mobile-web-app-status-bar-style" 
-          content="black" />
+    <meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>RCP</title>
+	
+	<!-- Standardised web app manifest -->
+	<link rel="manifest" href="appmanifest.json" />
+	
+	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="HandheldFriendly" content="true" />
+	
+    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		html, body {
+			background: #000;
+			color: #fff;
+			overflow: hidden;
+			touch-action-delay: none;
+			touch-action: none;
+			-ms-touch-action: none;
+		}
+		canvas {
+			touch-action-delay: none;
+			touch-action: none;
+			-ms-touch-action: none;
+		}
+    </style>
+	
 
-    <script src="scripts/modernizr.js"></script>
-    <script src="scripts/loader.js"></script>
-</head>
+</head> 
+ 
 <body>
-    <div id="game">
-        <div class="background"></div>
-    
-        <div class="screen" id="splash-screen">
-            <h1 class="logo">Jewel <br/>Warrior</h1>
-            <div class="progress">
-                <div class="indicator"></div>
-            </div>
-            <span class="continue">Click to continue</span>
-        </div>
-        
-        <div class="screen" id="install-screen">
-            <h1 class="logo">Jewel <br/>Warrior</h1>
-            <span>
-                Click the <img src="images/install-icon.png" alt="Install icon"> 
-                button to install the game to your home screen.
-           </span>
-        </div>
+	<div id="fb-root"></div>
+	
+	<!-- The canvas must be inside a div called c2canvasdiv -->
+	<div id="c2canvasdiv">
+	
+		<!-- The canvas the project will render to.  If you change its ID, don't forget to change the
+		ID the runtime looks for in the jQuery ready event (above). -->
+		<canvas id="c2canvas" width="830" height="1182">
+			<!-- This text is displayed if the visitor's browser does not support HTML5.
+			You can change it, but it is a good idea to link to a description of a browser
+			and provide some links to download some popular HTML5-compatible browsers. -->
+			Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
+			<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
+			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
+			<a href="http://www.google.com/chrome/">Google Chrome</a><br/>
+			<a href="http://www.apple.com/safari/download/">Apple Safari</a><br/>
+		</canvas>
+		
+	</div>
+	
+	<!-- Pages load faster with scripts at the bottom -->
+	
+	<script src="jquery-2.1.1.min.js"></script>
 
-        <div class="screen" id="main-menu">
-            <h2 class="logo">Jewel <br/>Warrior</h2>
-            <ul class="menu">
-                <li><button name="game-screen">Play</button>
-                <li><button name="hiscore">Highscore</button>
-                <li><button name="about">About</button>
-                <li><button name="exit-screen">Exit</button>
-            </ul>
-        </div>
 
-        <div class="screen" id="game-screen">
-            <div class="game-board jewel-size">
-                <div class="announcement"></div>
-            </div>
-            
-            <div class="game-info">
-                <label class="level">Level: <span></span></label>
-                <label class="score">Score: <span></span></label>
-            </div>
+	
+    <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
+    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
+	<script src="c2runtime.js"></script>
 
-            <div class="time progress"><div class="indicator"></div></div>
-            
-            <footer>
-                <button name="exit">Exit</button>
-            </footer>
-            
-            <div class="pause-overlay"></div>
-            
-        </div>
-        
-        <div class="screen" id="hiscore">
-            <h2 class="logo">High score</h2>
-            <ol class="score-list">
-            </ol>
-            <footer>
-                <button name="back">Back</button>
-            </footer>
-        </div>
-        
-        <div id="jewel-proto" class="jewel-size"></div>
-    </div>
-</body>
-</html>
+    <script src="c2webappstart.js"></script>
+</body> 
+</html> 
