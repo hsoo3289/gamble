@@ -88,7 +88,7 @@
 		<hr width="500" size="2">
 	</div>
 	
-	<form name="f" method="post" action="list.insert.do.index">
+	<form name="f" method="post" action="insert.do.index">
 		<table class="table table-striped table-bordered" border="1"
 			width="600" align="center" cellpadding="3" cellspacing="1"
 			style="width: 502px;">
