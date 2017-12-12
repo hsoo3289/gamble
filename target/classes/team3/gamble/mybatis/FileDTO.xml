@@ -4,27 +4,40 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="team3.gamble.mybatis.file">
 
-	<resultMap id="FileDTO"  type="FileDTO">
-	
-		<result property="seq" column="SEQ"/>            <!--  파일번호  -->
-		<result property="ofname" column="OFNAME"/>      <!--  파일원래 이름 --> 
-	    <result property="fname" column="FNAME"/>        <!--  파일명  -->
-		<result property="cdate" column="CDATE"/>        <!--  업로드 일 --> 
-		<result property="parent_seq" column="PARENT_SEQ"/>	<!-- 부모글 번호 -->
-	
+	<resultMap id="FileDTO" type="FileDTO">
+
+		<result property="seq" column="SEQ" />            <!-- 파일번호 -->
+		<result property="ofname" column="OFNAME" />      <!-- 파일원래 이름 -->
+		<result property="fname" column="FNAME" />        <!-- 파일명 -->
+		<result property="cdate" column="CDATE" />        <!-- 업로드 일 -->
+		<result property="parent_seq" column="PARENT_SEQ" />	<!-- 부모글 번호 -->
+		<result property="error" column="ERROR" />
+
 	</resultMap>
-	
-	<select id="list" parameterType="FileDTO" resultType="FileDTO">
+
+	<select id="list" resultType="hashmap" parameterType="hashmap">
 		select * from ${dbName} where PARENT_SEQ = #{parent_seq}
 	</select>
 	
-	<insert id="insert" parameterType="FileDTO">
-		insert into ${dbName} (SEQ, OFNAME, FNAME, PARENT_SEQ)
-		values(${dbName}_SEQ.NEXTVAL, #{ofname}, #{fname}, #{parent_seq})
+	<select id="item" resultType="FileDTO" parameterType="FileDTO">
+		select * from ${dbName} where SEQ = #{seq}
+	</select>
+
+	<insert id="upload" parameterType="FileDTO">
+		insert into ${dbName} (SEQ,
+		OFNAME, FNAME, PARENT_SEQ)
+		values(${dbName}_SEQ.NEXTVAL, #{ofname},
+		#{fname}, #{parent_seq})
 	</insert>
-	
+
 	<delete id="delete" parameterType="FileDTO">
-		delete from ${dbName} where SEQ = #{seq}
+		delete from ${dbName} where
+		SEQ = #{seq}
 	</delete>
-	
+
+	<update id="error" parameterType="FileDTO">
+		update ${dbName} set
+		ERROR='error' where SEQ = #{seq}
+	</update>
+
 </mapper>

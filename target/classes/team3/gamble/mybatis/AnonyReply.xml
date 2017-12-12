@@ -46,4 +46,6 @@
 	<delete id="delete" parameterType="hashmap">
 		delete from ${dbName} where SEQ=#{seq}
 	</delete>
+	
+	
 </mapper>

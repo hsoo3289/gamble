@@ -13,16 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileUtil {
-	static String path = "C:/hs/eclipse/workspace/Spring-Board/store";
-	
-	
-	
+	final static private String fileRoot="C:/hs/eclipse/workspace/Gamble/store";
+	static private String path = "C:/hs/eclipse/workspace/Gamble/store";
+
 	public static String getPath() {
 		return path;
 	}
 
 	public static void setPath(String path) {
-		FileUtil.path = path;
+		FileUtil.path = fileRoot+"/"+path;
 	}
 
 	public static String upload(MultipartFile mf) {
@@ -41,7 +40,7 @@ public class FileUtil {
 		return dest.getName();
 	}
 	
-	public static void down(HttpServletRequest req, HttpServletResponse res, String originalFileName, String fileName) {
+	public static boolean down(HttpServletRequest req, HttpServletResponse res, String originalFileName, String fileName) {
 		File file = new File(path+"/"+fileName);
 		res.setContentType("application/octet-stream");
 		String Agent = req.getHeader("USER-AGENT");
@@ -63,6 +62,7 @@ public class FileUtil {
 			}
 		} catch (UnsupportedEncodingException uee) {
 			uee.printStackTrace();
+			return false;
 		}
 
 		byte b[] = new byte[1024];
@@ -82,12 +82,16 @@ public class FileUtil {
 				outs.close();
 				fin.close();
 			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
 			}
 		}
+		return true;
 	}
 
-	public static void delete(String fileName) {
+	public static boolean delete(String fileName) {
 		File file = new File(path+"/"+fileName);
-		if (file.exists()) file.delete();
+		if (file.exists()) return file.delete();
+		return false;
 	}
 }

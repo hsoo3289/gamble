@@ -1,6 +1,42 @@
 <%@page contentType="text/html;charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<!-- Bootstrap Core CSS -->
+<head>
+<link
+	href="${pageContext.request.contextPath}/bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- MetisMenu CSS -->
+<link
+	href="${pageContext.request.contextPath}/bootstrap/bower_components/metisMenu/dist/metisMenu.min.css"
+	rel="stylesheet">
+
+<!-- DataTables CSS -->
+<link
+	href="${pageContext.request.contextPath}/bootstrap/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css"
+	rel="stylesheet">
+
+<!-- DataTables Responsive CSS -->
+<link
+	href="${pageContext.request.contextPath}/bootstrap/bower_components/datatables-responsive/css/dataTables.responsive.css"
+	rel="stylesheet">
+
+<!-- Custom CSS -->
+<link
+	href="${pageContext.request.contextPath}/bootstrap/dist/css/sb-admin-2.css"
+	rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link
+	href="${pageContext.request.contextPath}/bootstrap/bower_components/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+
+
+
+</head>
+<body>
+
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">BOARD</h1>
@@ -25,7 +61,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="dataTables_length" id="dataTables-example_length">
-								<form name="input" method="post" action="list.list">
+								<form name="input" method="post" action="pagingcount.paginglist.list.list.paging">
 									<label>Show <select name="pageSize" onChange="submit()"
 										class="form-control input-sm" style="width: auto">
 											<c:forEach begin='5' end='20' step='5' var='i'>
@@ -47,7 +83,7 @@
 						<div class="col-sm-6">
 							<div class="dataTables_length" id="dataTables-example_length"
 								style="float: right;">
-								<form name="input" method="post" action="list.list">
+								<form name="input" method="post" action="pagingcount.paginglist.list.list.paging">
 									<label>Search: <select name="col" style="width: 70px;"
 										class="form-control input-sm">
 											<option value='SUBJECT'>제목</option>
@@ -61,7 +97,7 @@
 											action="check_keyword()" value="true" method="POST"
 											name="searchMode">검색</button> <c:if test="${page.searchMode}">
 											<button class="btn btn-outline btn-primary btn-sm"
-												action="list.list" value="false" method="POST"
+												action="pagingcount.paginglist.list.list.paging" value="false" method="POST"
 												name="searchMode">취소</button>
 										</c:if>
 
@@ -125,14 +161,14 @@
 												</c:if><a href="item.item.item?seq=${dto.SEQ}"> ${dto.SUBJECT}</a></td>
 											<td style="text-align: center; vertical-align: middle;">${dto.CDATE}</td>
 											<td style="text-align: center; vertical-align: middle;">${dto.RDATE}</td>
-											<td style="text-align: center; vertical-align: middle;">${dto.COUNT}(${dto.LIKE_COUNT})</td>
+											<td style="text-align: center; vertical-align: middle;">${dto.VIEW_COUNT}(${dto.LIKE_COUNT})</td>
 											<c:if test="${user.no eq 1}">
 												<td style="text-align: center; vertical-align: middle;">${dto.PARENT_SEQ}</td>
 												<td style="text-align: center; vertical-align: middle;">${dto.REPLY_LEVEL}</td>
 												<td style="text-align: center; vertical-align: middle;">
 													<span style="float: center;"
 													class="glyphicon glyphicon-remove"
-													onclick="location.href='/spring/board/delete.do?seq=${dto.SEQ}'" />
+													onclick="location.href='delete.pagingcount.paginglist.list.list.paging?seq=${dto.SEQ}'" />
 												</td>
 											</c:if>
 										</tr>
@@ -161,7 +197,7 @@
 											<li class="paginate_button previous"
 												aria-controls="dataTables-example" tabindex="0"
 												id="dataTables-example_previous"><a
-												href="list.list?page=${page.page-1}">Previous</a></li>
+												href="pagingcount.paginglist.list.list.paging?page=${page.page-1}">Previous</a></li>
 										</c:otherwise>
 									</c:choose>
 
@@ -169,11 +205,11 @@
 										<c:choose>
 											<c:when test='${page.page eq i}'>
 												<li class="paginate_button active" tabindex="0"><a
-													href="list.list?page=${i}">${i}</a></li>
+													href="pagingcount.paginglist.list.list.paging?page=${i}">${i}</a></li>
 											</c:when>
 											<c:otherwise>
 												<li class="paginate_button" tabindex="0"><a
-													href="list.list?page=${i}">${i}</a></li>
+													href="pagingcount.paginglist.list.list.paging?page=${i}">${i}</a></li>
 											</c:otherwise>
 										</c:choose>
 									</c:forEach>
@@ -188,7 +224,7 @@
 											<li class="paginate_button next"
 												aria-controls="dataTables-example" tabindex="0"
 												id="dataTables-example_next"><a
-												href="list.list?page=${page.page+1}">Next</a></li>
+												href="pagingcount.paginglist.list.list.paging?page=${page.page+1}">Next</a></li>
 										</c:otherwise>
 									</c:choose>
 								</ul>
@@ -201,3 +237,35 @@
 		</div>
 	</div>
 </div>
+
+<!-- jQuery -->
+<script
+	src="${pageContext.request.contextPath}/bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script
+	src="${pageContext.request.contextPath}/bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script
+	src="${pageContext.request.contextPath}/bootstrap/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- DataTables JavaScript -->
+<script
+	src="${pageContext.request.contextPath}/bootstrap/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/bootstrap/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script
+	src="${pageContext.request.contextPath}/bootstrap/dist/js/sb-admin-2.js"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+//	$(document).ready(function() {
+//		$('#dataTables-example').DataTable({
+//			responsive : true
+//		});
+//	});
+</script>
+</body>

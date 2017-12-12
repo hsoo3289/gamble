@@ -3,6 +3,7 @@ package team3.gamble.service;
 import java.util.List;
 
 import team3.gamble.model.Path;
+import team3.gamble.model.Pageaa;
 import team3.gamble.model.Page;
 
 public interface CommonService{

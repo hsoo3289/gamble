@@ -1,7 +1,6 @@
 package team3.gamble.model;
 
-
-public class Page {
+public class Pageaa {
 	private int page=1;
 	private int pages=1;
 	private int pageSize=10;
@@ -11,7 +10,6 @@ public class Page {
 	private boolean searchMode=false;
 	private int begin=1;
 	private int end=10;
-	private String dbName;
 	
 	private void setRange() {
 		begin = (page-1)*pageSize+1;
@@ -85,13 +83,5 @@ public class Page {
 
 	public void checkSearchMode() {
 		if(keyWord==null || keyWord.equals("")) this.searchMode = false;
-	}
-
-	public String getDbName() {
-		return dbName;
-	}
-
-	public void setDbName(String dbName) {
-		this.dbName = dbName;
 	}
 }

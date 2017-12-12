@@ -2,8 +2,8 @@ package team3.gamble.dao;
 
 import java.util.List;
 
-import team3.gamble.model.Path;
 import team3.gamble.model.Page;
+import team3.gamble.model.Path;
 
 public interface CommonDao{
 	

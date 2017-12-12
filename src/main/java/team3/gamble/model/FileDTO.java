@@ -3,12 +3,13 @@ package team3.gamble.model;
 import org.springframework.web.multipart.MultipartRequest;
 
 public class FileDTO{
-	private String DTOName="file";
-	long seq;
-	long parent_seq;
-	String fname;
-	String ofname;
+	private String dbName; 
+	private long seq;
+	private long parent_seq;
+	private String fname;
+	private String ofname;
 	private MultipartRequest mr;
+	private String error;
 
 
 	public MultipartRequest getMr() {
@@ -17,10 +18,6 @@ public class FileDTO{
 
 	public void setMr(MultipartRequest mr) {
 		this.mr = mr;
-	}
-
-	public void setDTOName(String dTOName) {
-		DTOName = dTOName;
 	}
 	
 	public long getSeq() {
@@ -50,5 +47,21 @@ public class FileDTO{
 
 	public void setParent_seq(long parent_seq) {
 		this.parent_seq = parent_seq;
+	}
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
+
+	public String getDbName() {
+		return dbName;
+	}
+
+	public void setDbName(String dbName) {
+		this.dbName = dbName;
 	}
 }

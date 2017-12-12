@@ -36,8 +36,8 @@
 	<li><a href="#"><i class="fa fa-coffee fa-fw"></i> 상담 서비스<span
 			class="fa arrow"></span></a>
 		<ul class="nav nav-second-level">
-			<li><a href="${pageContext.request.contextPath}/consulting/consulting_board/list.list.list"><i class="fa fa-smile-o"></i> CONSULTING BOARD</a></li>
-			<li><a href="${pageContext.request.contextPath}/consulting/anonymous_board/list.list.list"><i class="fa fa-comments-o"></i> ANONYMOUS BOARD</a></li>
+			<li><a href="${pageContext.request.contextPath}/consulting/consulting_board/paginglist.list.list.paging"><i class="fa fa-smile-o"></i> CONSULTING BOARD</a></li>
+			<li><a href="${pageContext.request.contextPath}/consulting/anonymous_board/paginglist.list.list.paging"><i class="fa fa-comments-o"></i> ANONYMOUS BOARD</a></li>
 			<li><a href="${pageContext.request.contextPath}/consulting/helper/list.list.list"><i class="fa fa-heart"></i> HELPER</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 
@@ -50,7 +50,7 @@
 			<li><a href="${pageContext.request.contextPath}/game/game/game_result.page"><i class="fa fa-bar-chart-o fa-fw"></i> RESULT
 					CHECK</a></li>
 			<li><a
-				href="${pageContext.request.contextPath}/game/game_board/list.list.list"><i class="glyphicon glyphicon-list-alt"></i> GAME
+				href="${pageContext.request.contextPath}/game/game_board/pagingcount.paginglist.list.list.paging"><i class="glyphicon glyphicon-list-alt"></i> GAME
 					BOARD</a></li>
 		</ul> <!-- /.nav-second-level --></li>
 	<!-- nav fist level 홈페이지 서비스 -->

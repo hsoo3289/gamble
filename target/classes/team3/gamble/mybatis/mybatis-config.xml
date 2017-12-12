@@ -14,6 +14,7 @@
 		<typeAlias alias="Helper" type="team3.gamble.model.Helper" />
 		<typeAlias alias="AnonyBoard" type="team3.gamble.model.AnonyBoard" />
 		<typeAlias alias="AnonyReply" type="team3.gamble.model.AnonyReply" />
+		<typeAlias alias="Page" type="team3.gamble.model.Page" />
 	</typeAliases>
 
 	<mappers>

@@ -18,8 +18,37 @@
 
 	</resultMap>
 
-	<select id="list" resultType="hashmap">
-		select * from ${dbName}_VIEW
+	<select id="paginglist" resultType="hashmap" parameterType="Page">
+		<choose>
+			<when test="searchMode">
+				select * from
+				(select rownum as rn, ${dbName}_VIEW.* from ${dbName}_VIEW where ${col} like #{keyWord})
+				where rn between #{begin} and #{end}
+				
+			</when>
+			<otherwise>
+				select * from ${dbName}_VIEW
+				where ROWNUMBER between #{begin} and #{end}
+
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="pagingcount" resultType="int" parameterType="Page">
+		<choose>
+			<when test="searchMode">
+				select count(*) from ${dbName} where ${col} like
+				#{keyWord}
+			</when>
+			<otherwise>
+				select count(*) from ${dbName}
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="list" resultType="hashmap" parameterType="hashmap">
+		select *
+		from ${dbName}_VIEW
 	</select>
 
 	<select id="item" resultType="hashmap">

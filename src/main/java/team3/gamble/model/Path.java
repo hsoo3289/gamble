@@ -6,6 +6,8 @@ import java.util.Map;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import team3.gamble.util.MyUtil;
+
 public class Path{
 	private static final String ns = "team3.gamble.mybatis";
 	private String serviceName;
@@ -48,10 +50,10 @@ public class Path{
 	}
 	
 	public String getNameSpace() {
-		
-		String method = returnflag? returnMethod:this.method;
-		if(dbName.contains("anony_board_reply")) return ns+".anonyreply."+method;
-		if(dbName.contains("anony_board")) return ns+".anonyboard."+method;
+		String method = returnflag? returnMethod:MyUtil.nullif(this.method, returnMethod);
+		if(dbName.contains("file")) return ns+".file."+method;
+		if(dbName.contains("anonymous_board_reply")) return ns+".anonyreply."+method;
+		if(dbName.contains("anonymous_board")) return ns+".anonyboard."+method;
 		if(dbName.contains("reply")) return ns+".reply."+method;
 		if(dbName.contains("board")) return ns+".board."+method;
 		return ns+"."+serviceName+"."+dbName+"."+method;

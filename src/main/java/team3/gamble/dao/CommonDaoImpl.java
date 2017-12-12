@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import team3.gamble.model.Path;
+import team3.gamble.model.Pageaa;
 import team3.gamble.model.Page;
 
 @Repository

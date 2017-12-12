@@ -5,6 +5,8 @@
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/map.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/stringBuffer.js"></script>
 
 <script type="text/javascript">
 	//폼에 데이터를 추가하기 위해 (파일을 전송하기 전 정보 유지
@@ -13,19 +15,17 @@
 	var map = new Map();
 	//submit 버튼을 눌렀을 때 
 	function submitFile() {
+		console.log("submitFile()");
 		//추가적으로 보낼 파라미터가 있으면 formData에 넣어준다. 
 		//예를들어 , 게시판의 경우 게시글 제목 , 게시글 내용 등등
-		checkValue();
-
-
-		// 
+		checkValue(); 
 		//		var json = fd.serializeObject();
 
 		//		console.log(json);
 		//ajax로 이루어진 파일 전송 함수를 수행시킨다.
-		$("#inputForm").submit();
 		//insertBoard();
 		sendFileToServer();
+		$("#inputForm").submit();
 
 	}
 	//파일 전송 함수이다.
@@ -34,7 +34,7 @@
 		var json = $("#inputForm").serializeObject();
 		$.ajax({
 			type : "post",
-			url : '${item.method}.void', //Upload URL
+			url : '${pageContext.request.contextPath}/game/game_board/insert.paginglist.list.list', //Upload URL
 			data : json,
 		});
 	}
@@ -42,11 +42,11 @@
 
 
 	var sendFileToServer = function() {
-		fd.append("parent_seq", "${item.seq}");
+		fd.append("parent_seq", ("${item.SEQ}"=="")? "${seq}":"${item.SEQ}");
 		console.log("sendFileToServer fd:" + fd);
 		$.ajax({
 			type : "post",
-			url : "/spring/board/file/insert.void", //Upload URL
+			url : "${pageContext.request.contextPath}/file/game/game_board_file/upload.do", //Upload URL
 			data : fd,
 
 			contentType : false,
@@ -182,43 +182,43 @@
 	}
 
 	function deletefile(seq) {
+		console.log("delete");
 		$.ajax({
 			type : "GET",
-			url : "${pageContext.request.contextPath}/board/file/delete.void",
+			url : "${pageContext.request.contextPath}/file/game/game_board_file/delete.do",
 			data : {
 				"seq" : seq,
-				"parent_seq" : "${item.seq}"
 			},
 			contentType : "html",
 			success : function(response) {
 				console.log(response);
-				response = "ATTACHMENT <br>" + response;
-				$("#attachmentarea").html(response);
+				filelist(${item.SEQ});
 			}
 		});
 
 	}
 
 	function filelist(seq) {
+		console.log("filelist");
 		$.ajax({
 			type : "GET",
-			url : "${pageContext.request.contextPath}/board/file/list.list",
+			url : "${pageContext.request.contextPath}/file/game/game_board_file/list.list.file_list/ajax_view",
 			data : {
 				"parent_seq" : seq
 			},
 
-			contentType : "json",
+			contentType : "html",
 			success : function(response) {
 				console.log(response);
-				response = "ATTACHMENT <br>" + response;
+				console.log(response);
 				$("#attachmentarea").html(response);
 			}
 		});
 
 	}
-</script>
+</script >
 
-<body onload="filelist(${item.seq})">
+<body onload="filelist(${item.SEQ})">
 	<center>
 		<hr width="600" size="2" noshade>
 		<h2>Simple Board with Model2</h2>
@@ -251,7 +251,8 @@
 
 				<div class="col-lg-12">
 					<c:choose>
-						<c:when test="${item ne null && item.SEQ ne null && item.SEQ ne ''}">
+						<c:when
+							test="${item ne null && item.SEQ ne null && item.SEQ ne ''}">
 							<form id="inputForm" name="inputForm" method="post"
 								action="update.list.list.list" enctype="multipart/form-data"
 								style="width: full">
@@ -324,6 +325,8 @@
 
 					</div>
 					</form>
+					
+					<button onclick="sendFileToServer()">파일전송</button>
 				</div>
 			</div>
 		</div>

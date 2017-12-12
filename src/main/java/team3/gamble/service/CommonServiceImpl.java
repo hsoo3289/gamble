@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import team3.gamble.model.Path;
 import team3.gamble.dao.CommonDao;
 import team3.gamble.model.Page;
+import team3.gamble.model.Path;
 
 @Service
 public class CommonServiceImpl implements CommonService{

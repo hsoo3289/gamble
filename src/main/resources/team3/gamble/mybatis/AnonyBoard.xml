@@ -2,21 +2,53 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="team3.gamble.mybatis.anonyboard.anony_board">
+<mapper namespace="team3.gamble.mybatis.anonyboard">
 
 	<resultMap id="AnonyBoard" type="AnonyBoard">
-		<result property="seq"			column="SEQ" />
-		<result property="subject" 		column="SUBJECT" />
-		<result property="content"		column="CONTENT" />
-		<result property="name" 		column="NAME" />
-		<result property="pwd" 			column="PWD" />
-		<result property="view_conunt" 	column="VIEW_COUNT" />
-		<result property="like_conunt" 	column="LIKE_COUNT" />
-		<result property="cdate" 		column="CDATE" />
-		<result property="rdate" 		column="RDATE" />
-		<result property="parent_seq" 	column="PARENT_SEQ" />
+		<result property="seq" column="SEQ" />
+		<result property="subject" column="SUBJECT" />
+		<result property="content" column="CONTENT" />
+		<result property="name" column="NAME" />
+		<result property="pwd" column="PWD" />
+		<result property="view_conunt" column="VIEW_COUNT" />
+		<result property="like_conunt" column="LIKE_COUNT" />
+		<result property="cdate" column="CDATE" />
+		<result property="rdate" column="RDATE" />
+		<result property="parent_seq" column="PARENT_SEQ" />
 
 	</resultMap>
+
+	<select id="paginglist" resultType="hashmap" parameterType="Page">
+		<choose>
+			<when test="searchMode">
+				select * from
+				(select rownum as rn, ${dbName}.*
+				from ${dbName} where ${col}
+				like #{keyWord})
+				where rn between #{begin} and #{end}
+				
+			</when>
+			<otherwise>
+				select * from
+				(select rownum as rn, ${dbName}.*
+				from ${dbName})
+				where rn between #{begin} and #{end}
+
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="pagingcount" resultType="int" parameterType="Page">
+		<choose>
+			<when test="searchMode">
+				select count(*) from ${dbName} where ${col} like
+				#{keyWord}
+			</when>
+			<otherwise>
+				select count(*) from ${dbName}
+			</otherwise>
+		</choose>
+	</select>
 
 	<select id="list" resultType="hashmap">
 		select * from ${dbName}
@@ -25,8 +57,27 @@
 
 	<select id="item" resultType="hashmap">
 		select * from ${dbName}
-		where SEQ=#{seq}
+		where
+		SEQ=#{seq}
 	</select>
+
+
+	<select id="get_view_count" resultType="int" parameterType="hashmap">
+		select VIEW_COUNT from ${dbName} where SEQ=#{seq}
+	</select>
+
+	<update id="view_count" parameterType="hashmap">
+		update ${dbName} set
+		view_count=view_count+1 where SEQ=#{seq}
+	</update>
+	<select id="get_like_count" resultType="int" parameterType="hashmap">
+		select LIKE_COUNT from ${dbName} where SEQ=#{seq}
+	</select>
+
+	<update id="like_count" parameterType="hashmap">
+		update ${dbName} set
+		LIKE_COUNT=LIKE_COUNT+1 where SEQ=#{seq}
+	</update>
 
 	<select id="nextseq" parameterType="hashmap" resultType="long">
 		select
@@ -51,7 +102,8 @@
 
 	<delete id="delete" parameterType="hashmap">
 		delete from ${dbName}
-		where SEQ= #{seq}
+		where
+		SEQ= #{seq}
 	</delete>
 
 </mapper>

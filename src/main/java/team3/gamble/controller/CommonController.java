@@ -9,12 +9,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import team3.gamble.model.Member;
+import team3.gamble.model.Page;
 import team3.gamble.model.Path;
 import team3.gamble.service.CommonService;
 
+@SessionAttributes("page")
 @Controller
 @RequestMapping("{serviceName}/{dbName}/")
 public class CommonController{
@@ -24,6 +27,22 @@ public class CommonController{
 	@RequestMapping("{view}.page")
 	ModelAndView page(Path path) {
 		return new ModelAndView(path.getViewPath());
+	}
+	
+	
+	@RequestMapping("{returnMethod}.{returnType}.{view}.paging")
+	ModelAndView paging(Page page, Path path, @RequestParam Map<String, Object> params) {
+		params.put("dbName", path.getDbName());
+		page.setDbName(path.getDbName());
+		ModelAndView mv = new ModelAndView(path.getViewPath());
+		mv.addObject("page", page);
+		if(path.dmlexist()) {
+			page.setTotalNum(service.count(path, params));
+			mv.addObject("page",page);
+		}
+		
+		path.changeMode();
+		return mv.addObject("list", service.list(page, path, params));
 	}
 	
 	@RequestMapping("{returnMethod}.{returnType}.{view}")
